@@ -1,0 +1,35 @@
+# UI 추가 개선 구현 계획
+
+## 목표
+하단 내비게이션 바를 직사각형 형태로 변경하여 콘텐츠 영역 하단에 밀착시키고, 상단 상태바 영역이 앱 배경 가려지지 않고 시스템 배경색(또는 별도 처리)이 보이도록 조정합니다.
+
+## 사용자 검토 필요 사항
+> [!IMPORTANT]
+> - **하단 내비게이션**: 둥근 모서리가 제거되고 직사각형으로 변경되며, 콘텐츠 박스 바로 아래에 붙습니다.
+> - **상단 상태바**: 앱의 배경색이 상태바 영역까지 확장되지 않고, 상태바 아래부터 시작되도록 변경됩니다. (기기에 따라 흰색 또는 검은색 상태바 배경이 보일 수 있음)
+
+## 변경 제안
+
+### 레이아웃
+#### [MODIFY] [Layout.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/Layout.jsx)
+- `bg-gradient-...` 클래스를 `main` 태그 또는 내부 `div`로 이동하고, 최상위 컨테이너는 상태바 영역을 제외한 높이를 가지도록 `mt-[env(safe-area-inset-top)]` 또는 `pt-[env(safe-area-inset-top)]`와 배경색 조정을 적용합니다.
+- 모바일 내비게이션 컨테이너의 `px-4 mb-8` 제거하여 좌우 여백 없이 꽉 차게 하고 하단 여백 제거.
+- 내비게이션 컨테이너 배경색을 콘텐츠 영역과 맞추거나 구분을 위한 스타일 적용.
+
+### 내비게이션 컴포넌트
+#### [MODIFY] [Navigation.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/components/Navigation.jsx)
+- 모바일(md:hidden)에서 `rounded-[2rem]`, `mx-auto`, `mb-8`, `border`, `shadow-xl` 등 "떠있는" 스타일 제거.
+- `w-full`, `rounded-none`, `border-t` 등으로 변경하여 하단 고정 바(또는 콘텐츠 끝에 붙은 바) 형태 구현.
+- 아이콘 배치 및 간격 조정.
+
+### 페이지 스타일 (기존 변경 사항 유지 및 보완)
+- 각 페이지([BiblePage](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx#5-231), [PraisePage](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/PraisePage.jsx#4-63) 등)의 최하단 여백(`pb-4` 등)을 내비게이션과 자연스럽게 연결되도록 조정.
+- [HomePage](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/HomePage.jsx#4-97)는 기존 디자인 유지하되 상단 여백만 추가 조정.
+
+## 검증 계획
+### 수동 검증
+1.  **상단 상태바**: 앱 실행 시 최상단 상태바 영역이 앱 배경과 분리되어 보이는지 확인.
+2.  **하단 내비게이션**:
+    - 직사각형 모양인지 확인.
+    - 콘텐츠 영역 바로 아래에 빈틈없이 붙어있는지 확인.
+    - 각 탭 터치 동작 확인.

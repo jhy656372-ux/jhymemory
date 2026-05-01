@@ -1,0 +1,24 @@
+# Aligning Intro Page with Homepage Design
+
+The user wants the dedicated "Introduction Page" (`/intro`) to visually match the "Introduction Section" found on the homepage. This involves reverting some of the recent alignment changes (centering) and adopting the layout and styling from [Intro.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Intro.jsx).
+
+## User Review Required
+> [!NOTE]
+> I will be replacing the current layout of [IntroPage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/IntroPage.jsx) with the layout from [Intro.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Intro.jsx). This means the text will likely be left-aligned (or as per [Intro.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Intro.jsx) design) and the image sizing/aspect ratio will match the homepage version.
+
+## Proposed Changes
+
+### Component Layer
+#### [MODIFY] [IntroPage.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/pages/IntroPage.jsx)
+- Replace the current structure with the structure from [Intro.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Intro.jsx).
+- Use the same Tailwind classes for typography (fonts, sizes, colors) and layout (flex, padding, gaps).
+- Ensure the content (title, subtitle, description, pastor name) maps correctly from `churchData`.
+- Remove the "Read More" link since we are already on the page.
+
+## Verification Plan
+
+### Manual Verification
+- Run the development server.
+- Navigation to `/intro`.
+- Compare the look and feel with the Intro section on the Homepage (`/`).
+- Ensure all text from `churchData` is displayed correctly.

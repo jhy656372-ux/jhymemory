@@ -1,0 +1,26 @@
+# Admin Page Enhancement and Content Finalization
+
+- [x] **Run Application**
+    - [x] Start development server and open browser. <!-- id: 5 -->
+- [x] **Enhance Admin Page**
+    - [x] Update [SectionEditor](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#4-140) to handle nested objects. <!-- id: 0 -->
+    - [x] Ensure [renderInput](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#30-79) can handle all data types present in `churchData`. <!-- id: 1 -->
+    - [x] Verify [Parish](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx#6-74) and [Retreat](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Retreat.jsx#6-48) sections are fully editable. <!-- id: 2 -->
+- [x] **Layout & Content Updates**
+    - [x] **Intro Section**: Align text with the left image. <!-- id: 6 -->
+    - [x] **Parish Section**: Move "New Family" box between "Parish" and "Training". <!-- id: 7 -->
+    - [x] **Parish Section**: Add image support to Evangelism boxes. <!-- id: 8 -->
+    - [x] **Parish Section UI**: Update [Parish.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx) to render 5 columns and images. <!-- id: 9 -->
+- [x] **Fix Display Issues**
+    - [x] Update [ParishPage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/ParishPage.jsx) to match [Parish.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx) layout logic. <!-- id: 10 -->
+    - [x] Address potential `localStorage` caching issue preventing [churchData.js](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/data/churchData.js) updates from appearing. <!-- id: 11 -->
+- [x] **Refine Parish Layout (Detail Page)**
+    - [x] **churchData**: Add image to "Parish & Cells" group. <!-- id: 12 -->
+    - [x] **Layout**: Implement 3-up/2-up grid layout (grid-cols-6) for [Parish.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx) (Revised -> Reverting for Home). <!-- id: 13 -->
+    - [x] **Page Layout**: Implement 3-up/2-up grid layout (grid-cols-6) for [ParishPage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/ParishPage.jsx). <!-- id: 14 -->
+- [ ] **Homepage Parish Refinement**
+    - [ ] **Parish.jsx**: Remove images. <!-- id: 15 -->
+    - [ ] **Parish.jsx**: Set grid to 5 columns (`grid-cols-5`). <!-- id: 16 -->
+- [ ] **Content Verification**
+    - [x] Verify `retreat.image` usage. <!-- id: 3 -->
+    - [x] Ensure all "Refining Retreat and Parish" goals are met. <!-- id: 4 -->

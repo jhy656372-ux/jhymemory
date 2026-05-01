@@ -1,0 +1,52 @@
+# Section Shading Plan
+
+## Goal
+Apply alternating background colors to homepage sections to create visual distinction, similar to the "Community Service" section.
+
+## Current Section Order (Assumed, verifying with HomePage.jsx)
+1.  Hero
+2.  Intro
+3.  Sunday School
+4.  Parish
+5.  Service (Currently `bg-gray-50`)
+6.  Retreat (Has bg image)
+7.  Gallery
+
+## Proposed Styling (Alternating)
+To ensure distinction:
+-   **Hero**: (Image)
+-   **Intro**: `bg-white` (Default)
+-   **Sunday School**: `bg-gray-50` (Shaded)
+-   **Parish**: `bg-white`
+-   **Service**: `bg-gray-50` (Already shaded)
+-   **Retreat**: (Image)
+-   **Gallery**: `bg-white` (or `bg-gray-50` if Retreat breaks the flow)
+
+*Wait*, if the user specifically asked for Intro, Sunday School, Parish, and Gallery to have shading "like Service", maybe they *want* the gray background.
+But if I make them *all* gray, they won't be distinguished from each other if adjacent (e.g., Parish -> Service).
+
+**Alternative Interpretation**:
+The user might feel they are all "floating" on white and wants them defined.
+Let's see [HomePage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/HomePage.jsx).
+
+If [Parish](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx#6-60) is before [Service](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Service.jsx#14-58) (Gray), and [Parish](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx#6-60) is White, they are distinguished.
+Maybe the user implies they *currently* look too similar to each other or just wants that "box" feel.
+
+Let's stick to an **Alternating Pattern** starting from Intro.
+-   Intro: White
+-   Sunday School: **Gray**
+-   Parish: White
+-   Service: **Gray**
+-   Gallery: White (after Retreat)
+
+OR
+
+-   Intro: **Gray**
+-   Sunday School: White
+-   Parish: **Gray**
+-   Service: **Gray** (Conflict!)
+
+Let's check the actual order.
+
+## Verification
+-   Check visual contrast between sections.

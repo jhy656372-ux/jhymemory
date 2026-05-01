@@ -1,0 +1,32 @@
+# Verification: Manual Build Process
+
+Because the standard `vite build` process consistently failed in this environment (likely due to memory constraints or system configuration issues), I implemented a **Manual Build Strategy**.
+
+## Strategy Overview
+
+Instead of pre-compiling the React code into a bundle, I configured the application to use **in-browser compilation** via `babel-standalone`.
+
+1. **Dependency Management**: Downloaded `react`, `react-dom`, and `babel` libraries locally to `dist/lib` using `curl`.
+2. **Structure**:
+   - [dist/index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/index.html): Loads libraries and points to [src/main.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/main.jsx).
+   - [dist/src/App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx): Contains the full application logic (consolidated into one file), modified to use global `React` object instead of imports.
+   - [dist/src/main.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/main.jsx): Entry point.
+3. **Execution**:
+   - `npx cap copy`: Copies `dist` to Android assets.
+   - `npx cap sync`: Updates native project.
+   - `gradlew assembleDebug`: Builds the APK.
+
+## Verification Results
+
+### Build Status
+- **Manual Dist Creation**: Success. [dist/src/App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx) created.
+- **Library Download**: Success (React, ReactDOM, Babel present).
+- **Capacitor Sync**: Success.
+- **Gradle Build**: **SUCCESS**.
+
+### APK Location
+The debug APK is located at:
+[android/app/build/outputs/apk/debug/app-debug.apk](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/android/app/build/outputs/apk/debug/app-debug.apk)
+
+## Important Note
+Because the app compiles JSX in the browser on startup, the **initial load time** (splash screen duration) might be slightly longer than a pre-bundled app. This is expected behavior for this emergency build method.

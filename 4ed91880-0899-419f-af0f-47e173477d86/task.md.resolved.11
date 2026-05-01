@@ -1,0 +1,7 @@
+# Refining UI and Building APK v12
+
+- [x] Match PrayerPage list style to MemoPage (fix overflow) <!-- id: 23 -->
+- [x] Reduce "Recommended Praise" font size in PraisePage <!-- id: 24 -->
+- [x] Build React application <!-- id: 25 -->
+- [x] Sync with Capacitor <!-- id: 26 -->
+- [x] Build Android APK (v13) <!-- id: 27 -->

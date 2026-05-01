@@ -1,0 +1,38 @@
+# Implementation Plan - Fix Notification Permissions (ROUND 3)
+
+## Goal
+Fix persistent "Permission Denied" error and clarify "Turn On/Off" toggle logic.
+
+## Analysis
+- **User Issue**: "Turn On" fails with error. User suspects logic is reversed.
+- **Current Logic**:
+    - Toggle turns ON -> Schedules notification.
+    - Toggle turns OFF -> Cancels notification.
+    - **Potential Issue**: If permission is denied, the UI optimistically turns ON, then reverts to OFF, which can be confusing.
+- **Dependency**: `@capacitor/local-notifications` v4.1.5 (Found in logs).
+    - v4 might have limited Android 13 support compared to v5/v6.
+
+## Proposed Changes
+
+### 1. Upgrade Capacitor (Attempt)
+- Upgrade `@capacitor/local-notifications` to latest if possible, or ensuring v4 compatibility.
+- *Wait, upgrading might break other things.* Let's stick to v4 but fixing the usage.
+
+### 2. Logic & UI Refinement
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Profile.jsx)
+- **Remove Optimistic Update**: Only flip the switch `true` *after* scheduling succeeds. This prevents the "switch flicks on then off" confusing behavior.
+- **Clearer Error Messages**: Show the specific error string from [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js).
+
+#### [MODIFY] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- **Simplify Permission Request**:
+    - *Always* call `requestPermissions()` if check isn't 'granted'.
+    - Remove the complex `display === 'prompt'` check which might be failing on some devices.
+    - **Add 'exact_alarm' Check**: Android 13+ requires checking if exact alarms are allowed? No, `SCHEDULE_EXACT_ALARM` is usually auto-granted unless policy restricted.
+
+### 3. Build
+- Clean build.
+
+## Verification
+- **Test**: "Turn On" should NOT flick on immediately. It should wait for permission/schedule.
+- **Success**: Toggle turns ON only on success.
+- **Fail**: Toggle stays OFF and shows specific error.

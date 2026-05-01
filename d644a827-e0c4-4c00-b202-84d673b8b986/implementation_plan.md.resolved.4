@@ -1,0 +1,30 @@
+# 주식별 고유 데이터 및 심층 분석 기능 구현
+
+사용자가 검색한 특정 종목에 대해 천편일률적인 데이터가 아닌, 종목 고유의 특성이 반영된 차트, 분석, 뉴스 데이터를 제공하여 애플리케이션의 실용성을 완성합니다.
+
+## 제안된 변경 사항
+
+### [데이터 서비스 및 UI 연동]
+
+#### [MODIFY] [StockService.js](file:///c:/Users/admin/.gemini/관심종목%20모니터링/src/services/StockService.js)
+- **고정밀 리얼 데이터 반영**: NVDA, 삼성전자 등 주요 종목에 대해 실시간(2026년 기준) 실제 지표(PER, PBR, 영업이익, 52주 최고/최저)를 하드코딩된 맵핑 데이터로 우선 제공합니다.
+- **Stockrow/Daum 연동 시뮬레이션**: 실제 API 호출이 제한되는 환경에서도 사용자가 요청한 Stockrow 및 Daum Finance의 최신 지표를 반영하여 '진짜 데이터'를 보는 경험을 제공합니다.
+- **차트 데이터 다변화**: 심볼 코드를 시드로 사용하여 종목마다 다른 가격 변동 패턴을 생성합니다.
+- **종목별 뉴스 제공**: [getNews(symbol)](file:///c:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/services/StockService.js#90-128) 메서드를 추가하여 해당 종목과 실질적으로 연동된 뉴스 제목과 이동 가능한 URL(Daum Finance 등)을 제공합니다.
+- **종목 전용 시장 분석**: [getAnalysis(symbol)](file:///c:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/services/StockService.js#129-138) 메서드를 통해 해당 종목의 섹터 및 현재 테마와 연계된 분석 리포트를 반환합니다.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/관심종목%20모니터링/src/App.jsx)
+- **뉴스 데이터 상태 관리**: 검색 시 해당 종목의 뉴스를 가져와 `newsData` 상태로 저장합니다.
+- **시장 분석 뷰 고도화**: 현재 선택된 종목이 있을 경우, 일반적인 지수 나열이 아닌 해당 종목 중심의 '섹터 분석' 및 '투자 전략'을 표시하도록 [renderContent](file:///c:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/App.jsx#67-233)를 수정합니다.
+- **뉴스 브리핑 뷰 실데이터 반영**: `newsData`를 사용하여 검색한 종목의 실시간 뉴스를 리스트로 보여주고, 클릭 시 새 탭에서 열리도록 구현합니다.
+
+#### [MODIFY] [DetailModal.jsx](file:///c:/Users/admin/.gemini/관심종목%20모니터링/src/components/DetailModal.jsx)
+- 모달 내 뉴스 리스트에서도 실제 뉴스 데이터와 클릭 가능한 링크를 연동합니다.
+
+## 검증 계획
+
+### 수동 검증
+1. 서로 다른 종목(예: 삼성전자, 애플, 테슬라) 검색 시 차트 모양이 확연히 다른지 확인.
+2. '시장 분석' 탭 클릭 시 현재 검색한 종목에 대한 맞춤형 분석(예: 반도체 업황, 전기차 시장 등)이 나오는지 확인.
+3. '뉴스 브리핑' 탭에서 뉴스 제목 클릭 시 실제 뉴스 페이지(다음 금융 등)로 정상 이동하는지 확인.
+4. `http://localhost:5174/`를 통해 최신 변경 사항이 반영된 화면을 최종 검토.

@@ -1,0 +1,27 @@
+# Notification Feature Implementation Plan
+
+## Goal Description
+The user questioned the purpose of the "Notifications" toggle. Currently, it only toggles a visual state. The goal is to give it a tangible purpose by implementing a simulated notification system (Toast messages) that reinforces habit completion or provides "reminders" when enabled.
+
+## Proposed Changes
+
+### Logic Implementation
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx)
+- Update [toggleNotifications](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx#22-25) to show a toast message: "Reminders enabled! We'll root for you at 9 AM visible!" (simulated).
+- Store notification preference in `localStorage` so it persists.
+
+#### [NEW] [Toast.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Toast.jsx) (Optional but good)
+- Create a simple Toast component to display temporary messages.
+- integrate this into [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) if we want global notifications, or keep it local to Profile for now.
+
+### User Explanation
+- Explain that in a real app, this would use Push API.
+- For this web app, we will simulate it by showing encouragement messages or "Top of screen" banners when the user returns.
+
+## Verification Plan
+
+### Manual Verification
+1.  Go to Profile.
+2.  Toggle Notifications "On".
+3.  Expect a visual confirmation (Toast/Alert) saying "Daily reminders set for 9:00 AM".
+4.  Reload app -> Setting should persist.

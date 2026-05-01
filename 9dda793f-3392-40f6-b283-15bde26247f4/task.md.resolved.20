@@ -1,0 +1,42 @@
+# Task: Fix Top Navigation Bar Overlap
+
+- [x] Analyze current layout implementation <!-- id: 0 -->
+    - [x] Inspect [src/Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) <!-- id: 1 -->
+    - [x] Inspect [src/index.css](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/index.css) and [src/App.css](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.css) <!-- id: 2 -->
+    - [x] Identify the cause of the overlap <!-- id: 3 -->
+- [x] Implement fix <!-- id: 4 -->
+    - [x] Adjust padding or margins in [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) or CSS (Adjusted in Page components instead) <!-- id: 5 -->
+    - [x] Ensure `SafeArea` is respected for mobile devices <!-- id: 6 -->
+- [x] Verify fix <!-- id: 7 -->
+    - [x] Build and test (v30 built, v31 with style restoration) <!-- id: 8 -->
+- [ ] Refine Layout <!-- id: 9 -->
+    - [x] Move content down by 10px <!-- id: 10 -->
+    - [x] Remove debug marker <!-- id: 11 --> 
+    - [x] Build v33 <!-- id: 12 -->
+- [x] Refine Spacing (v34) <!-- id: 13 -->
+    - [x] Move content down by another 10px (total 20px) <!-- id: 14 -->
+    - [x] Add 10px padding above title in header <!-- id: 15 -->
+    - [x] Build v34 <!-- id: 16 -->
+- [x] UI Polish & Icon Guide (v35) <!-- id: 17 -->
+    - [x] Change global background to `bg-sky-100` <!-- id: 18 -->
+    - [x] Build v35 <!-- id: 19 -->
+    - [x] Explain icon change process <!-- id: 20 -->
+- [ ] Fix Background & Update Icon (v36) <!-- id: 21 -->
+    - [x] Rename `산돌로고.png` to `icon.png` <!-- id: 22 -->
+    - [x] Force background color with hex `#e0f2fe` <!-- id: 23 -->
+    - [x] Generate icons with `@capacitor/assets` <!-- id: 24 -->
+    - [x] Build v36 <!-- id: 25 -->
+- [ ] Fix Background Aggressively & App Name Info (v37) <!-- id: 26 -->
+    - [x] Force background in [index.css](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/index.css) with `!important` <!-- id: 27 -->
+    - [x] Add inline style to [index.html](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/index.html) <!-- id: 28 -->
+    - [ ] Build v37 <!-- id: 29 -->
+    - [x] Explain app name change <!-- id: 30 -->
+- [x] Fix Background Config & Rename App (v38) <!-- id: 31 -->
+    - [x] Remove hardcoded gradient in [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) <!-- id: 32 -->
+    - [x] Rename to "나의 성경" in [strings.xml](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/android/app/src/main/res/values/strings.xml), [capacitor.config.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/capacitor.config.json), [index.html](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/index.html) <!-- id: 33 -->
+    - [x] Build v38 <!-- id: 34 -->
+- [ ] Add Text to Icon (v39) <!-- id: 35 -->
+    - [x] Install `jimp` <!-- id: 36 -->
+    - [x] Run script to add "Word of God" to icon <!-- id: 37 -->
+    - [x] Generate assets <!-- id: 38 -->
+    - [-] Build v39 (Skipped per user request) <!-- id: 39 -->

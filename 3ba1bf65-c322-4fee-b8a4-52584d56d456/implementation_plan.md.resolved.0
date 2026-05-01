@@ -1,0 +1,33 @@
+# Implementation Plan - Habit Tracker Polish & Completion
+
+The Daily Habit Tracker is functional but lacks key features (Edit/Delete) and needs a UI polish to meet "premium" standards. This plan outlines the steps to complete the application.
+
+## User Review Required
+> [!IMPORTANT]
+> I will be adding "Delete" and "Edit" buttons. Please confirm if you want these directly on the Dashboard or only in the Detail view to keep the main interface clean. **Current assumption: Delete/Edit in Detail view, simple Toggle in Dashboard.**
+
+## Proposed Changes
+
+### Logic & Features for [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx)
+- [ ] Add `deleteHabit(id)` function.
+- [ ] Add `editHabit(id, newText)` function.
+- [ ] Pass these functions to [HabitDetail](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx#3-98) via routes.
+
+### UI/UX for [HabitDetail.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx)
+- [ ] Add "Edit" button: changes title to input field.
+- [ ] Add "Delete" button: shows confirmation (simple alert or modal) then deletes and redirects home.
+
+### Styling ([index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css) & [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css))
+- [ ] Check and refine Color Palette in [index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css) for a more "vibrant" and "premium" look (Glassmorphism).
+- [ ] Add refined hover states and transitions.
+- [ ] Improve typography (ensure system fonts or import a nice Google Font).
+
+## Verification Plan
+
+### Manual Verification
+1.  **Add Habit**: Add a new habit "Test Habit".
+2.  **Toggle Habit**: Click the card in Dashboard, verify mascot cheers and progress updates.
+3.  **Navigate**: Click arrow to go to Detail page.
+4.  **Edit**: Click Edit, rename to "Updated Habit", save. Verify change reflects.
+5.  **Delete**: Click Delete, confirm. Verify it disappears from Dashboard.
+6.  **Responsiveness**: Check on mobile view (devtools).

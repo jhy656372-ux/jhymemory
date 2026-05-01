@@ -1,0 +1,23 @@
+# Profile Layout Compact Plan
+
+## Goal
+Fit the content of the "Profile" page (Third Screen) within the initial viewport to minimize scrolling.
+
+## User Review Required
+> [!NOTE]
+> I will be reducing the avatar size, evolution path spacing, and merging the "Danger Zone" into the Settings card to save a significant amount of vertical space.
+
+## Proposed Changes
+
+### CSS Styles (Inline & External)
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Profile.jsx)
+- **Avatar**: Reduce size (80px -> 60px).
+- **Evolution Path**: Reduce `marginTop`, `paddingTop`, and icon sizes (20px icons).
+- **Settings Card**: Merge "Danger Zone" (Reset Data) into the Settings card as a small text button or icon to remove the extra large button at the bottom.
+- **Spacers**: Reduce bottom spacer (80px -> 60px).
+
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.css)
+- **Profile Header**: Reduce `gap` (12px -> 8px) and font sizes.
+
+## Verification Plan
+1.  **Visual Check**: Open the Profile page (`http://localhost:5173/profile`) and check if the Avatar, Evolution Path, and Settings are all visible without scrolling.

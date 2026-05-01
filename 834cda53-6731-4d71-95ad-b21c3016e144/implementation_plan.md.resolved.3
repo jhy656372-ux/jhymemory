@@ -1,0 +1,28 @@
+# Admin Page Enhancements Implementation Plan
+
+## Goal
+Empower the user to manage Header Logo, Gallery Photos, and Section URLs via the Admin Page. Fix the issue where new data fields didn't appear due to caching.
+
+## Proposed Changes
+
+### Data Management
+#### [MODIFY] [churchData.js](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/data/churchData.js)
+- Increment `version` to force data reload in `DataContext`.
+- Ensure all `moreUrl` and `header.logoImage` fields are present in initial data.
+
+### Admin Interface
+#### [MODIFY] [AdminPage.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/pages/AdminPage.jsx)
+- **Header Section**: Add input for `data.header.logoImage`.
+- **Gallery Section**:
+    - Add list of current photos (preview + remove button).
+    - Add input + button to add new photo URL.
+- **Section URLs**:
+    - For `sundaySchool`, `parish`, `service`, `retreat`, `gallery`: Add input field for `moreUrl`.
+
+## Verification Plan
+### Manual Verification
+- **Data Reset**: Verify that after reload, the "More" buttons appear (due to updated version).
+- **Admin Functionality**:
+    - Change Logo URL -> Check Header.
+    - Add Gallery Photo -> Check Gallery Page (should show max 12, but if more are added, maybe show newest? or just first 12? User asked to "limit to 12", but maybe they mean *display* 12. I will ensure the *page* displays 12, but Admin allows managing the pool).
+    - Change More URL -> Check links on respective pages.

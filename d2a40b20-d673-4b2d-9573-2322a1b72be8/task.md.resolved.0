@@ -1,0 +1,21 @@
+# Task: Photo Board Feature and Footer Fix
+
+- [ ] Project Analysis and Planning [/]
+    - [x] Analyze existing folder structure
+    - [ ] Inspect `Footer.jsx` for mobile layout issues
+    - [ ] Understand current routing and page structure
+- [ ] Implementation Planning
+    - [ ] Create implementation plan for Photo Board and Admin page
+    - [ ] Define data structure for posts and files
+- [ ] Footer Fix
+    - [ ] Modify `Footer.jsx` or `index.css` to fix address icon alignment on mobile
+    - [ ] Verify footer layout on mobile
+- [ ] Photo Board Implementation
+    - [ ] Create `GalleryPage` or update existing if any
+    - [ ] Implement post list/detail views
+    - [ ] Add file upload/download functionality (Mock or LocalStorage based)
+    - [ ] Update Home page to include Gallery section link
+- [ ] Admin Page Implementation
+    - [ ] Create/Update Admin page for post management (Create, Update, Delete)
+- [ ] Final Verification
+    - [ ] Test all features and create walkthrough

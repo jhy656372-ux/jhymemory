@@ -1,0 +1,14 @@
+# Task: Finalizing Bible Data and Bookmark Features
+
+- [ ] Bible Data Maintenance
+    - [ ] Inspect [ko_krv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_krv.json) for Judges 4:23-24 <!-- id: 0 -->
+    - [ ] Fix the specific data bug in Judges 4 <!-- id: 1 -->
+    - [ ] Verify if other similar issues exist in Judges 4 <!-- id: 2 -->
+- [ ] Bookmark Feature Fix
+    - [ ] Analyze `BiblePage.jsx` bookmark logic <!-- id: 3 -->
+    - [ ] Fix persistence in `localStorage` <!-- id: 4 -->
+    - [ ] Implement/Fix auto-navigation to bookmark on app start <!-- id: 5 -->
+- [ ] Final Verification
+    - [ ] Verify Bible data fix <!-- id: 6 -->
+    - [ ] Verify bookmark persistence and navigation <!-- id: 7 -->
+    - [ ] Build and verify APK (if necessary/possible) <!-- id: 8 -->

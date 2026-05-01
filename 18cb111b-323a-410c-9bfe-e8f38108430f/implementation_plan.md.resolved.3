@@ -1,0 +1,42 @@
+# 산돌교회 홈페이지 고도화 계획 (상세 페이지 및 데이터 분리)
+
+## 목표
+사용자 요청에 따라 각 섹션별 **상세 페이지(Sub-pages)**를 만들고, 텍스트와 이미지 등 **콘텐츠를 쉽게 수정**할 수 있도록 데이터 구조를 개선합니다.
+
+## User Review Required
+> [!NOTE]
+> **구조 변경**: 기존 "원페이지 스크롤" 방식에서 "멀티 페이지" 방식으로 변경됩니다.
+> 메인 페이지는 요약본을 보여주고, 메뉴 클릭 시 각 상세 페이지로 이동합니다.
+
+## Proposed Changes
+
+### 1. 라우팅 시스템 도입 [NEW]
+- **Library**: `reaconst Footer = () => {
+    return (
+        <footer className="bg-primary-dark text-white py-12 border-t-4 border-accent-DEFAULT"> `/sunday-school`: 주일학교 상세
+    - `/parish`: 전도회/교구 상세
+    - `/service`: 지역섬김 상세
+    - `/retreat`: 산돌수양관 상세
+    - `/gallery`: 갤러리 상세
+
+### 2. 데이터 분리 (Content Management) [NEW]
+- [src/data/churchData.js](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/data/churchData.js) 파일 생성
+- 모든 텍스트, 이미지 URL, 메뉴 항목을 이 파일에서 관리
+- 컴포넌트는 이 데이터를 불러와서 렌더링하도록 리팩토링
+
+### 3. 페이지 컴포넌트 구현 [NEW]
+- `src/pages/` 디렉토리 생성
+- 각 섹션에 해당하는 상세 페이지 컴포넌트 구현 (`IntroPage.jsx`, `SundaySchoolPage.jsx` 등)
+- 각 상세 페이지는 더 풍부한 정보와 레이아웃을 제공
+
+### 4. 네비게이션 업데이트 [MODIFY]
+- `Header.jsx`: 내부 스크롤 링크(`#id`)를 라우터 링크(`Link to="/path"`)로 변경
+
+## Verification Plan
+
+### Automated Tests
+- `npm run dev` 실행 후 각 링크 클릭 시 페이지 전환 확인
+
+### Manual Verification
+- 데이터 파일(`churchData.js`)의 텍스트를 수정했을 때 화면에 반영되는지 확인
+- 상세 페이지로 이동 후 뒤로가기 등 네비게이션 동작 확인

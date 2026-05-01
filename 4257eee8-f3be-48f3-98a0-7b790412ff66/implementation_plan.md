@@ -1,0 +1,27 @@
+# 구현 계획 (Implementation Plan)
+
+앱이 스티치(Stitch)의 명세나 노트북LM 개발 지침과 달리 올바르게 렌더링되거나 작동하지 않는 문제를 해결합니다.
+
+## 제안하는 변경 사항
+
+### UI 레이아웃 단일 화면화 (Vertical Padding 축소)
+앱의 요소가 한 화면에 모두 들어올 수 있도록 여백과 높이를 조정합니다.
+- **[MODIFY] `src/components/Header.jsx`**: 상하 여백 축소 (`pt-4` -> `pt-2`, `pb-2` -> `pb-1`)
+- **[MODIFY] `src/components/PriceSection.jsx`**: 상하 여백 축소 (`py-2` -> `py-1`)
+- **[MODIFY] `src/components/ChartSection.jsx`**: 높이 축소 (`h-48` -> `h-36`), 여백 축소 (`py-6` -> `py-1`)
+- **[MODIFY] `src/components/RangeGauge.jsx`**: 여백 및 간격 축소 (`py-2` -> `py-1`, `mt-3` -> `mt-1`)
+- **[MODIFY] `src/components/Momentum.jsx`**: 상하 여백 축소 및 버튼 높이 최적화
+- **[MODIFY] `src/components/NewsSummary.jsx`**: 내부 패딩 축소 및 하단 여백 최적화
+
+### 데이터 시간 동기화 및 모의 데이터 문제 수정
+모의 데이터(fallback)를 사용할 때 앱 최초 로드 시점의 시간만 고정되어 있는 문제를 해결하고, 실시간 데이터를 가져오듯 현재 시간으로 렌더링되도록 수정합니다.
+- **[MODIFY] `src/services/api.js`**: 모의 데이터를 리턴할 때 `lastUpdated` 필드를 항상 API 호출 시점의 현재 시간으로 업데이트하도록 로직 추가. 숫자 타입 이슈 (`changePercent` 파싱 등) 방어 코드 추가.
+
+### 모멘텀 및 뉴스 인사이트 상호작용 (Interactivity) 보완
+- **[MODIFY] `src/App.jsx`**: 하단 네비게이션 바(BottomNav) 클릭 시 화면 상태 변환 기능 검증 및 보완. 모멘텀 버튼 클릭 기능 등이 정상 작동하도록 연결.
+
+## 검증 계획 (Verification Plan)
+### 자동화 및 수동 테스트 진행
+1. 터미널에서 `npm run build` 및 `npm run lint`를 통해 문법적 하자가 없는지 확인합니다.
+2. 로컬 브라우저 혹은 코드 레벨에서 `App.jsx` 하위 컴포넌트들의 렌더링 로직이 정상적으로 변경되었는지 확인합니다.
+3. Fallback 데이터(demo 상황)에서도 화면 상단의 시간이 새로고침할 때마다 현재 시간으로 제대로 동기화되는지 검증합니다.

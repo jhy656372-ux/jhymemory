@@ -1,0 +1,39 @@
+# 홈페이지 섹션 업데이트 및 관리자 페이지 수정 계획
+
+사용자의 요청에 따라 홈페이지의 주요 섹션에 이동 링크를 추가하고, 관리자 페이지의 화면 구성을 조정하며, 시스템의 안정성을 점검합니다.
+
+## Proposed Changes
+
+### [Component] 홈페이지 섹션 (Home Sections)
+각 섹션의 제목 옆이나 하단에 '더 보기' 아이콘(또는 링크)을 추가하여 상세 페이지로 이동할 수 있도록 합니다.
+
+- #### [MODIFY] [SundaySchool.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/SundaySchool.jsx)
+  - '더 보기' 링크 추가 (`/sundayschool`로 연결)
+- #### [MODIFY] [Parish.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Parish.jsx)
+  - '더 보기' 링크 추가 (`/parish`로 연결)
+- #### [MODIFY] [Service.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Service.jsx)
+  - '더 보기' 링크 추가 (`/service`로 연결)
+- #### [MODIFY] [Retreat.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Retreat.jsx)
+  - '더 보기' 링크 추가 (`/retreat`로 연결)
+- #### [MODIFY] [Gallery.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Gallery.jsx)
+  - '더 보기' 링크 추가 (`/gallery`로 연결)
+
+### [Component] 관리자 페이지 (Admin Page)
+게시판 관리 섹션에서 불필요한 '파일 저장하기' 아이콘을 제거합니다.
+
+- #### [MODIFY] [AdminPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/AdminPage.jsx)
+  - 하단의 '파일 저장하기' 버튼/아이콘 로직 및 UI 코드 삭제
+
+### [Check] 에디터 및 전반적인 오류 점검
+- [RichTextEditor.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/admin/RichTextEditor.jsx)의 동작 확인 및 잠재적 구문 오류 재점검
+- 전체 빌드 테스트를 통한 안정성 확인
+
+## Verification Plan
+
+### Automated Tests
+- `npm run build` 실행을 통해 빌드 오류 여부 확인
+
+### Manual Verification
+- 홈페이지 각 섹션에서 '더 보기'를 눌러 상세 페이지로 잘 이동하는지 확인
+- 관리자 페이지에서 '파일 저장하기' 아이콘이 사라졌는지 확인
+- 게시판 글쓰기 시 에디터 기능이 정상 작동하는지 확인

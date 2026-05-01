@@ -1,0 +1,5 @@
+
+- [x] Move `calculatePerfectDays` logic to [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) <!-- id: 0 -->
+- [x] Update [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) to use `perfectDays` for Level and Display <!-- id: 1 -->
+- [x] Update [Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx) to use the shared function <!-- id: 2 -->
+- [x] Verify changes <!-- id: 3 -->

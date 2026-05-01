@@ -1,0 +1,57 @@
+# Implementation Plan - My Beloved Book (나의 사랑하는 책)
+
+## Goal
+Create a beautiful, soft, and user-friendly web application for daily spiritual engagement, featuring Bible reading (KRV/NIV), CCM listening, and Prayer management.
+
+## User Review Required
+- **Data Source**: Bible text and CCM data will rely on mock data or public APIs where possible. For the prototype, we will use a structured JSON subset for the Bible and mock YouTube embeds for CCM.
+- **Persistence**: Prayer requests will be saved to the browser's `localStorage` for simplicity and persistence across sessions without a backend.
+- **Audio**: Text-to-Speech (TTS) or mock audio files will be used for the Bible audio demonstration.
+
+## Proposed Changes
+
+### Tech Stack
+- **Framework**: React (Vite)
+- **Styling**: Tailwind CSS (with custom font configuration)
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **State Management**: React Context / Hooks
+
+### Component Structure
+
+#### Layout
+- `App.jsx`: Main router/container.
+- `Layout.jsx`: Wrapper with Navigation (Bottom tabs for mobile, Sidebar for desktop).
+
+#### Features
+
+**1. Bible (말씀)**
+- `BiblePage.jsx`: Main controller.
+- `BibleReader.jsx`: Displays text (Parallel view or toggle).
+- `ChapterSelector.jsx`: Dropdowns for Book/Chapter.
+- `AudioPlayer.jsx`: Simple control bar for audio.
+
+**2. Praise (찬양)**
+- `PraisePage.jsx`: Main controller.
+- `SearchBar.jsx`: Input for filtering/searching songs.
+- `SongList.jsx`: List of CCM videos/tracks.
+- `VideoPlayer.jsx`: YouTube embed wrapper.
+
+**3. Prayer (기도)**
+- `PrayerPage.jsx`: Main controller.
+- `PrayerInput.jsx`: Form to add new requests.
+- `PrayerList.jsx`: Paginated list of items.
+- `Pagination.jsx`: Page controls.
+
+### Design System
+- **Fonts**: 'Noto Serif KR' for Bible text (readability), 'Pretendard' or 'NanumSquareNeo' for UI (cleanliness).
+- **Colors**:
+    - Primary: Soft Olive / Sage Green / Warm Beige.
+    - Accents: Muted Gold / Terracotta.
+    - Background: Off-white / Cream.
+
+## Verification Plan
+1. **Bible**: Verify text switching between KRV/NIV and chapter navigation. Check audio UI toggle.
+2. **Praise**: Verify search filters the list and video plays.
+3. **Prayer**: Add 10+ items to verify pagination logic. Test delete function and persistence after refresh.
+4. **Responsiveness**: Check layout on Mobile vs Desktop sizes.

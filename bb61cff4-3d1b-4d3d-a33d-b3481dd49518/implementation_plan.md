@@ -1,0 +1,28 @@
+# 구현 계획 - Daily Habit Tracker 실행
+
+사용자의 "문제점을 해결하고 결과물을 볼 수 있도록 해 줘"라는 요청에 따라, 현재 프로젝트 상태를 진단했습니다. 주요 파일들은 모두 존재하며 구현 상태도 양호합니다. 따라서 실행을 위한 환경 설정과 서버 구동을 진행합니다.
+
+## User Review Required
+- **PowerShell 권한 이슈**: `npm run lint` 실행 시 스크립트 실행 권한 오류가 발생했습니다. 이는 Windows PowerShell 보안 정책 때문입니다. 실행에는 지장이 없으므로 린트 과정은 건너뛰고 실행 단계로 넘어갑니다.
+
+## Proposed Changes
+### Configuration & Dependencies
+- `npm install`: 프로젝트 의존성(React, Vite 등)을 확실하게 설치합니다.
+
+### Components
+- 현재 코드 검토 결과 `App.jsx`, `Dashboard.jsx`, `Navigation.jsx`, `Profile.jsx`, `HabitDetail.jsx`, `Stats.jsx` 모두 정상적으로 구현되어 있어 별도의 코드 수정은 필요하지 않습니다.
+
+## Verification Plan
+
+### Automated Tests
+- 없음 (현재 테스트 코드가 포함되어 있지 않음)
+
+### Manual Verification
+1. `npm install` 실행 후 오류 없이 완료되는지 확인
+2. `npm run dev` 명령어로 개발 서버 시작
+3. 브라우저 도구를 사용하여 `http://localhost:5173` (또는 Vite가 제공하는 URL)에 접속
+    - **Dashboard**: 습관 목록 표시, 습관 추가/토글 기능 작동 확인, 마스코트 애니메이션 확인
+    - **Navigation**: 하단 탭(홈, 통계, 프로필) 이동 확인
+    - **Detail**: 습관 클릭 시 상세 페이지 이동, 수정/삭제 기능 확인
+    - **Stats**: 통계 데이터 표시 확인
+    - **Profile**: 데이터 리셋 기능 작동 확인

@@ -1,0 +1,38 @@
+# Feature Updates: Reset Day & UI Refinement
+
+## User Review Required
+> [!NOTE]
+> The "Reset Day" button will only appear when **ALL** habits for the day are completed. This allows users to "start over" or clear their daily progress if needed.
+
+## Proposed Changes
+
+### Logic & State Management
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.jsx)
+- Add `resetDailyProgress` function.
+    - Logic: Iterates through all habits and removes `today` from their `history` array.
+- Pass `resetDailyProgress` to [Dashboard](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Dashboard.jsx#6-121) component.
+
+#### [MODIFY] [Dashboard.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Dashboard.jsx)
+- Accept `resetDailyProgress` prop.
+- Add a conditional "Reset Day 🔄" button that appears only when `progress === 100%`.
+- Style the button to be distinct but accessible.
+
+### UI / Styling
+#### [MODIFY] [HabitDetail.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/HabitDetail.jsx)
+- Remove "Back" button from the top header.
+- Add a large, easy-to-tap "Back" button **below** the main habit card (`.glass-card`).
+
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.css)
+- Add styles for `.reset-day-btn` (Dashboard).
+- Add styles for the repositioned `.bottom-back-btn` (HabitDetail).
+
+## Verification Plan
+### Manual Verification
+1.  **Reset Day**:
+    -   Check off all habits on the Dashboard.
+    -   Verify "Reset Day" button appears.
+    -   Click it and verify all habits become unchecked.
+2.  **Back Button**:
+    -   Go to a Habit Detail page.
+    -   Verify "Back" button is at the bottom of the card, not the top.
+    -   Click it to ensure it navigates back to Dashboard.

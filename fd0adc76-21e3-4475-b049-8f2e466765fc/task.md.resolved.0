@@ -1,0 +1,6 @@
+# Running Daily Habit Tracker
+
+- [ ] Check project configuration (`package.json`) <!-- id: 0 -->
+- [ ] Attempt to start development server <!-- id: 1 -->
+- [ ] Fix any startup errors <!-- id: 2 -->
+- [ ] Verify application is accessible <!-- id: 3 -->

@@ -1,0 +1,9 @@
+# 내비게이션 바 바탕 통합 배치 (v22)
+
+- [ ] [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx)에서 바(Bar) 스타일 제거 및 순수 아이콘 메뉴로 변경 [/]
+- [ ] [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx)에서 Navigation을 스크롤 영역 최하단에 배치 및 배경 통일
+- [x] 내비게이션 바를 배경 위 아이콘 고정형으로 변경
+- [x] [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx), [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx), [HomePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/HomePage.jsx) 수정 (바탕 통합)
+- [/] 웹 에셋 빌드 및 Capacitor 동기화
+- [ ] Android APK 재빌드 (`v22`)
+- [ ] 최종 결과 확인 (바탕 맨 밑 아이콘 배치 및 간격 확인)

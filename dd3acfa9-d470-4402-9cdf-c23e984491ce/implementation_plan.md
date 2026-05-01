@@ -1,0 +1,31 @@
+# Progress Metric Update Plan
+
+## Goal
+Change the "Current Practice" (Level XP) metric from "Total Check-ins" to "Perfect Days" (Days where 100% of habits were completed).
+
+## User Review Required
+> [!NOTE]
+> This change will significantly alter how quickly users level up. Instead of 100 check-ins (approx 20 days), Level 5 will now require 100 *Perfect Days*. This makes the game harder but more rewarding for consistency.
+
+## Proposed Changes
+
+### Logic & Utilities
+#### [MODIFY] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- **New Function**: Implement `calculatePerfectDays(habits)` to centralize the logic.
+
+### Components
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Profile.jsx)
+- **Metric Change**: Replace `totalCompletions` with `perfectDays` for both the level calculation and the "Current Practice" display.
+- **Visuals**: Update the "evolution path" to reflect that these are now "Days" (e.g., "100일" instead of "100회").
+
+#### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Stats.jsx)
+- **Refactor**: Use the new `calculatePerfectDays` from `utils.js` instead of the inline logic.
+
+### [MODIFY] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- **New Feature**: Add `createChannel` to set up a high-priority "Alarm" channel.
+- **Update**: Modify `scheduleNotification` to use this channel, ensuring sound and vibration.
+
+## Verification Plan
+1.  **Check Profile**: Go to Profile and see if "Current Practice" matches the "Perfect Days" count from the Stats page.
+2.  **Check Level**: Ensure the level/avatar updates correctly based on the new metric.
+3.  **Test Alarm**: Set a time 1 minute from now and wait for the sound/vibration.

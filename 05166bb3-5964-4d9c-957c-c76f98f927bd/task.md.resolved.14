@@ -1,0 +1,6 @@
+# 내비게이션 바 푸터화 작업 (v19)
+
+- [x] [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx), [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx), [HomePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/HomePage.jsx) 수정
+- [/] 웹 에셋 빌드 및 Capacitor 동기화
+- [ ] Android APK 재빌드 (`v19`)
+- [ ] 최종 결과 확인 (오늘도 승리하세요 하단 위치 확인)

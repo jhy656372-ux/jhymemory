@@ -1,0 +1,25 @@
+# 초정밀 원스크린 UI 개편 계획
+
+사용자가 지적한 UI 미비점을 보완하고, 완벽한 모바일 최적화를 달성합니다.
+
+## Proposed Changes
+
+### 1. 헤더 및 검색 섹션 (src/App.jsx, src/App.css)
+- **제목 노출**: [App.jsx](file:///C:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/App.jsx)의 최상단 렌더링 위치를 재조정하여 "관심종목 모니터링" 제목이 확실히 보이도록 합니다.
+- **검색바 중앙 정렬**: 검색바와 제목을 포함한 컨테이너를 화면 중앙(`display: flex`, `justify-content: center`)에 배치합니다.
+- **문구 간소화**: 검색창의 `placeholder`에서 괄호와 예시 내용을 삭제합니다.
+- **설명 텍스트 축소**: 검색바 하단의 가이드 문구 폰트 크기를 줄입니다.
+
+### 2. 네비게이션 및 디테일 (src/App.jsx, src/App.css)
+- **네비게이션 위치 조정**: `fixed` 하단 바 대신, 메인 컨텐츠 영역 하단에 자연스럽게 포함되는 형태나 더 슬림한 디자인으로 변경합니다.
+- **폰트 크기 다운사이징**: 상세 페이지([DetailModal.jsx](file:///C:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/components/DetailModal.jsx)) 및 대시보드 내의 모든 글자 크기를 한 단계씩 축소하여 더 많은 정보가 한눈에 들어오게 합니다.
+- **상세페이지 폭 고정**: 가로폭이 화면을 넘지 않도록 박스 너비를 재조정합니다.
+
+## Verification Plan
+
+### Automated Tests
+- `npm run build` 성공 여부 확인.
+
+### Manual Verification
+- 브라우저 및 APK 빌드를 통해 제목 노출 여부와 검색바 중앙 정렬 상태를 확인합니다.
+- 상세 페이지의 글자 크기가 작아져 가독성이 좋아졌는지 점검합니다.

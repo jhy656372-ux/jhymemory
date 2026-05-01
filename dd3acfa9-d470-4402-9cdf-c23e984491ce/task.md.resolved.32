@@ -1,0 +1,4 @@
+
+- [x] Sync Web Assets (`npx cap sync`) <!-- id: 0 -->
+- [x] Build APK (`gradlew assembleDebug`) <!-- id: 1 -->
+- [x] Locate and Provide APK <!-- id: 2 -->

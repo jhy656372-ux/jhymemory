@@ -1,0 +1,31 @@
+# StockFlowAI v20 업데이트 계획
+
+## User Review Required
+- [ ] **실시간 폴링 주기**: 현재 15초 단위의 실시간 데이터 갱신을 5초 단위로 단축하여 체감 실시간성을 극대화합니다.
+- [ ] **차트 보정**: 기존 차트는 마지막 현재가만 강제로 맞춰서 차트 끝부분이 꺾이는 문제가 있었으나, 전체 차트 곡선의 기울기를 현재가 방향으로 선형 보정(Linear Interpolation)하여 매끄러운 차트로 산출되게 됩니다.
+
+## Proposed Changes
+
+### Frontend - React App
+#### [MODIFY] [src/App.jsx](file:///c:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/App.jsx)
+- 사용되지 않는 `marketIndices` 상태 및 데이터를 불러오는 폴링 타이머 제거 (네트워크 리소스 낭비 방지)
+- 주식 상세 데이터(`stockData`)의 실시간 업데이트 간격을 기존 15초에서 5초로 줄여 실시간 체감 성능 향상
+- 메인 페이지 하단 명언 문구 보존 확인
+
+#### [MODIFY] [src/services/StockService.js](file:///c:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/services/StockService.js)
+- **시간대 분리 엔진**: 한국 주식(09:00~15:30)과 미국 주식(09:30~16:00)의 장중 시간분을 정확하게(390분) 10분 단위로 세그먼트하여(count: 40) 시간 차트에 노출시키는 엔진 명시화.
+- **정밀 수식 차트 생성기**:
+  - `Math.random()` 의존성을 제거하고 Seed 기반의 Deterministic한 파동 산출
+  - 파동의 마지막 데이터 단가와 실제 실시간 `actualPrice` 간의 차이(`diff`)를 구함
+  - 이 `diff` 오차분을 차트 0번 인덱스부터 마지막 인덱스까지 비율에 맞춰 누적 더해주는 보정 수식을 적용
+  - 결과적으로 차트가 중간에 튀지 않고 정확하게 **100% 실시간 현재가로 유려하게 수렴**
+
+## Verification Plan
+### Automated Tests
+- 없음
+
+### Manual Verification
+1. `npm run dev` 후 웹에 접속하여 첫 화면 중앙 하단에 명언 문구가 노출되는지 확인.
+2. 종목("삼성전자", "NVDA")을 검색하여 차트의 Y축 끝부분 가격이 상단의 메인 현재가와 일치하며 뾰족하게 튀지 않고 부드럽운 곡선으로 이어지는지 육안 확인.
+3. 한국 주식은 일간 차트 시간이 09:00 부터 ~ 15:30으로 떨어지는 지 확인, 해외 주식은 09:30 부터 16:00으로 표시되는지 확인.
+4. 5초마다 상단 가격과 차트가 실시간 최신화되어 깜빡이는지 관찰.

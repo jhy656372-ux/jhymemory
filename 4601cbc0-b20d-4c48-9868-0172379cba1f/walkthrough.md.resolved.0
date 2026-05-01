@@ -1,0 +1,33 @@
+# Daily Habit Tracker Update Walkthrough
+
+## Changes Implemented
+### 1. Notification Permission Fix
+- **Backend**: Updated [src/utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) to explicitly check and request `POST_NOTIFICATIONS` permission on Android 13+.
+- **Configuration**: Bumped `targetSdkVersion` to **33** in [android/variables.gradle](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/android/variables.gradle) to support the new permission model.
+
+### 2. Stats Page Refinement
+- **Logic**: Changed "Total Checks" to **"Today's Checks"** to show daily progress.
+- **UI**: Display logic updated to count only current day's completions.
+
+### 3. Navigation UI Overhaul
+- **Style**: Changed the bottom navigation bar from a fixed overlay to a **static card** at the bottom of the page.
+- **Layout**: Removed previously required spacer divs in [Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx) and [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx).
+
+## Build Status
+- **Vite Build**: Successful (after resolving memory issues).
+- **Android APK**: Built successfully (`app-debug.apk`).
+
+## How to Test
+1. **Install APK**:
+   - Locate file: `android/app/build/outputs/apk/debug/app-debug.apk`
+   - Install on your Android device (ensure "Install from unknown sources" is enabled).
+
+2. **Verify Notifications**:
+   - Go to **Profile** tab.
+   - Toggle "Notifications" ON.
+   - **Expected**: System permission dialog should appear (if not previously granted).
+   - **Expected**: Toast message "📅 Daily reminder set..." appearing.
+
+3. **Verify UI Changes**:
+   - **Navigation**: Scroll to the bottom of Dashboard/Stats/Profile. The nav bar should be a card at the end, not sticking to the screen bottom.
+   - **Stats**: Check the "Today's Checks" count. It should match the number of habits checked *today*.

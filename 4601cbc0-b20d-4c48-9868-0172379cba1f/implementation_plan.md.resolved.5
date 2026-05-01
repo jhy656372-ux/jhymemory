@@ -1,0 +1,38 @@
+# Implementation Plan - Fix Notifications and Global Reset
+
+## Goal
+Fix the "Turn On" notification permission error and ensure "Reset All Data" clears the "Perfect Day" count.
+
+## User Review Required
+> [!IMPORTANT]
+> The "Reset All Data" function will now clear **ALL** local storage for the app, including themes and other settings, to ensure a true clean slate.
+
+## Proposed Changes
+
+### Logic & State Management
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.jsx)
+- Create a `resetAllData` function that:
+    - Clears `perfectDayLog` state.
+    - Clears `habits` state to defaults.
+    - Clears `localStorage`.
+- Pass `resetAllData` prop to `<Profile />`.
+
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Profile.jsx)
+- Accept `resetAllData` prop.
+- Update [handleReset](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx#22-35) to call `resetAllData`.
+
+### Notification Handling
+#### [MODIFY] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- Enhance [scheduleNotification](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#97-143) permission logic.
+- Log the exact permission status if denied.
+- Ensure `requestPermissions` is called correctly.
+
+## Verification Plan
+### Automated Tests
+- None (Manual verification required for Capacitor native features).
+
+### Manual Verification
+1. **Rebuild APK**: `npm run build` -> `npx cap sync` -> `gradlew assembleDebug`.
+2. **Install & Test**:
+    - **Notifications**: Click "Turn On". Verify permission prompt appears (if not already granted/denied) and success message.
+    - **Reset**: Generate some perfect days. Click "Reset All Data". Verify "Perfect Day" count becomes 0.

@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Fixed missing Genesis 4:26 by regenerating NKRV data from XML with a patch for the missing Genesis 4:21. Verified Navigation UI is docked per requirements.",
+  "updatedAt": "2026-02-18T06:38:03.106045Z",
+  "version": "2"
+}

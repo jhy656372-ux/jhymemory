@@ -1,0 +1,36 @@
+# NKRV 성경 데이터 정제 계획
+
+## 목표
+NKRV 성경 데이터([public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json))에서 한자 문자, 대괄호로 된 섹션 제목, 소괄호 기호를 정리합니다.
+
+## 사용자 검토 필요 사항
+> [!IMPORTANT]
+> **데이터 삭제 전략 확인**: 
+> 1. **대괄호 `[...]`**: `[에덴 동산]`과 같은 소제목은 성경 본문이 아니므로 내용까지 **모두 삭제**합니다.
+> 2. **소괄호 [(...)](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs#6-26)**: [(마므레는 곧 헤브론이라)](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs#6-26)와 같은 설명은 본문의 일부이므로 **괄호 기호만 삭제하고 내용은 남깁니다**.
+> 3. **한자**: 모든 유니코드 한자 문자를 제거합니다.
+
+## 제안된 변경 사항
+
+### 스크립트
+#### [modify] [clean_nkrv_data.cjs](file:///c:/Users/admin/.gemini/나의 사랑하는 책/scripts/clean_nkrv_data.cjs)
+- [clean_krv_hanja.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs)를 기반으로 새 스크립트를 작성합니다.
+- 대상 파일: [public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json)
+- 정규식 구현:
+    - 한자 제거: `[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]`
+    - 섹션 제목 제거: `\[.*?\]` (글로벌)
+    - 소괄호 기호만 제거: `[\(\)]` (글로벌)
+    - HTML 엔티티 변환: `&#x27;`, `&quot;` (각각 `'`, `"`로 변환)
+- 정리된 내용을 [public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json)에 덮어씁니다.
+
+## 검증 계획
+
+### 자동 검증
+1.  **개수 확인**: Node.js 스크립트를 실행하여 [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json)에 남은 한자, `[]` 기호, [()](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs#6-26) 기호가 0개인지 확인합니다.
+    ```bash
+    node -e "const fs = require('fs'); const c = fs.readFileSync('public/data/ko_nkrv.json', 'utf8'); const h = c.match(/[\u4e00-\u9fff]/g); const p = c.match(/[\(\)\[\]]/g); console.log('남은 한자:', h ? h.length : 0, '남은 괄호/대괄호:', p ? p.length : 0);"
+    ```
+2.  **내용 확인**: 소괄호 내용이 보존되었는지 직접 확인합니다.
+    ```javascript
+    // 예: "마므레는 곧 헤브론이라 (마므레는 곧 헤브론이라)" -> "마므레는 곧 헤브론이라 마므레는 곧 헤브론이라"
+    ```

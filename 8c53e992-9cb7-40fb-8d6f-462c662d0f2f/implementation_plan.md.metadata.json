@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "교회용 웹사이트 개발 계획\n- Vite + React + Vanilla CSS 사용\n- 고급스럽고 따뜻한 디자인\n- 로컬 AI(@local)를 활용한 'AI 신앙 상담소' 또는 '오늘의 기도' 기능 포함\n- CORS 우회를 위한 Vite Proxy 설정 포함",
+  "updatedAt":  "2026-04-24T01:36:35.149079900Z",
+  "requestFeedback":  true
+}

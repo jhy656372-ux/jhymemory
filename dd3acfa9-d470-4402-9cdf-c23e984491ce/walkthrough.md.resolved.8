@@ -1,0 +1,20 @@
+# Progress Metric Update: Perfect Days
+
+I have updated the app to track "Perfect Days" instead of total check-ins. This makes the progression system more challenging and rewarding.
+
+## Changes
+
+### 1. New Logic: Perfect Days
+- **Implementation**: Created `calculatePerfectDays` in [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js).
+- **How it works**: A day is only counted if *all* active habits for that day were completed.
+- **Example**: If you have 5 habits and check 4, you get 0 points. You must check all 5 to get 1 point.
+
+### 2. Profile Updates
+- **Level Calculation**: Levels are now based on Perfect Days (e.g., Level 2 requires 10 Perfect Days).
+- **Label Changes**: Changed "Current Practice: X times" to "Perfect Days: X days" (완벽한 하루: X일).
+- **Evolution Path**: Updated the milestones to show "days" (일) instead of counts.
+
+## Verification
+1.  **Check Profile**: Go to the **Profile** page.
+2.  **Verify Count**: The number shown under "Habit Hero" should match the "Perfect Days" count on the Stats page.
+3.  **Verify Labels**: Ensure the milestones say "10일", "30일", etc.

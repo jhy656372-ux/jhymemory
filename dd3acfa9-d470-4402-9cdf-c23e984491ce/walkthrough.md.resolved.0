@@ -1,0 +1,19 @@
+# Layout Fixes and Stats Update
+
+I have completed the requested changes to improve the app's stability and update the statistics view.
+
+## Changes
+
+### 1. Layout Stability (Dashboard)
+- **Fixed Width Container**: The mascot container now has a fixed width of `300px`. This prevents the entire header from shifting left/right when the mascot changes (e.g., from "Bear" to "Party Bear").
+- **Centered Speech Bubble**: The speech bubble is now centered *above* the mascot instead of to the right. This prevents it from expanding the container width unpredictably or getting cut off on small screens.
+
+### 2. Statistics Update
+- **Removed "Best Streak"**: The "Best Streak" card has been removed from the Statistics page as requested.
+
+## Verification
+You can verify these changes by:
+1.  Opening the **Dashboard**.
+2.  Checking off a habit to see the mascot animation.
+3.  Observing that the "Daily Goal" text and other elements stay perfectly still.
+4.  Opening the **Statistics** page ([Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx)) and confirming "Best Streak" is gone.

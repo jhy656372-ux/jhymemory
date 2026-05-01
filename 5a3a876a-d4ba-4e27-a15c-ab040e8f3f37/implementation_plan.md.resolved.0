@@ -1,0 +1,21 @@
+# HTML 파일 열림 문제 해결 계획
+
+사용자가 [kodari_lipsync.html](file:///c:/Users/admin/.gemini/AI%20%EB%A6%BD%EC%8B%B1%ED%81%AC%20%EC%83%9D%EC%84%B1%EA%B8%B0/kodari_lipsync.html) 파일을 더블 클릭해도 열리지 않는다고 보고했습니다. 이는 파일 자체의 문제보다는 윈도우의 파일 연결 프로그램 설정이나 경로나 파일명에 포함된 한글/공백 관련 문제일 가능성이 있습니다. 이를 해결하기 위해 더 안전한 대안을 제공합니다.
+
+## 제안된 변경 사항
+
+### [Component] HTML 파일 제공 방식 개선
+
+#### [NEW] [lipsync.html](file:///c:/Users/admin/.gemini/AI%20%EB%A6%BD%EC%8B%B1%ED%81%AC%20%EC%83%9D%EC%84%B1%EA%B8%B0/lipsync.html)
+- 기존 파일에서 파일명만 영문으로 변경하여 한글 파일명 관련 호환성 문제를 원천 차단합니다.
+- 내용은 동일하게 고품질 UI와 백엔드 연동 기능을 유지합니다.
+
+#### [NEW] [lipsync_root.html](file:///c:/Users/admin/.gemini/lipsync_root.html)
+- 경로에 한글이나 공백이 없는 상위 디렉토리에 복사본을 생성하여 경로 관련 문제를 테스트합니다.
+
+## 검증 계획
+
+### 수동 검증
+1. 사용자에게 새로 생성된 [lipsync.html](file:///c:/Users/admin/.gemini/AI%20%EB%A6%BD%EC%8B%B1%ED%81%AC%20%EC%83%9D%EC%84%B1%EA%B8%B0/kodari_lipsync.html) 파일을 더블 클릭하여 열리는지 확인 요청.
+2. 만약 여전히 열리지 않는다면, 브라우저(크롬 등)를 먼저 열고 파일을 그 위로 드래그 앤 드롭(Drag & Drop)하도록 안내.
+3. '연결 프로그램' 설정을 통해 브라우저를 선택하는 방법 안내.

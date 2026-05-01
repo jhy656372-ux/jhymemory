@@ -1,0 +1,33 @@
+# UI Fixes and Mobile Optimization Walkthrough
+
+## Changes
+
+### 1. Mobile Stability
+-   **[index.html](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/index.html)**: Added `maximum-scale=1.0, user-scalable=no` to the viewport meta tag to prevent the screen from shaking or zooming incorrectly on mobile devices.
+
+### 2. Bible Page Fix ("Numbers Jonah" Issue)
+-   **[BibleService.js](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/services/BibleService.js)**: Fixed duplicate abbreviation keys in the `BIBLE_BOOKS` list.
+    -   James: `nm` -> `jas` (Was conflicting with Numbers)
+    -   Jonah: `jn` -> `jon` (Was conflicting with John)
+    -   John: `jn` -> `jhn`
+    -   *This resolves the issue where React would render incorrect book names due to key collisions.*
+
+### 3. Praise Page UI
+-   **[PraisePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PraisePage.jsx)**:
+    -   Reduced the size of the "Search" button.
+    -   Adjusted the input field padding to match the smaller button.
+
+### 4. Prayer & Memo Page UI
+-   **[PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PrayerPage.jsx)** & **[MemoPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/MemoPage.jsx)**:
+    -   Refactored the input form.
+    -   The `+` button is now visuals inside the input box container.
+    -   Added focus rings to the container instead of the input element for a cleaner look.
+
+## Verification Results
+
+### Manual Check Required
+Since these are UI behaviors (mobile scrolling) and visual layout changes, please verify on your device:
+1.  **Mobile**: Try dragging the screen side-to-side. It should remain fixed.
+2.  **Bible**: Check Genesis 1. "Numbers" and "Jonah" should no longer appear next to it.
+3.  **Praise**: Confirm the search button is smaller.
+4.  **Prayer/Memo**: Confirm the `+` button looks integrated into the input box.

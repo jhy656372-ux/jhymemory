@@ -1,0 +1,27 @@
+# Section Shading Plan
+
+## Goal
+Apply alternating background colors to homepage sections to create visual distinction, similar to the "Community Service" section.
+
+## Current Section Order
+1.  Hero
+2.  Intro
+3.  Sunday School
+4.  Parish
+5.  Service (Currently `bg-gray-50`)
+6.  Retreat (Has bg image)
+7.  Gallery
+
+## Proposed Styling (Alternating Pattern)
+To ensure optimal visual distinction:
+
+-   **Intro**: `bg-white` (Keep as is / Default)
+-   **Sunday School**: `bg-gray-50` (Change from `bg-neutral-light` to match Service style)
+-   **Parish**: `bg-white` (Keep as is)
+-   **Service**: `bg-gray-50` (Keep as is, matches User's preference)
+-   **Retreat**: Image Background (Breaks the pattern naturally)
+-   **Gallery**: `bg-gray-50` (Since it follows the image-heavy Retreat section, a light gray background provides good contrast and consistency with Service/Sunday School).
+
+## Verification
+-   Verify contrast between consecutive sections.
+-   Ensure correct class usage (`bg-gray-50`).

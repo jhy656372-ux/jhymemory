@@ -1,0 +1,23 @@
+# Daily Habit Tracker - Today's Session
+
+- [ ] Check status of Korean localization <!-- id: 0 -->
+- [x] Verify recent Android build output <!-- id: 1 -->
+- [x] Investigate "Perfect Days" not updating bug <!-- id: 4 -->
+    - [x] Analyze [HabitDetail.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx) and date handling <!-- id: 5 -->
+    - [x] Fix date update logic <!-- id: 6 -->
+- [x] Run the app or rebuild if necessary <!-- id: 2 -->
+- [x] Refine UI Layout <!-- id: 7 -->
+    - [x] Break text line in Stats page <!-- id: 8 -->
+    - [x] Center align Habit Detail page <!-- id: 9 -->
+    - [x] Make 'Let's keep going' text single line <!-- id: 10 -->
+    - [x] Make toast message single line <!-- id: 11 -->
+    - [x] Implement Mascot Selection Feature <!-- id: 12 -->
+        - [x] Add mascot state to App.jsx <!-- id: 13 -->
+        - [x] Update Profile.jsx with selection UI <!-- id: 14 -->
+        - [x] Update Dashboard.jsx to use selected mascot <!-- id: 15 -->
+        - [x] Update HabitDetail.jsx to use selected mascot <!-- id: 16 -->
+    - [x] Remove Fox and Koala from selection <!-- id: 17 -->
+    - [x] Update Lv.1 Growth Record to show selected mascot <!-- id: 18 -->
+- [x] Change App Name to "매일 습관" <!-- id: 19 -->
+- [ ] Change App Icon (Generating Bear Emoji Image) <!-- id: 20 -->
+- [ ] Address any pending user requests or bugs <!-- id: 3 -->

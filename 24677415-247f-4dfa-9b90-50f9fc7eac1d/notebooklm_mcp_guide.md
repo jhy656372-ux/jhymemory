@@ -1,0 +1,119 @@
+# NotebookLM MCP 서버 만들기 가이드
+
+NotebookLM은 현재 **공식 공개 API**가 없습니다(Enterprise 버전 제외). 따라서 MCP(Model Context Protocol) 서버를 만들려면 **비공식 API**를 사용하거나 브라우저 자동화(Playwright 등)를 이용해야 합니다.
+
+이 가이드는 **비공식 Python 라이브러리**를 사용하여 NotebookLM과 통신하는 MCP 서버를 만드는 방법을 설명합니다.
+
+---
+
+## 1. 사전 준비 (Prerequisites)
+
+*   **Python 3.10+**: Python 환경이 필요합니다.
+*   **Google 계정**: NotebookLM 접근 권한이 있는 계정.
+*   **uv** 또는 **pip**: 패키지 관리자.
+
+## 2. 핵심 아키텍처
+
+MCP 서버는 다음과 같은 구조로 작동합니다:
+
+```mermaid
+graph LR
+    Client[Claude/IDE] <--> Protocol[MCP Protocol]
+    Protocol <--> MCPServer[NotebookLM MCP Server]
+    MCPServer <--> |Unofficial API / Auth Cookie| NotebookLM[Google NotebookLM]
+```
+
+## 3. 구현 단계 (Step-by-Step)
+
+### 단계 1: 프로젝트 설정
+
+Python 프로젝트를 생성하고 필요한 라이브러리를 설치합니다.
+
+```bash
+# 프로젝트 디렉토리 생성
+mkdir notebooklm-mcp
+cd notebooklm-mcp
+
+# 가상환경 생성 및 활성화
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# 패키지 설치
+# mcp: MCP 서버 SDK
+# notebooklm-sdk: 비공식 SDK (예시: pypi-notebooklm-sdk 또는 직접 구현)
+pip install mcp notebooklm-sdk-unofficial
+```
+
+> **참고**: `notebooklm-sdk-unofficial`은 예시 이름입니다. 실제로는 GitHub의 `osen77/notebooklm-api` 등을 참고하거나 직접 래퍼를 구현해야 할 수 있습니다.
+
+### 단계 2: 인증 정보 확보
+
+공식 API가 없으므로 브라우저 쿠키 등을 이용한 인증이 필요할 수 있습니다.
+1. NotebookLM 웹사이트에 로그인합니다.
+2. 개발자 도구(F12) -> Application -> Cookies에서 인증 관련 쿠키(`__Secure-1PSID` 등)를 확인합니다.
+3. 이를 `.env` 파일에 저장합니다.
+
+### 단계 3: MCP 서버 코드 작성 (`server.py`)
+
+```python
+from mcp.server.fastmcp import FastMCP
+from notebooklm_sdk import NotebookLMClient  # 가상의 클라이언트
+
+# MCP 서버 초기화
+mcp = FastMCP("NotebookLM")
+
+# 클라이언트 설정 (인증 토큰 등)
+client = NotebookLMClient(token="YOUR_TOKEN")
+
+@mcp.tool()
+async def create_note(title: str, content: str) -> str:
+    """NotebookLM에 새 노트를 생성합니다."""
+    result = await client.create_note(title, content)
+    return f"노트 생성됨: {result.id}"
+
+@mcp.tool()
+async def query_notebook(notebook_id: str, query: str) -> str:
+    """특정 노트북에 대해 질문하고 답변을 받습니다."""
+    answer = await client.query(notebook_id, query)
+    return answer
+
+@mcp.resource("notebook://{notebook_id}")
+async def get_notebook_content(notebook_id: str) -> str:
+    """노트북의 내용을 읽어옵니다."""
+    notebook = await client.get_notebook(notebook_id)
+    return notebook.content
+
+if __name__ == "__main__":
+    mcp.run()
+```
+
+### 4. 이미 만들어진 솔루션 사용하기 (권장)
+
+직접 구현하는 것이 복잡하다면, 오픈소스로 공개된 MCP 서버를 활용하는 것이 좋습니다.
+
+*   **LobeHub NotebookLM MCP**: https://github.com/lobehub/lobe-chat/tree/main/src/app/api/mcp/notebooklm (참고용)
+*   **Unofficial MCP CLI**: https://github.com/jacob-bd/notebooklm-mcp-cli
+
+---
+
+## 5. MCP 설정 파일에 추가 (`mcp_config.json`)
+
+서버를 구현했다면 IDE 설정 파일에 등록합니다.
+
+```json
+{
+  "mcpServers": {
+    "notebooklm": {
+      "command": "python",
+      "args": ["/path/to/server.py"],
+      "env": {
+        "NOTEBOOKLM_TOKEN": "your_cookie_here"
+      }
+    }
+  }
+}
+```
+
+## 다음 단계
+
+제가 직접 기본적인 **MCP 서버 골격(Scaffold)**을 만들어 드릴까요? 아니면 기존 오픈소스 프로젝트를 찾아 설정해 드릴까요?

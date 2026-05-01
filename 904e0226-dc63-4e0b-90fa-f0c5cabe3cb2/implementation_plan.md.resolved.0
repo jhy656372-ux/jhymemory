@@ -1,0 +1,40 @@
+# Implementation Plan - Accumulate Habit Count on Click
+
+The user wants the habit count (displayed in "Overall Status") to accumulate when clicking habit items on the dashboard, regardless of whether a "Perfect Day" is achieved.
+
+## User Review Required
+
+> [!NOTE]
+> **Logic Change**: The behavior of clicking a completed habit (unchecking) will be changed. Previously, unchecking a habit reduced the total count by 1. **Now, unchecking a habit will REMOVE the checkmark (today's completion status) but WILL NOT reduce the total count.** This means checking and unchecking a habit repeatedly will increase the total count. Ideally, this allows multiple completions per day.
+
+## Proposed Changes
+
+### Logic Layer
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/매일 습관/daily-habit-tracker/src/App.jsx)
+
+- Update [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#925-945) function.
+- **Current Behavior**:
+  - Check: `history` adds today, `count` + 1.
+  - Uncheck: `history` removes today, `count` - 1.
+- **New Behavior**:
+  - Check: `history` adds today, `count` + 1.
+  - Uncheck: `history` removes today, **`count` remains unchanged**.
+
+This aligns with the request to "accumulate count... regardless of Perfect Day", allowing users to "reset" an individual item's daily status (by unchecking) to check it again for another point, without needing the global "Perfect Day" reset.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Open App**: Launch the application (web or local preview).
+2.  **Check Initial State**: Go to Statistics page ("Overall Status"). Note the count for "Drink Water" (e.g., 0).
+3.  **Perform Action**:
+    - Go to Dashboard.
+    - Click "Drink Water" (Check).
+    - Click "Drink Water" again (Uncheck).
+    - Click "Drink Water" again (Check).
+4.  **Verify Result**:
+    - Go to Statistics page.
+    - The count for "Drink Water" should be **2** (or original + 2).
+    - (Previous behavior would have resulted in Count 1).
+5.  **Perfect Day Independence**: Ensure this works even if other habits are unchecked (i.e., NO Perfect Day achieved).

@@ -1,0 +1,9 @@
+# 작업 목록 (Task)
+
+- [x] 1. `react-router-dom` 패키지 설치
+- [x] 2. 전역 상태 관리를 위한 `DataContext.jsx` 생성 (예배 안내, 주일학교 안내 데이터)
+- [x] 3. 기존 `App.jsx` 내용을 `MainPage.jsx`로 분리
+- [x] 4. `MainPage.jsx`에서 주일학교 하위 메뉴 4개를 한 줄의 그리드(`about-grid`)로 합치기
+- [x] 5. 간단한 암호 기능이 포함된 `AdminPage.jsx` 생성
+- [x] 6. `App.jsx`에 라우팅 설정 적용 (`/` -> MainPage, `/admin` -> AdminPage)
+- [x] 7. 모든 기능 통합 및 로컬 테스트 확인

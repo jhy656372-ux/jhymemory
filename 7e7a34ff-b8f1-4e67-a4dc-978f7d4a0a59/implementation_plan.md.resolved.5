@@ -1,0 +1,30 @@
+# Updating Footer Content
+
+The user requested two changes:
+1.  Expand the "Related Sites" (관심사이트) list to 5 items (currently 3).
+2.  Remove the "Contact Info" section (Address, Phone, Website, Email) entirely.
+
+The user also noted that the footer reverted to its original appearance, likely due to previous data versioning/caching issues. Bumping the version to 9 should resolve this.
+
+## User Review Required
+> [!NOTE]
+> I will be **removing** the Address, Phone, Website, and Email display from the footer as requested. The footer will now consist of: Church Info, Worship Times, and Related Sites.
+
+## Proposed Changes
+
+### Data Layer
+#### [MODIFY] [churchData.js](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/data/churchData.js)
+- Increment `version` to 9.
+- Update `relatedSites` array to include 2 more sample items (Total 5).
+
+### Component Layer
+#### [MODIFY] [Footer.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/layout/Footer.jsx)
+- Remove the "Contact Info" section and its divider.
+- Ensure the layout remains balanced with the remaining columns.
+
+## Verification Plan
+
+### Manual Verification
+- Verify the footer shows 5 "Related Sites".
+- Verify the "Contact Info" section is gone.
+- Verify the footer content persists after reload (handled by v9 bump).

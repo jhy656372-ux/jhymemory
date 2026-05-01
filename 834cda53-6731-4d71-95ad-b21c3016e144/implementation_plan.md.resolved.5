@@ -1,0 +1,26 @@
+# Fix Implementation Plan
+
+## Goal
+Enforce 12-photo limit in Admin and ensure footer separators are visible.
+
+## Proposed Changes
+
+### Admin
+#### [MODIFY] [AdminPage.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/pages/AdminPage.jsx)
+- **Validation**: adding a check `if (value.length >= 12)` to prevent adding new items in the Gallery photo array.
+- **UI**: Show a message "최대 12장까지 등록 가능합니다" when limit is reached.
+
+### Layout
+#### [MODIFY] [Footer.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/layout/Footer.jsx)
+- **Container**: Change `items-center` to `md:items-stretch` to allow vertical dividers to expand.
+- **Content**: Ensure child divs (`flex-col`) are centered if needed, or accept top alignment (usually fine).
+- **Divider**: Ensure `h-auto` is set and color is visible (`bg-white/40`).
+
+### Data
+#### [MODIFY] [churchData.js](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/data/churchData.js)
+- Increment version to 14.
+- Trim gallery photos to 12.
+
+## Verification
+- **Admin**: Try to add 13th photo -> Should fail/button disabled.
+- **Footer**: Visual check of divider height and color.

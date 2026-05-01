@@ -1,0 +1,8 @@
+# 전 페이지 디자인 통일 및 메뉴 조정 (v23)
+
+- [ ] [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) 수정 (모든 페이지에 동일한 그라데이션 배경 적용) [/]
+- [ ] [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx) 수정 (아이콘 위치를 위로 약간 조정)
+- [ ] 개별 페이지(말씀, 찬양, 기도, 메모) 배경색 점검 및 정리
+- [ ] 웹 에셋 빌드 및 Capacitor 동기화
+- [ ] Android APK 재빌드 (`v23`)
+- [ ] 최종 결과 확인 (배경 통일 및 하단 여백 확인)

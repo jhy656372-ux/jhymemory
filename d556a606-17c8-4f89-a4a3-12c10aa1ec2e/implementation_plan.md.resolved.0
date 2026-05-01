@@ -1,0 +1,20 @@
+# 앱 아이콘 변경 및 APK 빌드 계획
+
+앱 아이콘을 'Word of God' (라지 텍스트) 버전으로 변경하고, 이를 반영한 새로운 안드로이드 APK를 빌드합니다.
+
+## 제안된 변경 사항
+
+### [아이콘 업데이트]
+1. `node scripts/modify_icon.js` 실행: [resources/icon.png](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/resources/icon.png) 파일을 'Word of God' 3줄 텍스트가 포함된 이미지로 업데이트합니다.
+2. `npx @capacitor/assets generate --android` 실행: 업데이트된 [resources/icon.png](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/resources/icon.png)를 기반으로 안드로이드용 모든 사이즈의 아이콘을 재생성합니다.
+
+### [앱 빌드 및 배포]
+1. `npm run build`: Vite를 사용하여 웹 최적화 빌드를 수행합니다.
+2. `npx cap sync android`: 빌드된 웹 자산을 안드로이드 프로젝트에 동기화합니다.
+3. 안드로이드 APK 빌드: `cd android && ./gradlew assembleDebug` 명령을 통해 새로운 APK를 생성합니다. (버전 관리가 필요한 경우 확인 후 진행)
+
+## 검증 계획
+
+### 수동 검증
+- 빌드된 APK를 확인하고, 아이콘이 의도한 대로 'Word of God' 3줄 텍스트로 크게 표시되는지 확인합니다.
+- 안드로이드 에뮬레이터 또는 기기에서 앱이 정상적으로 실행되는지 확인합니다.

@@ -1,0 +1,22 @@
+
+# Tasks
+
+- [x] Analyze existing data files
+    - [x] Check content of [public/data/ko_hr2.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_hr2.json) <!-- id: 0 -->
+    - [x] Inspect structure of [public/data/kchHRV1.bdf](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/kchHRV1.bdf) <!-- id: 1 -->
+- [x] Implement/Run Conversion Script
+    - [x] Create [scripts/inspect_hrv.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/inspect_hrv.cjs) and analyze structure <!-- id: 7 -->
+    - [x] Create [scripts/convert_hrv.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/convert_hrv.cjs) <!-- id: 2 -->
+    - [x] Fix mapping errors in [scripts/convert_hrv.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/convert_hrv.cjs) <!-- id: 9 -->
+    - [x] Generate [public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json) (from HRV source) <!-- id: 3 -->
+    - [x] Create/Run [scripts/convert_hrv_map.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/convert_hrv_map.cjs) with `hanja_map.json` <!-- id: 11 -->
+- [x] Integrate into Application
+    - [x] Update [src/services/BibleService.js](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js) to handle `NKRV` version <!-- id: 4 -->
+    - [x] Update UI components ([BiblePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx) etc) if needed <!-- id: 5 -->
+- [x] Verification
+    - [x] Verify `ko_nkrv.json` structure <!-- id: 8 -->
+    - [x] Verify content (Hanja conversion confirmed) <!-- id: 10 -->
+    - [x] Verify content with new mapping <!-- id: 12 -->
+    - [x] Verify new version works in app <!-- id: 6 -->
+    - [x] Diagnose build failure <!-- id: 13 -->
+    - [x] Run production build <!-- id: 14 -->

@@ -1,0 +1,7 @@
+# Task: 프로젝트 재개 및 빌드 오류 해결
+
+- [x] 푸터 빈 태그 (<br>) 노출 문제 해결 (재수정 완료)
+    - [x] HTML 정제 로직 강화 (&nbsp; 등 처리)
+    - [x] [Footer.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/layout/Footer.jsx) 최종 수정 및 빌드 확인
+- [x] 게시판 개수 재확인 (2개 노출 유지)
+- [x] 최종 빌드 및 전체 작동 확인

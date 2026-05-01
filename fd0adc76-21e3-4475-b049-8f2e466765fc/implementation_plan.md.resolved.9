@@ -1,0 +1,24 @@
+# Yellow Theme & Settings Refinement Plan
+
+## Goal Description
+Add a 'Yellow' theme option alongside Pastel, Dark, and Ocean. Ensure the notification time picker is functional and intuitive.
+
+## Proposed Changes
+
+### Theme System
+#### [MODIFY] [index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css)
+- Add `[data-theme='yellow']` block.
+    - Colors: Warm yellow/orange palette. Bright and cheerful.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx)
+- Update [changeTheme](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx#51-62) to handle 'yellow' case.
+
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx)
+- Update theme list array to include 'yellow'.
+- Ensure time picker input is responsive and feedback is clear.
+
+## Verification Plan
+
+### Manual Verification
+1.  Profile -> Click "Yellow". App should turn warm/cheerful.
+2.  Profile -> Change time. Toast should confirm update.

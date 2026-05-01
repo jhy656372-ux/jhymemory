@@ -1,0 +1,21 @@
+# Migration Plan: My Beloved Book
+
+## Goal Description
+Move the "My Beloved Book" project from the temporary location `테스트7/my-beloved-book` to the intended workspace `나의 사랑하는 책`. This will resolve the user's concern about working in the wrong directory and restore the project state.
+
+## Proposed Changes
+### Project Migration
+-   **Source**: `c:\Users\admin\.gemini\테스트7\my-beloved-book`
+-   **Destination**: `c:\Users\admin\.gemini\나의 사랑하는 책`
+-   **Action**: Copy all project files (`src`, `public`, config files, `package.json`) excluding `node_modules`.
+
+### Setup
+-   Run `npm install` in the new location to reinstall dependencies.
+
+## Verification Plan
+### Automated Tests
+-   None.
+
+### Manual Verification
+-   Run `npm run dev` in `c:\Users\admin\.gemini\나의 사랑하는 책`.
+-   Open the local URL (e.g., http://localhost:5173) to verify the app loads correctly.

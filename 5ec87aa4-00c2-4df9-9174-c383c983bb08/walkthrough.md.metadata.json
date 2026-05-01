@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Updated to include all recent fixes, specifically the timeout additions, CORS bypass via CapacitorHttp, and the extensive multi-language global ticker global mapping fallback.",
+  "updatedAt": "2026-02-26T23:59:13.143729700Z",
+  "version": "2"
+}

@@ -1,0 +1,29 @@
+# Cumulative Count Implementation Plan
+
+## Goal
+Implement a cumulative count for habits that persists even when the daily progress is reset.
+
+## Proposed Changes
+
+### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx)
+- **State Initialization:**
+  - When loading `habits` from local storage or defaults, ensure each habit has a `count` property.
+  - If `count` is missing, initialize it to `history.length`.
+- **[toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx#925-945) Function:**
+  - Logic update:
+    - If completing (adding `today`): Increment `count` (`count + 1`).
+    - If un-completing (removing `today`): Decrement `count` (`Math.max(0, count - 1)`).
+- **[resetDailyProgress](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx#969-981) Function:**
+  - No changes needed to `count`. It calculates based on `history` filter, so `count` remains untouched, effectively preserving the "done" status stats-wise.
+
+### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx)
+- **Cumulative Stat:** Update `totalHistoryCount` to sum `habit.count` instead of `habit.history.length`.
+- **Total Status List:** Update the list rendering to display `habit.count` instead of `habit.history.length`.
+
+## Verification Plan
+- **Manual Verification:**
+  - Check a habit -> Count increases.
+  - Reset Day -> Count stays same.
+  - Check same habit again -> Count increases (should be +1 from before reset).
+### [MODIFY] [app_logic.v4.js](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/app_logic.v4.js)
+- **Perfect Day Description:** Shortened text from "목표를 100% 달성한 날들이에요! (클릭하여 보기)" to "목표 100% 달성! (클릭)" to ensure it fits on a single line.

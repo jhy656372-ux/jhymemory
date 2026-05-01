@@ -1,0 +1,22 @@
+# Tasks
+
+- [ ] Project Setup & Configuration <!-- id: 0 -->
+    - [ ] Initialize Next.js App (App Router) <!-- id: 1 -->
+    - [ ] Install Tailwind CSS & Shadcn/ui <!-- id: 2 -->
+    - [ ] Configure Supabase Client <!-- id: 3 -->
+- [ ] Landing Page Implementation <!-- id: 4 -->
+    - [ ] Hero Section with Value Prop & CTA <!-- id: 5 -->
+    - [ ] Testimonial Section <!-- id: 6 -->
+- [ ] Intake Form (Smart Input) <!-- id: 7 -->
+    - [ ] multi-step form logic <!-- id: 8 -->
+    - [ ] File upload UI <!-- id: 9 -->
+- [ ] User Dashboard <!-- id: 10 -->
+    - [ ] Status Progress Bar <!-- id: 11 -->
+    - [ ] Result Viewer (Dummy/Real data) <!-- id: 12 -->
+- [ ] Admin Dashboard ("Wizard of Oz") <!-- id: 13 -->
+    - [ ] Task Queue (Kanban) <!-- id: 14 -->
+    - [ ] AI Assist Workspace Mockup <!-- id: 15 -->
+    - [ ] Manual Edit & Publish Interface <!-- id: 16 -->
+- [ ] Backend & Integration <!-- id: 17 -->
+    - [ ] Supabase Database Schema Setup <!-- id: 18 -->
+    - [ ] API Route: `submit-result` (Human-in-the-loop logic) <!-- id: 19 -->

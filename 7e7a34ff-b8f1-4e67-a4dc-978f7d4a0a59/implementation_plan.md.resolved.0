@@ -1,0 +1,32 @@
+# Adding Images to Service Page
+
+The user wants to display photos inside the service item boxes on the "Community Service" (지역 섬김) page. Currently, these boxes only display icons.
+
+## User Review Required
+> [!NOTE]
+> I will replace the existing icons with images. If you want to keep both or use a specific layout (e.g., image on top, image on left), please let me know. For now, I will implement a **vertical card layout** with the image at the top of each box, as this is a standard and attractive way to display rich content.
+
+## Proposed Changes
+
+### Data Layer
+#### [MODIFY] [churchData.js](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/data/churchData.js)
+- Add an `image` property to each item in `service.items`.
+- Use Unsplash placeholder images matching the context (food, children, cafe, beauty/haircut).
+
+### Component Layer
+#### [MODIFY] [ServicePage.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/pages/ServicePage.jsx)
+- Update the item rendering loop.
+- Remove the `iconMap` and icon rendering logic (or make it a fallback).
+- Change the card layout to display the `item.image` prominently (e.g., `w-full h-48 object-cover` at the top of the card).
+- Adjust styling for the text content to sit below the image.
+
+## Verification Plan
+
+### Automated Tests
+- None.
+
+### Manual Verification
+- Run the development server (`npm run dev`).
+- Navigate to `http://localhost:5173/service`.
+- Verify that each of the four service boxes now displays an image instead of an icon.
+- Check responsiveness on mobile and desktop.

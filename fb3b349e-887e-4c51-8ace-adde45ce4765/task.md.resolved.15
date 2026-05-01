@@ -1,0 +1,18 @@
+# 홈페이지 CMS 기능 구현
+
+- [x] `DataContext` 구현 및 [App.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/App.jsx) 연동
+    - [x] [DataContext.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx) 작성 (localStorage 연동 포함)
+    - [x] [App.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/App.jsx)에 [DataProvider](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#6-41) 적용
+- [x] 관리자 페이지 ([AdminPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#141-238)) 개발
+    - [x] [AdminPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#141-238) 컴포넌트 생성 (텍스트 편집, 이미지 업로드 UI)
+    - [x] [App.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/App.jsx)에 `/admin` 라우트 추가
+- [x] 컴포넌트 데이터 연동 Refactoring
+    - [x] 모든 주요 섹션 리팩토링 완료
+    - [x] [Footer](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/layout/Footer.jsx#5-81) 컴포넌트 데이터 연동 (하드코딩 제거)
+- [x] 관리자 페이지 개선 (`Fixing Admin Page Issues`)
+    - [x] `DataContext`에 전체 데이터 업데이트 기능([setAllData](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#30-34)) 추가
+    - [x] [AdminPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#141-238) 레이아웃 수정 (상단 여백 추가)
+    - [x] [AdminPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#141-238) 데이터 로딩 이슈 해결
+    - [x] 하단 저장 바 스타일 수정
+- [x] 관리자 접근 기능 추가
+    - [x] Footer에 숨겨진 관리자 페이지 링크 추가

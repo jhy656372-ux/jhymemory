@@ -1,0 +1,15 @@
+# Task List
+
+- [ ] Replace "+" icon with Church Logo in Header <!-- id: 0 -->
+    - [ ] Update [churchData.js](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/data/churchData.js) to include `logoImage` field
+    - [ ] Update Header component to render image instead of text/icon
+- [ ] Add "More" icons/links to Detail Pages <!-- id: 1 -->
+    - [ ] Update [churchData.js](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/data/churchData.js) to include `moreUrl` fields for relevant sections
+    - [ ] Update `SundaySchool` component
+    - [ ] Update `Parish` component
+    - [ ] Update `Service` component
+    - [ ] Update `Retreat` component
+    - [ ] Update `Gallery` component
+- [ ] Fix Admin Page Image Upload <!-- id: 2 -->
+    - [ ] Debug `AdminPage.jsx` image upload handler
+    - [ ] Verify `DataContext.jsx` update logic

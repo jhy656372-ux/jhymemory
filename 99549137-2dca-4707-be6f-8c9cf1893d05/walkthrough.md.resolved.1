@@ -1,0 +1,34 @@
+# Daily Habit Tracker Updates & APK Build
+
+## Changes Overview
+
+### 1. Dashboard Layout Refinement
+- **Character Position:** Adjusted the visual order to **Bubble (Top) -> Character (Middle) -> Title (Bottom)**? No, wait.
+  - Actually, the user requested: "Character between Bubble and Title".
+  - Final Layout: **Bubble -> Character -> Title** (with equal spacing).
+  - **Spacing:** Standardized the gap between these elements to **10px**.
+
+### 2. Stats Page Improvements
+- **Top Counters:**
+  - "Active Habits" (진행중인 습관) and "Today's Achievement" (오늘의 달성) are now displayed on **single lines** to reduce vertical height.
+  - "Active Habits" shows the **count of current habits** (e.g., 5).
+- **Perfect Day Box:**
+  - Reduced the font size of the description text to prevent wrapping on small mobile screens.
+- **Cumulative Counts:**
+  - The **"Total Status" (전체 현황)** list now displays the **cumulative total** of completions for each habit.
+  - This count **persists** even after using the "Daily Reset" feature.
+
+### 3. Logic Updates
+- **[App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx)**:
+  - Added a `count` property to each habit object.
+  - Updated [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#115-135) to increment/decrement this cumulative `count`.
+  - Updated [addHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#136-145) to initialize `count` to 0.
+  - [resetDailyProgress](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#159-171) now only clears today's checkmark, preserving the `count`.
+- **[Stats.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx)**:
+  - Updated to display `habit.count` in the "Total Status" list.
+
+### 4. APK Build
+- Successfully built the Android APK.
+- **Location:** [c:\Users\admin\.gemini\매일 습관\daily-habit-tracker-debug.apk](file:///Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker-debug.apk)
+- **Build Note:** Performed a **Clean Build** (`gradlew clean assembleDebug`) to ensure all changes were freshly compiled.
+  - Timestamp: `2026-02-19 20:03` (approx)

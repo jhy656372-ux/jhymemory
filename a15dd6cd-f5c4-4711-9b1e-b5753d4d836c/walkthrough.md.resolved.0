@@ -1,0 +1,20 @@
+# Data Cleaning Walkthrough
+
+## Summary
+Successfully cleaned the First Bible data ([public/data/ko_krv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_krv.json)) by removing all parenthesis symbols `(` and `)`, while preserving all text content and square brackets `[...]`.
+
+## Changes
+- **File**: [public/data/ko_krv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_krv.json)
+- **Action**: 
+    - Removed `(` (Open Parenthesis)
+    - Removed `)` (Close Parenthesis)
+    - (Safety) Ran Hanja removal regex (0 found)
+
+## Verification Results
+| Metric | Before | After | Change |
+| :--- | :--- | :--- | :--- |
+| **Hanja** | 0 | 0 | - |
+| **Parentheses [()](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_parens.cjs#6-46)** | 468 pairs | 0 | -468 pairs (Removed) |
+| **Brackets `[]`** | 1355 pairs | 1355 pairs | 0 (Preserved) |
+
+The file is now clean of parentheses "traces" while retaining all scripture text and section headers.

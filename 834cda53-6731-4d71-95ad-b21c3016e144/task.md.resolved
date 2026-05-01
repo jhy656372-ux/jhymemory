@@ -1,0 +1,17 @@
+# Final Polish
+
+- [x] Admin: Enforce 12-photo limit in Gallery management <!-- id: 17 -->
+- [x] Footer: Fix vertical separator visibility (layout fix) <!-- id: 18 -->
+- [x] Admin: Gallery - Remove External URL UI & Add Delete Button <!-- id: 25 -->
+- [x] Footer: Change separator to solid gray <!-- id: 26 -->
+- [x] Data: Increment version to 18 <!-- id: 27 -->
+- [x] Re-build <!-- id: 28 -->
+- [x] Data: Clear all default Gallery photos <!-- id: 29 -->
+- [x] Footer: Change separator to white with shadow <!-- id: 30 -->
+- [x] Data: Increment version to 19 <!-- id: 31 -->
+- [x] Final Re-build <!-- id: 32 -->
+- [x] Admin: Gallery - Change to 8 fixed slots <!-- id: 33 -->
+- [x] Footer: Remove vertical separators <!-- id: 34 -->
+- [x] Data: Increment version to 20 <!-- id: 35 -->
+- [x] Final Build (v2.0) <!-- id: 36 -->
+- [x] Fix empty gallery rendering bug & remove remaining footer separator (v2.1) <!-- id: 37 -->

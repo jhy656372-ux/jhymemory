@@ -1,0 +1,23 @@
+# Debugging Stitch MCP Server
+
+- [/] Investigate Stitch MCP Configuration <!-- id: 0 -->
+    - [x] Verify `npx` command execution manually <!-- id: 1 -->
+    - [x] Check for error output <!-- id: 2 -->
+    - [x] Check for error output <!-- id: 2 -->
+    - [/] Authenticate with Google Cloud <!-- id: 5 -->
+        - [x] Run `npx @_davideast/stitch-mcp init` <!-- id: 6 -->
+        - [x] Verify `gcloud` installation path <!-- id: 9 -->
+        - [x] Select 'OAuth' flow <!-- id: 7 -->
+        - [x] Enter Google verification code <!-- id: 10 -->
+        - [x] Authenticate ADC <!-- id: 11 -->
+        - [x] Retry with `gcloud auth login --update-adc` <!-- id: 13 -->
+        - [x] Select/Create Cloud Project <!-- id: 12 -->
+        - [x] Complete setup/installation (Failed with 403) <!-- id: 8 -->
+    - [x] Investigate 403 Error <!-- id: 14 -->
+        - [x] Enable `stitch.googleapis.com` API <!-- id: 15 -->
+        - [ ] Verify IAM permissions <!-- id: 16 -->
+    - [x] Verify Server Startup <!-- id: 17 -->
+        - [x] Run `npx @_davideast/stitch-mcp proxy` manually <!-- id: 18 -->
+    - [ ] Adjust [mcp_config.json](file:///c:/Users/admin/.gemini/antigravity/mcp_config.json) if needed <!-- id: 3 -->
+    - [x] Adjust [mcp_config.json](file:///c:/Users/admin/.gemini/antigravity/mcp_config.json) if needed <!-- id: 3 -->
+- [x] Validate Fix <!-- id: 4 -->

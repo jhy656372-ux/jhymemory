@@ -1,0 +1,38 @@
+# Daily Habit Tracker Update Walkthrough
+
+## New Features & Changes
+### 1. Notification Toggle Fix 🐛
+- **Issue**: "Turn On" button was showing "Failed: Notification permission denied".
+- **Fixes**:
+    - **Codebase**: Improved [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) to correctly request notification permissions and log specific denial reasons.
+    - **Build**: Resolved build failures by deep cleaning dependencies and ensuring consistent environment.
+- **Result**: "Turn On" should now correctly request permissions (if needed) and schedule the notification. If it fails, a detailed error toast will appear.
+
+### 2. Global Reset Implementation 🏆
+- **Functionality**: "Reset All Data" now performs a complete factory reset.
+- **Scope**:
+    - Clears **ALL** habit history.
+    - Resets theme to default (Pastel).
+    - **IMPORTANT**: Clears "Perfect Day" count (Stats page will reset to 0).
+    - Clears all local storage data.
+- **Verification**: Verified code implementation in [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) and [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx).
+
+## Build Status
+- **Android APK**: Built successfully (Timestamp: ~20:48).
+- **Path**: `android/app/build/outputs/apk/debug/app-debug.apk`
+
+## How to Test
+1. **Install APK**:
+   - Re-install `app-debug.apk` on your device/emulator.
+2. **Test Notifications**:
+   - Go to **Profile**.
+   - Click **"Turn On"**.
+   - Allow permissions if asked (Android 13+).
+   - Verify toast confirms "Daily reminder set".
+3. **Test Global Reset**:
+   - Compete some habits to increase "Perfect Day" count (Stats page > 0).
+   - Go to **Profile** -> **"Reset All Data"** -> Confirm.
+   - Verify:
+     - Dashboard habits are reset.
+     - Theme is Pastel.
+     - **Stats page "Perfect Days" is 0.**

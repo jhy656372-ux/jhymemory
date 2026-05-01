@@ -1,0 +1,20 @@
+# New Feature: Habit Alarm ⏰
+
+I have upgraded the daily notification to a high-priority **Alarm**.
+
+## Features
+
+### 1. High Priority Channel
+- **Name**: `habit-alarm`
+- **Behavior**: Plays sound, vibrates, and shows a heads-up notification even if the screen is on (Importance Level 5).
+- **Implementation**: Automatically created when you schedule a notification in [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js).
+
+### 2. Enhanced Notification
+- **Title**: "Habit Tracker ⏰"
+- **Message**: "Time to check your habits! Don't break the streak!"
+- **Vibration**: Enabled for better attention.
+
+## Verification
+1.  **Rebuild App**: Run `npx cap sync` and `npm run mobile:build`.
+2.  **Set Time**: Go to Profile > Notifications and set a time 1-2 minutes from now.
+3.  **Wait**: Turn off the screen and wait. You should hear a sound/vibration and see the notification pop up.

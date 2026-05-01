@@ -1,0 +1,45 @@
+# Refactoring Plan: Shared Utilities
+
+## Goal Description
+The goal is to improve code maintainability by reducing duplication. Specifically, we will extract the streak calculation logic (currently in [HabitDetail.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx) and needed in [Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx)) and theme definitions (duplicated in [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) and [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx)) into a shared utility file `src/utils.js`.
+
+## User Review Required
+No breaking changes. This is a refactoring task.
+
+## Proposed Changes
+
+### Shared Utilities
+#### [NEW] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- Create [calculateStreak(history)](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx#33-71) function.
+- Create `THEMES` constant object or array containing theme keys, names, and emojis.
+- Create `getThemeName(themeKey)` helper.
+
+### Components
+#### [MODIFY] [HabitDetail.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/HabitDetail.jsx)
+- Import [calculateStreak](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx#33-71) from `utils.js`.
+- Remove local [calculateStreak](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx#33-71) function.
+- Use the imported function.
+
+#### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Stats.jsx)
+- Import [calculateStreak](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx#33-71) from `utils.js`.
+- Implement streak calculation using the utility (currently commented out or simplified).
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.jsx)
+- Import `THEMES` (or theme helpers) from `utils.js`.
+- Use shared theme data for finding theme names in [changeTheme](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx#51-64).
+
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Profile.jsx)
+- Import `THEMES` from `utils.js`.
+- Use `THEMES` to map over themes for the selection UI, ensuring consistency in emojis and names.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Streak Verification**:
+    -   Go to [HabitDetail](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx#4-169) for a habit with history. Verify the streak count remains correct.
+    -   Add/remove checks and see if streak updates correctly.
+    -   Go to [Stats](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx#4-77) page (if implemented to show streaks) and verify the logic works there (or just verify no errors if it was just using the util).
+2.  **Theme Verification**:
+    -   Go to [Profile](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx#4-235) page.
+    -   Change themes and verify the Toast message shows the correct text/emoji.
+    -   Verify the theme selection buttons in [Profile](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx#4-235) still look correct with proper emojis.

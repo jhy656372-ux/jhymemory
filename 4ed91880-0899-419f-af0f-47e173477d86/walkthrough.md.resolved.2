@@ -1,0 +1,29 @@
+# Final UI Adjustments and APK Build (v11)
+
+## Changes
+
+### 1. Bible Page Navigation (Fixed)
+-   **Dropdown Visibility**: Removed `overflow-hidden` from the header container. This was the critical bug preventing the book/chapter list from appearing when clicked.
+-   **Data Consistency**: Verified [BibleService.js](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js) has unique abbreviations for James (`jas`), Jonah (`jon`), and John (`jhn`) to prevent rendering errors.
+
+### 2. Praise Page UI (Refined)
+-   **Search Button**: Reduced padding to `px-3 py-1.5` to visually shrink the button size as requested, while maintaining a stable icon size of `20px` to avoid build crashes.
+-   **Placeholder**: Confirmed simplified text: "찾고 싶은 찬양을 입력하세요".
+
+### 3. Prayer & Memo Pages (Confirmed)
+-   **Input Layout**: Confirmed the "Plus" button is visually integrated inside the input box container (`focus-within:ring-2` on parent div).
+
+### 4. Build & APK
+-   Resolved persistent build instability by cleaning cache and using stable icon props.
+-   Generated **MyBelovedBook_v11.apk**.
+
+## Verification Results
+
+### APK
+-   **File**: [MyBelovedBook_v11.apk](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/MyBelovedBook_v11.apk) (Located in project root)
+-   **Status**: Build Successful.
+
+### Manual Verification Required
+-   Install [MyBelovedBook_v11.apk](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/MyBelovedBook_v11.apk).
+-   **Bible Page**: Click the book name. The dropdown SHOULD now appear over the text (it was previously clipped).
+-   **Praise Page**: Check the search button size.

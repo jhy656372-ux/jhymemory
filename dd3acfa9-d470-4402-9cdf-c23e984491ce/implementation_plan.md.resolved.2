@@ -1,0 +1,24 @@
+# Stats Layout Compact Plan
+
+## Goal
+Fit the content of the "Statistics" page (Second Screen) within the initial viewport to minimize scrolling, similar to the dashboard optimization.
+
+## User Review Required
+> [!NOTE]
+> I will be reducing vertical spacing between the statistic cards and the font sizes of the headers.
+
+## Proposed Changes
+
+### CSS Styles (Inline & External)
+#### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Stats.jsx)
+- **Margins**: Reduce `marginTop` for the cards (20px -> 12px).
+- **Spacers**: Reduce the bottom navigation spacer (80px -> 60px).
+- **Structure**: Group the "Total" and "Perfect Days" stats side-by-side or in a more compact grid if possible, OR just reduce the whitespace significantly.
+
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.css)
+- **Stat Items**: Flatten the padding in `.stat-item`.
+- **Big Number**: Reduce font size of `.big-number` (64px -> 48px).
+- **Detail Card**: Reduce padding (24px -> 16px) and `min-height`.
+
+## Verification Plan
+1.  **Visual Check**: Open the Stats page (`http://localhost:5173/stats`) and check if all three sections (Counters, Perfect Days, Overview) are visible without scrolling.

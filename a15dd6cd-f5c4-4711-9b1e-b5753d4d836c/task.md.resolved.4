@@ -1,0 +1,19 @@
+- [ ] Fix Missing Verses in NKRV
+    - [ ] Verify missing Genesis 4:26 in [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json)
+    - [ ] Create `scripts/fix_nkrv_data.cjs` to regenerate [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json) from XML.
+  - [ ] Implement cleaning logic (remove `[]`, [()](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.jsx#9-35), Hanja).
+  - [ ] Implement patching logic (insert Gen 4:21).
+- [ ] Run script and verify Genesis 4:26 exists and is correct.
+- [ ] Inspect and fix [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx) for bottom docking.
+- [ ] Add padding to [App.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.jsx) or main container to prevent overlap.
+- [/] Verify changes in browser.
+- [ ] Build and Deploy (if requested).
+    - [ ] Verify all books/chapters have correct verse counts
+- [ ] Fix Bottom Bar UI
+    - [ ] Analyze [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) and [index.css](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/index.css) for bottom bar positioning
+    - [ ] Ensure bottom bar is fixed to the bottom of the viewport (handling safe areas)
+    - [ ] Verify on mobile view
+- [ ] Rebuild APK
+    - [ ] Build web assets
+    - [ ] Sync Capacitor
+    - [ ] Build APK

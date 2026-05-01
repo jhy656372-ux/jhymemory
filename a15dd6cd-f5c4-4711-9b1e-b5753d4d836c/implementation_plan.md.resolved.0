@@ -1,0 +1,38 @@
+# Cleaning NKRV Bible Data
+
+## Goal
+Clean the NKRV Bible data ([public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json)) by removing Hanja characters, section headers, and parentheses symbols.
+
+## User Review Required
+> [!IMPORTANT]
+> **Data Removal Strategy**: 
+> 1. **Square Brackets `[...]`**: We will remove the *entire content* including brackets, as these appear to be section headers (e.g., `[에덴 동산]`) containing metadata/titles not part of the verse text.
+> 2. **Parentheses [(...)](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs#6-26)**: We will remove *only the symbols* `(` and `)`, keeping the text inside. This preserves explanatory text that is part of the verse (e.g., [(마므레는 곧 헤브론이라)](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs#6-26) becomes `마므레는 곧 헤브론이라`).
+> 3. **Hanja**: We will remove all Unicode Hanja characters.
+
+## Proposed Changes
+
+### Scripts
+#### [NEW] [clean_nkrv_data.cjs](file:///c:/Users/admin/.gemini/나의 사랑하는 책/scripts/clean_nkrv_data.cjs)
+- Create a new script based on [clean_krv_hanja.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs).
+- Target [public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json).
+- Implement regex to remove:
+    - Hanja: `[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff]`
+    - Section Headers: `\[.*?\]` (global)
+    - Parentheses symbols: `[\(\)]` (global)
+    - HTML entities: `&#x27;`, `&quot;` (replace with `'` and `"`)
+- Save the cleaned content back to [public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json).
+
+## Verification Plan
+
+### Automated Verification
+1.  **Count Check**: Run a Node.js script to verify that [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json) has 0 Hanja characters, 0 `[` `]`, and 0 `(` `)`.
+    ```bash
+    node -e "const fs = require('fs'); const c = fs.readFileSync('public/data/ko_nkrv.json', 'utf8'); const h = c.match(/[\u4e00-\u9fff]/g); const p = c.match(/[\(\)\[\]]/g); console.log('Remaining Hanja:', h ? h.length : 0); console.log('Remaining Paren/Brackets:', p ? p.length : 0);"
+    ```
+2.  **Content Spot Check**: Manually inspect the file or use `grep` to ensure headers are gone and text inside [()](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/clean_krv_hanja.cjs#6-26) remains.
+    ```javascript
+    // Check specific known instance
+    // Original: "마므레는 곧 헤브론이라 (마므레는 곧 헤브론이라)"
+    // Expected: "마므레는 곧 헤브론이라 마므레는 곧 헤브론이라" (or similar)
+    ```

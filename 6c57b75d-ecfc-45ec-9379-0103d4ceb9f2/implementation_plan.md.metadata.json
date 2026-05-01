@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to add a Mascot Selection feature. Includes adding `mascot` state to `App.jsx`, creating a new `MascotSelector` component (or adding to Profile), and updating `Dashboard` and `HabitDetail` to display the selected mascot.",
+  "updatedAt": "2026-02-11T00:18:31.415298100Z",
+  "version": "1"
+}

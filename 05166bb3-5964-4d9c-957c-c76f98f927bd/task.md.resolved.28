@@ -1,0 +1,8 @@
+# 내비게이션 박스화 및 하단 배치 (v24)
+
+- [ ] [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx) 수정 (박스 디자인 적용 및 고정 해제) [/]
+- [ ] [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) 수정 (내비게이션을 콘텐츠 하단 유동 배치로 변경)
+- [ ] 모든 페이지에서 박스형 메뉴 확인
+- [ ] 웹 에셋 빌드 및 Capacitor 동기화
+- [ ] Android APK 재빌드 (`v24`)
+- [ ] 최종 결과 확인 (오늘도 승리하세요 문구 하단 배치 확인)

@@ -1,0 +1,12 @@
+
+# Tasks
+
+- [x] Analyze current habit tracking and statistics logic <!-- id: 0 -->
+- [x] Implement individual habit count updates (accumulate on toggle) <!-- id: 1 -->
+- [x] Verify statistics page reflects individual habit counts <!-- id: 2 -->
+- [x] Check src/main.jsx for correct imports <!-- id: 6 -->
+- [x] Modify src/main_minimal.jsx to import full App <!-- id: 7 -->
+- [x] Build using minimal config (workaround) - **Bypassed via manual dist patch** <!-- id: 8 -->
+- [x] Sync and rebuild Android APK - **Success (Manual Sync & Clean Build)** <!-- id: 3 -->
+- [x] Fix missing CSS in manual bundle <!-- id: 9 -->
+- [x] Enforce single line for 'In-progress habits' in stats <!-- id: 10 -->

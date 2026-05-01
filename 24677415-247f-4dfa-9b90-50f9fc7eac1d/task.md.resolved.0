@@ -1,0 +1,8 @@
+# NotebookLM MCP Server Creation
+
+- [x] Research NotebookLM API availability and existing MCP implementations <!-- id: 0 -->
+- [/] Create a detailed guide (`notebooklm_mcp_guide.md`) on how to build one <!-- id: 1 -->
+    - [ ] Explain the "Official vs Unofficial" API situation <!-- id: 2 -->
+    - [ ] Detail the architecture (MCP Server -> Wrapper -> NotebookLM) <!-- id: 3 -->
+    - [ ] Provide code examples (Python/Node.js) <!-- id: 4 -->
+- [ ] Present the guide to the user and ask for next steps (Scaffold vs DIY) <!-- id: 5 -->

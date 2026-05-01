@@ -1,0 +1,14 @@
+# Tasks
+
+- [x] Remove 8-photo limit in Admin Gallery <!-- id: 0 -->
+- [x] Fix mobile responsiveness issues <!-- id: 1 -->
+    - [x] Diagnose the "no response" issue on mobile <!-- id: 2 -->
+    - [x] Check media queries and viewport settings <!-- id: 3 -->
+    - [x] Verify touch events and interactions <!-- id: 4 -->
+- [x] Build project for deployment (Success) <!-- id: 5 -->
+- [x] Fix blank screen issue (Set relative paths) <!-- id: 6 -->
+- [x] Fix routing issue on hosting (Switch to HashRouter) <!-- id: 7 -->
+- [x] Remove conflicting server config (.htaccess) <!-- id: 8 -->
+- [x] Fix ReferenceError: motion is not defined <!-- id: 9 -->
+- [x] Fix "Popup blocked" issue on detail pages <!-- id: 10 -->
+- [x] Fix "Photos not visible" on mobile (Data Sync) <!-- id: 11 -->

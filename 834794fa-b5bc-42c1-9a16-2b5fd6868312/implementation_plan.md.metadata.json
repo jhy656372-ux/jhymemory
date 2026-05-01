@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Human-in-the-loop 방식의 컨시어지 MVP 플랫폼 구현 계획입니다. Next.js, Tailwind CSS, Shadcn/ui를 사용하여 랜딩 페이지, 입력 폼, 사용자 및 관리자 대시보드를 구축합니다.",
+  "updatedAt": "2026-02-02T07:05:53.850996600Z"
+}

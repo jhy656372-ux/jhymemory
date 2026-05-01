@@ -1,0 +1,40 @@
+# My Beloved Book (나의 사랑하는 책) - Walkthrough
+
+## Overview
+A beautiful, spiritually enriching web application designed for daily devotion.
+
+## Features
+
+### 1. 말씀 (Bible)
+- **Bilingual Support**: Read Parallel Scripture (Korean Revised Version & NIV).
+- **Audio**: Mock audio player UI for listening to the Word.
+- **Navigation**: Clean chapter and verse navigation.
+
+### 2. 찬양 (Praise)
+- **Search**: Find your favorite CCM songs or artists.
+- **Listen**: Embedded YouTube player for immediate worship.
+- **Visuals**: Soft, engaging card layout.
+
+### 3. 기도 (Prayer)
+- **Prayer Journal**: Record your prayer requests.
+- **Management**: Add new prayers and delete answered ones.
+- **Pagination**: Browse through your prayer history with ease.
+- **Persistence**: Your prayers are saved automatically to your browser.
+
+## How to Run
+
+1. Open a terminal in the project directory:
+   ```bash
+   cd "C:\Users\admin\.gemini\나의 사랑하는 책"
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open your browser to the URL shown (usually `http://localhost:5173`).
+
+## Tech Stack
+- **Framework**: React + Vite
+- **Styling**: Tailwind CSS (Custom Typography & Soft Color Palette)
+- **Icons**: Lucide React
+- **Animations**: Framer Motion (Ready for integration)

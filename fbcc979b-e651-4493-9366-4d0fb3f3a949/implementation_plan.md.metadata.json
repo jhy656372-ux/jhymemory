@@ -1,0 +1,7 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Proposed plans to add natural head and body movements to the lip-sync output. Outlines lightweight OpenCV motion vs heavyweight 3D SadTalker.",
+  "updatedAt":  "2026-04-03T02:27:34.094292300Z",
+  "version":  "1",
+  "requestFeedback":  true
+}

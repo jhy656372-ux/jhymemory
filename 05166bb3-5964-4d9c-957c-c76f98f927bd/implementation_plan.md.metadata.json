@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "내비게이션 메뉴를 세련된 박스 디자인으로 변경하고, 각 페이지의 콘텐츠 흐름 끝에 배치하는 계획입니다. 홈 화면의 문구 바로 아래에서 메뉴를 볼 수 있도록 구현합니다.",
+  "updatedAt": "2026-02-18T08:26:12.805500800Z",
+  "version": "6"
+}

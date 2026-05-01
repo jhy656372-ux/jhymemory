@@ -1,0 +1,6 @@
+# Task Checklist
+
+- [x] Create dynamic lyric templates (random pool)
+- [x] Add random index selection logic in JS
+- [ ] Fix JavaScript syntax error caused by `replace_file_content`
+- [ ] Verify dashboard runs correctly

@@ -1,0 +1,59 @@
+# Implementation Plan - My Beloved Book
+
+## Goal Description
+The goal is to finalize the "My Beloved Book" application by ensuring Bible data is correctly integrated, implementing the Praise and Prayer pages, and generating a working Android APK.
+
+## User Review Required
+- **Bible Data**: Confirming the import paths for Bible data JSON files.
+- **Praise/Prayer Persistence**: Current implementation will use `localStorage` for Prayer requests to keep it simple and client-side for now, as no backend was explicitly specified for this session.
+
+## Proposed Changes
+
+### Bible Data Integration
+#### [MODIFY] [BibleService.js](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/services/BibleService.js)
+- Fix import paths from `./data/...` to `../data/...` to correctly point to `src/data`.
+- Ensure `getChapter` and `getMaxChapters` methods handle data bounds correctly.
+
+### Praise Feature
+#### [NEW] [PraisePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PraisePage.jsx)
+- Implement a list of praise songs (Youtube links or embedded placeholders).
+- Add a simple player or link to external resources.
+
+### Prayer Feature
+#### [NEW] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PrayerPage.jsx)
+- Implement a "Prayer Request" input form.
+- Display a list of saved prayer requests.
+- Use `localStorage` to persist data between sessions on the device.
+
+### Mobile Build
+#### [MODIFY] [capacitor.config.json](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/capacitor.config.json)
+- Verify `appId`, `appName`, and `webDir` settings.
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run build` to ensure no build errors.
+  - [Status] Build failing. Tried:
+    - Increasing memory.
+    - Removing large JSON files.
+    - Simplifying `App.jsx`.
+    - Clean install.
+    - Test project (PASSED).
+    - Fixing package name and removing eslint config.
+
+### Manual Verification
+1.  **Bible Page**:
+    - Navigate to Bible page.
+    - Select a book (e.g., Genesis) and chapter.
+    - Verify text loads correctly from the local JSON.
+2.  **Praise Page**:
+    - Navigate to Praise page.
+    - Verify list of songs appears.
+3.  **Prayer Page**:
+    - Add a new prayer request.
+    - Refresh the app.
+    - Verify the request persists.
+4.  **Android Build**:
+    - Run `npx cap sync`.
+    - Build APK.
+    - (If possible) Emulate or verify zero build errors in terminal.

@@ -1,0 +1,26 @@
+# Settings & Buttons Styling Plan
+
+## Goal Description
+The user wants the "Settings" card content centered and the buttons (specifically the "Reset" button and likely the "Badges" acting as UI elements) to appear 3D.
+
+## Proposed Changes
+
+### CSS Configuration
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css)
+- Add/Update `.setting-item`:
+    - `display: flex`, `justify-content: space-between` (or `center` with gap depending on look, but usually settings are label-value pairs).
+    - If user wants "centered", might mean the whole block centered. I will verify if `justify-content: space-between` with a max-width looks better, or just `justify-content: center` with a gap. I'll try `center` with gap to match previous "centering" requests.
+    - Add padding/border-bottom maybe?
+- Update `.delete-btn` (Reset Button):
+    - Add `box-shadow` for 3D effect (e.g., solid shadow below).
+    - Add `transform: translateY` on active/hover to simulate pressing.
+    - Make it look chunkier (bold font, border-radius).
+- Update `.badge` (if applicable):
+    - Give it a "pill" look with slight 3D shadow.
+
+## Verification Plan
+
+### Manual Verification
+1.  Navigate to `/profile`.
+2.  Check that "Settings" items are centered.
+3.  Check that the "Reset All Data" button looks 3D and has a press effect.

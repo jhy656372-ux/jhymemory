@@ -1,0 +1,23 @@
+# Perfect Days Card Styling Plan
+
+## Goal Description
+The user wants the "Perfect Days" card content (title, number, subtitle) to be centered. additionally, the "result value" (the big number) should look "three-dimensional" or "pop out".
+
+## Proposed Changes
+
+### CSS Configuration
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css)
+- Update `.stat-highlight`:
+    - Ensure `text-align: center`.
+    - `display: flex`, `flex-direction: column`, `align-items: center`.
+- Update `.big-number`:
+    - Increase font size slightly if needed.
+    - Add `text-shadow` to create a 3D effect (e.g., layers of shadow).
+    - Add `transform` or `color` gradient to enhance the effect.
+
+## Verification Plan
+
+### Manual Verification
+1.  Navigate to `/stats`.
+2.  Check that the "Perfect Days" card content is perfectly centered.
+3.  Verify that the number has a distinct 3D/pop-out appearance.

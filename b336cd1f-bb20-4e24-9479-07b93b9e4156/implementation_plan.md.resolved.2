@@ -1,0 +1,32 @@
+# UI 세부 조정 및 가독성 최적화 계획
+
+사용자의 요청에 따라 홈페이지의 시각적 균형과 가독성을 높이기 위한 세부 수정을 진행합니다.
+
+## 주요 변경 사항
+
+### 1. 게시판 섹션 제목 중앙 정렬 ([Board.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Board.jsx))
+- 제목과 "전체보기" 링크가 포함된 헤더 영역을 중앙 정렬로 변경합니다.
+- "전체보기" 링크는 제목 아래 또는 적절한 위치에 배치하여 대칭을 맞춥니다.
+
+### 2. 교회 소개 레이아웃 최적화 ([Intro.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Intro.jsx))
+- **텍스트 영역 높이 제한**: 사진의 고정 높이(`400px`) 내에서 텍스트가 모두 보이도록 설정합니다.
+- **스크롤 적용**: 내용이 사진 높이를 초과할 경우 텍스트 영역 내부에서 스크롤이 가능하도록 하여 전체 레이아웃의 균형을 유지합니다.
+
+### 3. 섹션 설명문 두 줄 제한 (`line-clamp-2`)
+- 다음 섹션들의 메인 설명문에 `line-clamp-2` 클래스를 적용하여 시각적 일관성을 확보합니다.
+  - [SundaySchool.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/SundaySchool.jsx)
+  - [Parish.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx)
+  - [Service.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Service.jsx)
+  - [Retreat.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Retreat.jsx) (이미 중앙 정렬 상태임)
+  - [Gallery.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Gallery.jsx)
+
+## 검증 계획
+
+### 수동 검증
+1. **게시판 제목**: 홈페이지 하단 게시판 제목이 화면 중앙에 위치하는지 확인합니다.
+2. **교회 소개**: 긴 텍스트가 있을 때 사진 높이를 넘어가지 않고 내부 스크롤이 생기는지 확인합니다.
+3. **설명문 길이**: 각 섹션의 설명이 최대 두 줄까지만 표시되고 나머지는 생략되는지 점검합니다.
+
+---
+> [!NOTE]
+> `line-clamp-2` 적용 시 텍스트가 잘릴 수 있으나, 이는 전체적인 디자인 통일성을 위한 조치입니다. 상세 내용은 각 페이지 이동을 통해 확인할 수 있습니다.

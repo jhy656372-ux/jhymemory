@@ -1,0 +1,32 @@
+# 전 세계 종목 대응 및 통화 자동 변환 시스템 구현
+
+관심 종목 어느 것이든 분석 가능하도록 종목 커버리지를 확대하고, 미국 주식 검색 시 달러($) 및 글로벌 단위(B, T)가 자동으로 적용되도록 시스템을 고도화합니다.
+
+## 제안된 변경 사항
+
+### [Global Data Coverage]
+- **핵심 종목 추가**: AAPL(애플), TSLA(테슬라)의 2026년 2월 실제 재무 지표 및 뉴스 데이터 반영.
+- **통화 메타데이터 시스템**: 모든 종목에 `currency` 객체(sign, unit, largeUnit, hugeUnit)를 부여하여 UI에서 자동 대응.
+- **지능형 뉴스 검색**: 검색한 모든 종목에 대해 실시간 뉴스 검색(Google Search 기반) 링크 자동 생성.
+
+#### [MODIFY] [StockService.js](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/services/StockService.js)
+- 연구된 실제 데이터 기반으로 AAPL, TSLA 추가.
+- [getQuote](file:///c:/Users/admin/.gemini/%EA%B4%80%EC%8B%AC%EC%A2%85%EB%AA%A9%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/src/services/StockService.js#109-149)에서 통화별(USD, KRW) 단위 및 기호 할당 로직 구현.
+- 일반 종목에 대해서도 더욱 정교한 시드 기반 데이터 시뮬레이션 적용.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/App.jsx)
+- 대시보드 전반(헤더, 차트, 재무정보, AI 조언)에서 하드코딩된 '원' 제거.
+- `stockData.currency` 정보를 사용하여 동적 라벨링 적용.
+
+#### [MODIFY] [FinancialTable.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/FinancialTable.jsx)
+- 테이블 헤더와 값 표시 시 동적 단위(조 vs B/T) 연동.
+
+#### [MODIFY] [DetailModal.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/DetailModal.jsx)
+- 모달 내 요약 배너, 분기 실적 차트 단위, 지표 그리드에서 통화 일치화.
+
+## 검증 계획
+
+### 자동/수동 검증
+1. **화면 캡처**: AAPL 또는 TSLA 검색 후 가격 기호($) 및 단위(B, T)가 정상 출력되는지 확인.
+2. **뉴스 링크**: 뉴스 클릭 시 해당 종목의 최신 구글 검색 결과로 연결되는지 확인.
+3. **AI 조언**: 투자 조언 텍스트 내에서도 원화 기호 대신 달러 기호가 사용되는지 확인.

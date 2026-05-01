@@ -1,0 +1,14 @@
+
+# Tasks
+
+- [ ] Analyze existing data files
+    - [ ] Check content of [public/data/ko_hr2.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_hr2.json) <!-- id: 0 -->
+    - [ ] Inspect structure of [public/data/kchNKRV1.bdf](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/kchNKRV1.bdf) <!-- id: 1 -->
+- [ ] Implement/Run Conversion Script (if needed)
+    - [ ] Create `scripts/convert_nkrv.js` <!-- id: 2 -->
+    - [ ] Generate proper `public/data/ko_nkrv.json` <!-- id: 3 -->
+- [ ] Integrate into Application
+    - [ ] Update [src/services/BibleService.js](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js) to load the new version <!-- id: 4 -->
+    - [ ] Update [src/pages/BiblePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx) or relevant UI to allow selecting this version <!-- id: 5 -->
+- [ ] Verification
+    - [ ] Verify the text is displayed correctly <!-- id: 6 -->

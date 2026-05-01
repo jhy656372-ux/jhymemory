@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "성경 가이드 UI 세부 조정 및 데이터 정리 계획:\n1. `bible_guide.json`에서 '참고문헌/부록' 섹션 제거.\n2. `BiblePage.jsx`에서 가이드 본문 하단의 '읽어주셔서 감사합니다' 텍스트 및 '목차로 돌아가기' 버튼 삭제.\n3. 상단 제어바의 물음표 아이콘을 '가이드' 텍스트 버튼으로 변경하여 직관성 확보.",
+  "updatedAt": "2026-02-21T10:54:47.225256600Z",
+  "version": "2"
+}

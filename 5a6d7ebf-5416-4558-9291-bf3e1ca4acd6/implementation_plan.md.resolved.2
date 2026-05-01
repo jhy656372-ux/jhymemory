@@ -1,0 +1,32 @@
+# Parish Layout Refinement Plan
+
+## Goal
+Update the Parish section layout to include an image for the "Parish & Cells" group and arrange the 5 groups in a balanced 2-row layout (3 items on top, 2 items on bottom).
+
+## Proposed Changes
+
+### [churchData.js]
+- **Update Groups**:
+    - Add `image` property to the 3rd group ("Parish & Cells").
+    - Increment `version` to force data update.
+
+### [Parish.jsx] & [ParishPage.jsx]
+- **Grid Strategy**: Use a 6-column grid for desktop (`lg:grid-cols-6`).
+- **Item Sizing**:
+    - First 3 items (Men, Women, Parish): `lg:col-span-2` (3 items * 2 cols = 6 cols = 1 row).
+    - Last 2 items (New Family, Training): `lg:col-span-3` (2 items * 3 cols = 6 cols = 1 row).
+- **Responsive Behavior**:
+    - Mobile: `grid-cols-1`
+    - Tablet: `grid-cols-2` (might need specific span adjustments or just let them flow).
+        - For `md:grid-cols-2`:
+            - Items 1,2 -> Row 1
+            - Items 3,4 -> Row 2
+            - Item 5 -> Row 3 (centered or full width?)
+        - Let's stick to `md:grid-cols-2` default flow, maybe make last item `md:col-span-2` if odd number?
+        - Simplified: `md:grid-cols-2` is fine, 5th item will just be on its own line.
+        - But for `lg`, definitely enforce the 3/2 split.
+
+## Verification Plan
+1.  Verify "Parish & Cells" box has an image.
+2.  Verify the layout shows 3 boxes in the first row and 2 boxes in the second row on large screens.
+3.  Verify the bottom 2 boxes are wider (span 3 cols) compared to the top 3 boxes (span 2 cols).

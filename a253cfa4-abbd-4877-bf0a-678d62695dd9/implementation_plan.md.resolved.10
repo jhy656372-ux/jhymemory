@@ -1,0 +1,102 @@
+# Implementation Plan - Bible Text Cleanup & Verification
+
+## Goal Description
+The user wants to remove `&#x27;` and `!` characters from the Bible text.
+The user also requested a Memo feature, which appears to be already implemented in the codebase. I will verify its functionality and ensure it meets all requirements (persistence, pagination, UI).
+
+## Proposed Changes
+
+### Bible Text Cleanup
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/BiblePage.jsx)
+- Update the text replacement logic to remove `!` and `&#x27;`.
+```javascript
+// Change regex from /&#x27;/g to /(&#x27;|!)/g or chain replaces
+```
+
+### Memo Feature
+- **Verification Only**: The [MemoPage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/MemoPage.jsx) and [HomePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/HomePage.jsx) already contain the requested code. I will verify that the "Memo" button exists under "Prayer" and the page functions as requested (5 items/page, local storage).
+
+## Verification Plan
+### Automated/Manual Verification
+- **Bible Page**: Check text content to ensure `!` and `&#x27;` are removed.
+- **Memo Page**: Verify adding > 5 items triggers pagination, and toggles work.
+
+### Memo Page Refinement
+#### [MODIFY] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/MemoPage.jsx)
+- **Title**: Change "기도 메모" to "메모".
+- **Placeholder**: Change to "새로운 메모를 입력하세요".
+- **Functionality**: Remove `toggleMemo`, `completed` state, and checkbox UI.
+- **Style**: Change background to `bg-purple-50` and accent colors to purple to match Home Page.
+
+### Build
+- Run build commands to generate APK.
+
+### UI/UX Improvements
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/BiblePage.jsx)
+- Change background to `bg-blue-50` to match the "Word" icon theme.
+- Ensure borders/accents use `blue-100` or `blue-200`.
+
+#### [MODIFY] [Navigation.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/components/Navigation.jsx)
+- Import `FileText` icon.
+
+### Praise Page Update (Round 9)
+#### [MODIFY] [PraisePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PraisePage.jsx)
+- **Data Structure**:
+    - `featuredSongs`: The 3 fixed videos.
+    - `allSongs`: A larger list including the featured ones + extra curated songs.
+- **State**:
+    - `searchTerm`: For input.
+    - `selectedVideo`: For the main player (initially null).
+    - `showResults`: Boolean to toggle dropdown.
+- **Layout**:
+    - **Search Bar**: Sticky or top.
+    - **Search Dropdown**: Absolute positioned list below input.
+    - **Main Player**: Shows `selectedVideo` if exists.
+    - **Featured Section**: "추천 찬양" (Recommended) header, grid of 3 fixed videos.
+    - **Titles**:
+        1. "손경민 작곡 찬양모음 29곡" (Target ID match)
+        2. "CCM 피아노 연주 모음집 베스트 50곡" (Target ID match)
+        3. "피아워십 대표찬양 20" (Target ID match)
+    - **Search Database**: Add 5-10 more popular, safe CCM videos (e.g., Welove, Markers, J-US).
+
+### UI Refinement Round 2
+#### [MODIFY] [Navigation.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/components/Navigation.jsx)
+- Update `grid-cols-4` to `grid-cols-5` to fit all icons in one row.
+
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PrayerPage.jsx)
+- **Input Box**: Reduce `h-32` to `h-24` (or similar).
+- **Button**: Center align (`justify-center`), make horizontal oval (`w-full` max-width or `px-8`), remove circle aspect.
+- **Font Size**: Change prayer text from `text-lg` to `text-[15px]` (matching Bible).
+
+### UI Refinement Round 3
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/BiblePage.jsx)
+- **Container**: Add `p-4` to main container to show `bg-blue-50`.
+
+#### [MODIFY] [PraisePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PraisePage.jsx)
+- **Container**: Wrap content in `div.flex.flex-col.h-full.bg-pink-50.p-4.gap-4` (Pink theme).
+
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PrayerPage.jsx)
+- **Container**: Wrap content in `div.flex.flex-col.h-full.bg-orange-50.p-4.gap-4` (Orange theme).
+- **Button Alignment**: Ensure `justify-center` is set for button container.
+- **Title Alignment**: Add `text-center` to `h2`.
+
+### UI Refinement Round 4
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PrayerPage.jsx)
+- Replace all `orange` classes with `yellow` classes.
+- `bg-orange-50` -> `bg-yellow-50`
+- `text-orange-900` -> `text-yellow-900`
+- `border-orange-100` -> `border-yellow-100`
+- `bg-orange-500` -> `bg-yellow-500`
+- `text-orange-300` -> `text-yellow-400`
+- Button: `p-3 bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 transition-colors`.
+
+### UI Refinement Round 6
+#### [MODIFY] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/MemoPage.jsx)
+- **Render**: Add date display.
+- Format: `new Date(memo.createdAt).toLocaleDateString()` or similar.
+- Style: Small text, light color (e.g., `text-stone-400 text-xs`).
+
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PrayerPage.jsx)
+- **Render**: Add date display.
+- Format: `prayer.date` is already YYYY-MM-DD.
+- Style: Small text, light color (e.g., `text-stone-400 text-xs`).

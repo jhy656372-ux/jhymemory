@@ -1,0 +1,47 @@
+# AI 립싱크 생성기 개선 구현 계획 (AI Lip Sync Generator Implementation Plan)
+
+현재 영상의 입모양(립싱크)이 부자연스러운 이유는 [main.py](file:///c:/Users/admin/.gemini/AI%20%EB%A6%BD%EC%8B%B1%ED%81%AC%20%EC%83%9D%EC%84%B1%EA%B8%B0/backend/main.py)에서 **단순 이미지 변형(MediaPipe & OpenCV)** 기술을 사용하고 있기 때문입니다. 진정한 AI 립싱크(한국 AI 가수급품질)를 위해서는 *딥러닝 기반의 립싱크 모델(Wav2Lip, SadTalker 등)*을 사용해야 합니다. 
+
+이전에 시도하셨던 Hugging Face의 공개 API (Wav2Lip, SadTalker)들은 현재 서버가 닫혀있거나(401 Unauthorized, Build Error) 무료 접근이 막혀 있어 안정적인 구동이 불가능한 상태를 확인했습니다.
+
+따라서 다음과 같은 두 가지 방법 중 하나를 선택하여 진행하는 것을 제안합니다.
+
+## User Review Required
+
+> [!IMPORTANT]
+> 어떤 방식으로 AI 립싱크 모델을 연동할지 사용자의 선택이 필요합니다.
+
+**옵션 A: 외부 검증된 API 사용 (권장 - 빠르고 고품질)**
+- **Replicate API 등**의 상용 AI API를 사용하여 SadTalker / Wav2Lip을 구동합니다.
+- 장점: 컴퓨터 사양에 무관하게 즉시 엄청난 품질의 영상을 빠르게 생성합니다. (가수 수준의 자연스러움)
+- 단점: 무료 크레딧 이후에는 사용자의 `REPLICATE_API_TOKEN` (결제 토큰)이 필요합니다.
+
+**옵션 B: 로컬 컴퓨터에 자체 AI 모델 설치 (무료, 그러나 무거움)**
+- `Wav2Lip` 오픈소스 모델을 사용자의 컴퓨터(로컬)에 직접 다운로드하고 세팅합니다.
+- 장점: 완전히 무료이며 무제한 사용 가능합니다.
+- 단점: 그래픽카드(GPU)가 좋지 않으면 영상 1개 생성에 오랜 시간이 걸릴 수 있고, 초기 설치 용량 및 복잡도가 큽니다.
+
+---
+
+## Proposed Changes
+
+어떤 옵션을 선택하든, 다음의 코드를 수정하여 시스템을 완성할 계획입니다.
+
+### 백엔드 (API 서버)
+#### [MODIFY] main.py (file:///c:/Users/admin/.gemini/AI 립싱크 생성기/backend/main.py)
+- 현재 사용 중인 OpenCV 기반의 부자연스러운 [generate_local_lip_sync](file:///c:/Users/admin/.gemini/AI%20%EB%A6%BD%EC%8B%B1%ED%81%AC%20%EC%83%9D%EC%84%B1%EA%B8%B0/backend/main.py#29-190) 함수를 제거합니다.
+- 선택하신 옵션(A 또는 B)에 기반하여 새로운 `generate_ai_lip_sync` 함수를 구현합니다.
+- 음악과 이미지가 업로드되면 즉시 AI 모델을 호출하여 비디오를 리턴하도록 프로세스를 단순화합니다.
+
+### 프론트엔드 (UI)
+#### [MODIFY] index.html (file:///c:/Users/admin/.gemini/AI 립싱크 생성기/frontend/index.html)
+- 사용자가 "이미지"와 "노래 파일"만 넣으면 한국 AI 가수가 노래를 부르는 것처럼 립싱크된 결과가 나오도록 직관적인 한국어 UI로 안내 문구를 개선합니다.
+
+---
+
+## Verification Plan
+
+### Manual Verification
+1. 프론트엔드(`index.html`)에 접속합니다.
+2. 사람 얼굴이 있는 정면 이미지와 짧은 음악(음성) 파일을 업로드합니다.
+3. [생성하기] 버튼을 누른 후, AI 가수가 입모양을 음악에 맞춰 자연스럽게 부르는지(단순 턱이 상하로 움직이는 게 아닌 입술이 변형되는지) 결과물 영상을 직접 확인합니다.

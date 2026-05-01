@@ -1,0 +1,91 @@
+# Tasks
+
+- [x] Analyze the "first page" component (likely Dashboard or Login/Landing) <!-- id: 0 -->
+- [x] Adjust the layout to position the character between the speech bubble and the title <!-- id: 1 -->
+- [x] Apply CSS changes for equal spacing (Flexbox gaps) <!-- id: 3 -->
+- [x] Start Localhost server for verification <!-- id: 4 -->
+- [x] Verify the layout changes <!-- id: 2 -->
+- [x] **Stats Page Refinement** <!-- id: 5 -->
+    - [x] **Layout:** Compact "Active Habits" & "Today's Achievement" to single-line (row layout). <!-- id: 6 -->
+    - [x] **Styles:** Reduce "Perfect Day" description size to fit on one line. <!-- id: 7 -->
+    - [x] **Logic:** Change first stat box to show "Cumulative Completions" instead of "Active Habits count". <!-- id: 8 -->
+- [x] **Cumulative Count Logic** <!-- id: 9 -->
+    - [x] **App.jsx:** Add `count` property to habit objects. Update [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx#925-945) to manage `count`. Ensure [resetDailyProgress](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#969-981) preserves `count`. <!-- id: 10 -->
+    - [x] **Stats.jsx:** Update display to use `habit.count` instead of `habit.history.length`. <!-- id: 11 -->
+- [x] **Revert Stats Top Box** <!-- id: 12 -->
+    - [x] Change "Cumulative Completions" back to "Active Habits" count. <!-- id: 13 -->
+- [x] **Build APK (Clean)** <!-- id: 14 -->
+    - [x] Force Clean Build (`gradlew clean assembleDebug`) <!-- id: 17 -->
+- [x] **Debug APK Content** <!-- id: 19 -->
+    - [x] Verify `dist` contains "진행중인 습관" (FAILED) <!-- id: 20 -->
+    - [x] Verify Android assets contain "진행중인 습관" (FAILED) <!-- id: 21 -->
+    - [x] Run `vite build --debug` (Failed silently) <!-- id: 22 -->
+    - [x] Uninstall `parcel` to fix potential conflict <!-- id: 23 -->
+    - [x] Run build with `NODE_OPTIONS="--max-old-space-size=4096"` (Failed) <!-- id: 24 -->
+    - [x] Isolating culprit: [Stats.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx) identified as likely cause <!-- id: 26 -->
+    - [x] Refactor [Stats.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx) (Failed) <!-- id: 27 -->
+    - [x] Rename [Stats.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx) to [Statistics.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Statistics.jsx) (Failed) <!-- id: 33 -->
+    - [x] Clone [Dashboard](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Dashboard.jsx#4-124) to [Statistics](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx#478-549) (Failed) <!-- id: 34 -->
+    - [x] Uninstall `react-router-dom` <!-- id: 35 -->
+    - [x] Inline [Statistics](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx#478-549) into [App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx) <!-- id: 36 -->
+    - [x] Fix syntax error in [App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx) <!-- id: 37 -->
+    - [x] Minimal [Statistics](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx#478-549) content test <!-- id: 38 -->
+    - [x] Inline `MyStats` into renderView (Failed) <!-- id: 39 -->
+    - [x] Try `minify: true` (Failed) <!-- id: 40 -->
+    - [x] Read other components <!-- id: 41 -->
+    - [x] MERGE ALL COMPONENTS INTO APP.JSX (Failed) <!-- id: 42 -->
+    - [x] Minimal build test (Failed) <!-- id: 43 -->
+    - [x] **MANUAL DIST CREATION** (Success) <!-- id: 44 -->
+    - [x] `npx cap sync` & `gradlew clean assembleDebug` (Success) <!-- id: 32 -->
+- [x] **Fix Blank Screen (WebView Compatibility)** <!-- id: 45 -->
+    - [x] Create [dist/styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css) (consolidated styles) <!-- id: 46 -->
+    - [x] Create [dist/app_logic.js](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/app_logic.js) (consolidated logic, no imports) <!-- id: 47 -->
+    - [x] Create [dist/index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/index.html) (linking assets) <!-- id: 48 -->
+    - [x] `npx cap sync android` (Skipping iOS) <!-- id: 49 -->
+    - [x] Rebuild APK (`gradlew assembleDebug`) <!-- id: 50 -->
+- [x] **Refine Navigation Bar** <!-- id: 51 -->
+    - [x] Update CSS with `box-sizing: border-box` reset <!-- id: 52 -->
+    - [x] Rebuild APK <!-- id: 53 -->
+- [x] **Final Refinements (Round 2)** <!-- id: 54 -->
+    - [x] **Shake Fix:** `overflow-x: hidden` in CSS <!-- id: 55 -->
+    - [x] **Stats Layout:** Fix broken "Overall Status" box (Overflow issue) <!-- id: 56 -->
+    - [x] **Logic:** Verified cumulative count persists on reset <!-- id: 57 -->
+    - [x] **Final Build:** `daily-habit-tracker-final.apk` <!-- id: 58 -->
+- [x] **Final Fixes (Round 3) - FAILED** <!-- id: 59 -->
+    - [x] **CSS Conflict:** Remove inline styles in [index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/index.html) overriding [styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css). <!-- id: 60 -->
+    - [x] **Version Bump:** Update [build.gradle](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/android/build.gradle) to v1.1 and version code 2. <!-- id: 61 -->
+    - [x] **Visual Verification:** Update title to "통계 (v1.1)" in [app_logic.js](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/app_logic.js). <!-- id: 62 -->
+    - [x] **Clean Rebuild:** Force `gradlew clean assembleDebug`. <!-- id: 63 -->
+- [x] **Emergency Restore (Round 4) - FAILED** <!-- id: 64 -->
+    - [x] **Restore Styles:** Append missing `.glass-card` and other utility styles to [dist/styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css). <!-- id: 65 -->
+    - [x] **Revert UI Change:** Remove "(v1.1)" from [dist/app_logic.js](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/app_logic.js). <!-- id: 66 -->
+    - [x] **Rebuild:** `npx cap sync` & `gradlew clean assembleDebug`. <!-- id: 67 -->
+- [x] **Final Styles Check (Round 5) - FAILED** <!-- id: 68 -->
+    - [x] **Missing Stats Layout:** Found and restored `.stats-row`, `.stat-item`, `.compact`. <!-- id: 69 -->
+    - [x] **Restore:** Appended missing styles to [dist/styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css). <!-- id: 70 -->
+    - [x] **Build Failed to Update:** User reported no changes. Suspect caching. <!-- id: 71 -->
+- [x] **Force Update (Round 6) - FAILED** <!-- id: 72 -->
+    - [x] **Cache Busting:** Rename `dist` assets to `v2` ([styles.v2.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.v2.css), [app_logic.v2.js](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/app_logic.v2.js)). <!-- id: 73 -->
+    - [x] **Update HTML:** [dist/index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/index.html) now points to v2 files. <!-- id: 74 -->
+    - [x] **Sync Failed:** `npx cap sync` did NOT copy files to Android assets. Old files persisted. <!-- id: 75 -->
+- [x] **Manual Sync (Round 7)** <!-- id: 76 -->
+    - [x] **Manual Copy:** `xcopy dist android/app/src/main/assets/public`. <!-- id: 77 -->
+    - [x] **Version Bump:** Set to v2.1 (Code 4). <!-- id: 78 -->
+    - [x] **Visual Verify:** Add "(v2.1)" to title. <!-- id: 79 -->
+    - [x] **Build:** Clean build and verify. <!-- id: 80 -->
+- [x] **Final Fixes (Round 8) - FAILED** <!-- id: 81 -->
+    - [x] **Single Line Label:** Add `white-space: nowrap` to `.stat-label`. <!-- id: 82 -->
+    - [x] **Individual Accumulation:** Modify [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/src/App.jsx#925-945) to NOT decrement count on uncheck. <!-- id: 83 -->
+    - [x] **Build:** `daily-habit-tracker-fixed.apk`. <!-- id: 84 -->
+- [x] **Nuclear Option (Round 9) - FAILED** <!-- id: 85 -->
+    - [x] **Verify Destination:** `android/app/src/main/assets/public` is the correct target. <!-- id: 86 -->
+    - [x] **Deep Clean:** Force delete assets, copy `v3` files, clean build. <!-- id: 87 -->
+    - [x] **Version Jump:** Set to v3.0 (Code 6). <!-- id: 88 -->
+    - [ ] **Final Build:** `daily-habit-tracker-ultimate.apk`. <!-- id: 89 -->
+- [ ] **Apocalypse Option (Round 10)** <!-- id: 90 -->
+    - [x] **New Assets:** `v4` assets ([app_logic.v4.js](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/app_logic.v4.js)). <!-- id: 91 -->
+    - [x] **Visual Indicators:** Title changed to "(v4.0)" on Dashboard & Stats. <!-- id: 92 -->
+    - [x] **Logic Verify:** `newCount = newCount` (No decrement) confirmed. <!-- id: 93 -->
+    - [x] **Deep Clean:** `rmdir /s /q public`. <!-- id: 94 -->
+    - [x] **Version Jump:** Set to v4.0 (Code 7). <!-- id: 95 -->
+    - [ ] **Build:** `daily-habit-tracker-ultimate-v4.apk`. <!-- id: 96 -->

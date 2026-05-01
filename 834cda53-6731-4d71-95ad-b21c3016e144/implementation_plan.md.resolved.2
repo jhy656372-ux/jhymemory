@@ -1,0 +1,31 @@
+# Design Refinement Implementation Plan
+
+## Goal
+Implement design feedback: update header logo, limit gallery photos, add footer separators, add 'More' links to subpages, and re-deploy.
+
+## Proposed Changes
+
+### Layout
+#### [MODIFY] [Header.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/layout/Header.jsx)
+- Remove existing icon.
+- Add church logo (image or text). Ensure it fits well ("consider text width"). 
+
+#### [MODIFY] [Footer.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/layout/Footer.jsx)
+- Add vertical dividers (border-right or separator element) between sections to visually distinguish them.
+
+### Pages
+#### [MODIFY] [GalleryPage.jsx]
+- Limit the displayed photos to 12 items.
+- Add "More" icon/link at the bottom.
+
+#### [MODIFY] [SundaySchoolPage.jsx], [ParishPage.jsx], [ServicePage.jsx], [RetreatPage.jsx]
+- Add "More" icon/link at the bottom of each page.
+- This link should be clickable and point to a URL (can be a placeholder or data-driven).
+
+## Verification Plan
+### Manual Verification
+- **Header**: Visually verify logo.
+- **Gallery**: Verify max 12 photos and presence of "More" link.
+- **Footer**: Check vertical lines.
+- **Subpages**: Verify "More" link exists on all specified pages.
+- **Build**: Ensure `npm run build` succeeds.

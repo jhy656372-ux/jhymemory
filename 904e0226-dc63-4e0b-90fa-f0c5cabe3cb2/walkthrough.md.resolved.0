@@ -1,0 +1,28 @@
+# Walkthrough - Habit Count Accumulation
+
+I have updated the application logic to allow habit counts to accumulate when you toggle habits on and off.
+
+## Changes
+
+### 1. Cumulative Habit Counting
+- **File**: [src/App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx)
+- **Change**: Modified the [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#925-949) function.
+- **Behavior**:
+    - Previously: Unchecking a habit reduced the total count by 1.
+    - **Now**: Unchecking a habit **does not** change the total count.
+    - **Result**: You can check a habit (+1), uncheck it (no change), and check it again (+1) to record multiple completions in a single day.
+
+## Verification
+
+### How to Verify
+1.  **Build & Run**: Build the APK and install it on your device.
+2.  **Check Status**: Note the current count of a habit in "Statistics" -> "Overall Status".
+3.  **Toggle**:
+    - Go to the Dashboard.
+    - Click the habit to check it (Count increases by 1).
+    - Click again to uncheck (Count stays same).
+    - Click again to check (Count increases by 1).
+4.  **Confirm**: Go back to "Statistics" and verify the count has increased by 2 (or more, depending on your clicks).
+
+## Next Steps
+- Please proceed with building the APK to test this on your device.

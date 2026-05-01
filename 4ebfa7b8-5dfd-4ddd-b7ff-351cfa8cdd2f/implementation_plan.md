@@ -1,0 +1,42 @@
+# 관심종목 모니터링 앱 모바일 빌드 호환성 개선 계획
+
+모바일(Android APK) 빌드 후 발생하는 화면 깨짐 현상과 버튼, 데이터 연동 안 됨 현상을 해결하기 위한 작업입니다. Capacitor나 WebView 기반 앱에서는 일반 웹사이트와 다른 특성을 가지므로 이에 맞게 설정을 조정해야 합니다.
+
+## 주요 변경 사항
+
+### 1. `vite.config.js`
+- **문제점:** Vite 기본 빌드는 절대 경로(`/`)를 사용하여 JS 및 CSS 파일을 불러옵니다. 모바일 WebView(`file://` 등)에서는 절대 경로를 찾지 못해 하얀 화면만 나오거나 CSS가 다 깨지게 됩니다.
+- **해결책:** 상대 경로를 사용하도록 설정합니다.
+```diff
+- export default defineConfig({
+-   plugins: [react()],
+- })
++ export default defineConfig({
++   plugins: [react()],
++   base: './', // 상대 경로로 에셋 불러오기
++ })
+```
+
+### 2. `src/App.css` 및 `src/index.css`
+- **문제점:** 모바일 브라우저나 일부 앱에서는 `100vh`를 사용할 경우 시스템 하단 바(소프트키)나 주소 표시줄에 의해 화면 하단 내용(예: 네비게이션 바)이 가려지는 문제가 발생합니다.
+- **해결책:** `100vh` 대신 모바일 대응 뷰포트 높이인 `100dvh`를 지원하도록 설정합니다. (호환성을 위해 `100vh` 폴백도 작성)
+```diff
+  body {
+-   min-height: 100vh;
++   min-height: 100vh;
++   min-height: 100dvh;
+  }
+```
+
+### 3. `src/App.jsx`
+- **문제점:** 뉴스 목록을 클릭할 때 새 창 열기(`window.open(url, '_blank')`)를 사용하고 있는데, 모바일 하이브리드 앱 환경에서는 권한 이슈나 플러그인 부재로 인해 새 창이 열리지 않거나 앱 밖으로 튕길 수 있습니다.
+- **해결책:** 사용자가 링크를 클릭했을 때 앱 내 브라우저로 안전하게 열거나 대체 방법을 사용할 수 있도록 `window.location.href = url`로 변경합니다. (또는 `<a href={url}>` 유지)
+```diff
+- <div ... onClick={() => item.url && window.open(item.url, '_blank')}>
++ <div ... onClick={() => item.url && (window.location.href = item.url)}>
+```
+
+## 검증 계획
+
+1. **자동화 테스트:** 적용된 Vite 설정(`npm run build`) 완료 시 `dist/index.html` 내 스크립트 경로가 `./assets/` 형태로 잘 변경되었는지 확인합니다.
+2. **수동 검증:** 수정된 코드를 로컬 환경(`npm run dev`)에서 확인 후, 사용자가 APK로 직접 빌드하여 모바일 기기(안드로이드)에 설치했을 때 흰 화면 없이 제대로 실행되는지 확인합니다. 하단 네비게이션이 잘 보이는지, 뉴스 링크가 무반응 없이 동작하는지 테스트합니다.

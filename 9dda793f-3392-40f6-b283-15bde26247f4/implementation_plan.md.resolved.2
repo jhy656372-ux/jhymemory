@@ -1,0 +1,48 @@
+# Fix Mobile Top Navigation Overlap
+
+The user is experiencing an issue where the top of the content is covered by the status bar (top fixed bar) on mobile devices. This is caused by the "card-style" layout (`w-[92%]`, `my-5`, etc.) used in [BiblePage](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx#6-236), [PraisePage](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/PraisePage.jsx#5-67), [PrayerPage](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/PrayerPage.jsx#5-145), and [MemoPage](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/MemoPage.jsx#5-145), which places the content under the status bar without sufficient padding.
+
+## User Review Required
+
+> [!NOTE]
+> I will change the mobile layout of the content pages (Bible, Praise, Prayer, Memo) from a "floating card" style to a **full-screen** layout on mobile devices. This ensures the content respects the device's safe areas (notch, status bar) correctly using standard CSS environment variables. The "card" look will be preserved on desktop/tablet (`md:` breakpoint).
+
+## Proposed Changes
+
+### Pages
+
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/BiblePage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins:**
+    - `mt-[calc(env(safe-area-inset-top)+1rem)]`
+    - `mb-[calc(env(safe-area-inset-bottom)+1rem)]`
+    - `h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom)-2rem)]`
+- **[NEW] Remove inline padding** added in previous step (since the margin handles the spacing now).
+- Change Header Z-Index to `z-20`.
+
+#### [MODIFY] [PraisePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PraisePage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins & Height:** Match BiblePage logic.
+- Remove inline padding.
+
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PrayerPage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins & Height:** Match BiblePage logic.
+- Remove inline padding.
+
+#### [MODIFY] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/MemoPage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins & Height:** Match BiblePage logic.
+- Remove inline padding.
+
+## Verification Plan
+
+### Automated Tests
+- None. UI visual regression is best tested manually.
+
+### Manual Verification
+1.  **Build the app**: Since this is a visual fix for mobile, the user might need to build the APK. However, I can simulate the change by inspecting the code and ensuring the classes are correct.
+2.  **Verify Layout**:
+    - Check that the top header has `pt-[env(safe-area-inset-top)]`.
+    - Check that the container is full width (`w-full`) and height (`h-screen` / `min-h-screen`) on mobile.
+    - Check that `md:` classes preserve the desktop layout.

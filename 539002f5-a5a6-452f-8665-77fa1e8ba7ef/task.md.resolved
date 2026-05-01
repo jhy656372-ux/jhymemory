@@ -1,0 +1,3 @@
+- [/] Verify Stitch MCP server command
+- [ ] Analyze command output for errors
+- [ ] Guide user to fix issues or restart

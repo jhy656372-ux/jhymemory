@@ -1,0 +1,9 @@
+# 보컬 분리 및 페더링 기능 (진행 중)
+
+- [x] Demucs 파이프라인 연동 (`backend/main.py` 수정)
+  - 보컬 트랙(Vocals)만 추출하여 Wav2Lip에 주입
+  - 최종 렌더링 시 원래 오디오(악기+보컬)와 영상 오디오 믹스매치 처리
+- [x] 립싱크 블렌딩 처리 (`backend/Wav2Lip/inference.py` 수정)
+  - 잘라낸 입술 영역(Bounding Box)에 Gaussian 마스크 추가
+  - Alpha blending으로 부드럽게 배경톤에 스며들도록 수정
+- [/] 서버 재시동 및 검증

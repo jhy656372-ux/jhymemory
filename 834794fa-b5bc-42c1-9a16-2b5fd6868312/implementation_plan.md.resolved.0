@@ -1,0 +1,59 @@
+# NicheMaster Concierge MVP 구현 계획
+
+## 목표
+"Human-in-the-loop" 방식의 컨시어지 MVP 플랫폼 구축. 자동화된 것처럼 보이지만 관리자가 AI를 활용해 직접 품질을 관리하여 비즈니스 가치를 검증함. '롱테일' 영역의 초니치 고객을 타겟으로 함.
+
+## 기술 스택
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS, Shadcn/ui (Radix UI 기반)
+- **Database**: Supabase (프로토타입 단계에서는 Mock Data 활용 가능성 열어둠)
+- **Deployment**: Vercel (추후 배포)
+
+## 디자인 스타일
+- **Vibe**: 신뢰, 전문성, 미니멀리즘 (Apple/Notion 스타일)
+- **Colors**: Deep Blue (신뢰), Soft Grey (배경), Vivid Orange (CTA)
+
+## 제안된 변경 사항
+
+### 1. 프로젝트 초기화
+- `npx create-next-app`을 사용하여 프로젝트 생성
+- Tailwind CSS 설정 및 디자인 시스템(색상, 폰트) 적용
+
+### 2. 주요 페이지 및 컴포넌트
+
+#### [NEW] `app/page.tsx` (Landing Page)
+- **Hero Section**: 가치 제안 및 CTA
+- **Testimonial Section**: 신뢰 신호(Trust Signals)
+- **FAQ/Features**: 서비스 설명
+
+#### [NEW] `components/intake-form.tsx` (Smart Intake Form)
+- 다단계 폼 (Step-by-step wizard)
+- 진행률 표시줄
+- 조건부 로직 적용
+
+#### [NEW] `app/dashboard/page.tsx` (User Dashboard)
+- 작업 진행 상태 표시 (New -> Analyzing -> Generating -> Done)
+- 결과물 확인 및 다운로드
+- 피드백 채팅 인터페이스
+
+#### [NEW] `app/admin/page.tsx` (Wizard Dashboard)
+- **Task Queue**: 칸반 보드 형태의 요청 관리
+- **Status Management**: 상태 변경 기능
+
+#### [NEW] `components/ai-assist-workspace.tsx`
+- 사용자 입력 데이터 조회
+- AI 프롬프트 템플릿 선택 및 초안 생성 (Mock API 활용 or 실제 연동)
+- **Human Edit**: 생성된 초안을 수정하여 "Publish" 하는 에디터
+
+### 3. API 및 데이터 로직
+
+#### [NEW] `app/api/submit-result/route.ts`
+- 관리자가 승인/수정한 결과물을 사용자에게 전달(저장)하는 백엔드 로직
+- 이메일 알림 트리거 (Simulation)
+
+## 검증 계획
+
+### 수동 검증
+1. **User Flow**: 랜딩 페이지 -> 폼 제출 -> 대시보드 확인
+2. **Admin Flow**: 관리자 페이지 접속 -> 새 작업 확인 -> AI 초안 생성 및 수정 -> 게시
+3. **Result Check**: 사용자 대시보드에서 완료된 결과물 확인

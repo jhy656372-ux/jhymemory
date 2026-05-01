@@ -1,0 +1,5 @@
+
+- [ ] Analyze existing scripts and data <!-- id: 0 -->
+- [ ] Modify processing script to remove Hanja and parentheses <!-- id: 1 -->
+- [ ] Run script to generate cleaned JSON <!-- id: 2 -->
+- [ ] Verify the output <!-- id: 3 -->

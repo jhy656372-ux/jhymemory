@@ -1,0 +1,24 @@
+# 워크스루 (Walkthrough)
+
+앱을 스티치(Stitch) 디자인 명세와 사용자의 의도에 맞게 렌더링하고, 노트북LM(NotebookLM) 기반으로 동작되도록 전체 구조 및 버그를 수정했습니다. 특히, 모바일 단일 화면 레이아웃에서 넘치는 부분을 없애고 실시간 데이터 동기화 이슈를 바로잡았습니다.
+
+## 완료된 주요 작업 내역
+
+1. **단일 화면 최적화 (UI 패딩 및 높이 조절)**
+   모바일 기기에서 스크롤 없이 주요 정보를 한 눈에 파악할 수 있도록 전체 컴포넌트의 상하 패딩과 여백을 축소했습니다.
+   - [Header.jsx](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/components/Header.jsx), [PriceSection.jsx](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/components/PriceSection.jsx), [RangeGauge.jsx](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/components/RangeGauge.jsx), [Momentum.jsx](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/components/Momentum.jsx), [NewsSummary.jsx](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/components/NewsSummary.jsx)의 불필요한 공백을 줄였습니다.
+   - [ChartSection.jsx](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/components/ChartSection.jsx)의 차트 컨테이너 높이를 48단위(192px)에서 36단위(144px)로 축소하여 공간 활용도를 높였습니다.
+
+2. **모의 데이터 시간 동기화 (Fallback Data Update)**
+   기존 코드([api.js](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/services/api.js))에서는 API 연결 실패 시 데모 데이터를 불러오도록 설계되어 있었으나, 이때 상단의 "마지막 업데이트 시간" 텍스트도 고정된 문자열을 쓰거나 초기화 시점의 시간만 가져오는 버그가 있었습니다.
+   - [getFormattedTime](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/services/api.js#11-14) 유틸리티 함수를 내부에 추가하고, [getRealtimeQuote](file:///c:/Users/admin/.gemini/%EB%AA%A8%EB%B0%94%EC%9D%BC%EC%A3%BC%EC%8B%9D%EC%86%94%EB%A3%A8%EC%85%98/stock-app/src/services/api.js#15-53)가 호출될 때마다 데모 모드일지라도 항상 최신의 현재 시간을 `lastUpdated` 필드에 동적으로 렌더링하도록 수정했습니다.
+
+3. **로컬 실행 환경 설정 안내**
+   사용자의 기기에서 PowerShell의 권한 정책 버그(UnauthorizedAccess)로 인해 Node 스크립트 실행이 다소 중단되는 현상을 발견했습니다. 아래와 같은 방법으로 안전하게 실행하실 수 있습니다.
+
+## 실행 가이드
+Visual Studio Code 디버그 터미널 혹은 터미널 앱에서 아래 명령어를 실행하세요.
+```cmd
+cmd.exe /c "npm run dev -- --host 127.0.0.1"
+```
+만약 브라우저에서 `localhost:5173` 으로 접속이 안 될 경우, **http://127.0.0.1:5173/** 또는 **http://192.168.0.3:5173/** 주소로 접속해 보세요.

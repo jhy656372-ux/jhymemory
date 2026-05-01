@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "푸터 <br> 태그 노출 문제의 근본 원인을 해결하기 위한 계획입니다. 관리자 페이지의 입력 방식을 제어하고, 렌더링 시 태그 정제를 수행합니다.",
+  "updatedAt": "2026-02-23T12:16:19.409307400Z",
+  "version": "4"
+}

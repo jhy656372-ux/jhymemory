@@ -1,0 +1,35 @@
+[0] (318,56)<button >되돌아가기 />
+관심종목 모니터링
+[1] (449,141)<input placeholder='분석할 종목을 입력해 주세요.' />
+[2] (668,141)<button class='search-btn'>분석하기 />
+NVIDIA Corporation
+NVDA
+$
+192.45
+▲
+2.87
+(
+1.51
+%)
+[3] (250,360)<button class='btn-secondary '>1D />
+[4] (303,360)<button class='btn-secondary '>1W />
+[5] (357,360)<button class='btn-secondary '>1M />
+[6] (409,360)<button class='btn-secondary active'>1Y />
+[7] (460,360)<button class='btn-secondary '>5Y />
+[8] (516,360)<button class='btn-secondary '>10Y />
+[9] (500,553)<div  />
+최저
+$
+86.62
+최고
+$
+212.19
+현재가는 52주 범위 중상단에 위치하고 있습니다.
+상위
+84
+%
+항목
+실적 (단위:
+T
+)
+변동

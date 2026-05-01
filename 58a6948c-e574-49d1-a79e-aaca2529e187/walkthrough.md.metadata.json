@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "성경 가이드 UI 개편 및 데이터 정제 v47 빌드 보고서입니다. 목차 기반 리스트 뷰와 전체 화면 본문 보기를 구현하고, EPUB 데이터의 군더더기를 제거했습니다.",
+  "updatedAt": "2026-02-21T09:17:53.790366800Z",
+  "version": "1"
+}

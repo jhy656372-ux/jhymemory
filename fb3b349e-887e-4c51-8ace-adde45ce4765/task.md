@@ -1,0 +1,33 @@
+# 홈페이지 CMS 기능 구현
+
+- [x] `DataContext` 구현 및 `App.jsx` 연동
+    - [x] `DataContext.jsx` 작성 (localStorage 연동 포함)
+    - [x] `App.jsx`에 `DataProvider` 적용
+- [x] 관리자 페이지 (`AdminPage`) 개발
+    - [x] `AdminPage` 컴포넌트 생성 (텍스트 편집, 이미지 업로드 UI)
+    - [x] `App.jsx`에 `/admin` 라우트 추가
+- [x] 컴포넌트 데이터 연동 Refactoring
+    - [x] 모든 주요 섹션 리팩토링 완료
+    - [x] `Footer` 컴포넌트 데이터 연동
+- [x] 관리자 페이지 개선
+    - [x] `DataContext` 전체 데이터 업데이트 기능 추가
+    - [x] `AdminPage` 레이아웃 및 저장 로직 수정
+- [x] 디자인 수정
+    - [x] `Hero` 섹션: 하단 애니메이션 버튼 제거
+    - [x] `IntroPage`: 이미지 크기 축소(1/3) 및 텍스트 우측 정렬(2/3)
+- [x] 수양관 페이지 복구 (`RetreatPage Restore`)
+    - [x] `RetreatPage`: 시설 안내 섹션 복구
+- [x] 메인 페이지 수양관 섹션 수정 (`Home Retreat Section`)
+    - [x] `Retreat` 컴포넌트: 시설 안내 목록(리스트) 제거
+    - [x] `Retreat` 컴포넌트: 하단 바/호버 효과/테두리/이미지 제거
+    - [x] `Retreat` 컴포넌트: 타이틀 복구 및 설명글 줄바꿈 적용
+    - [x] `Retreat` 컴포넌트: 버튼 위치 이동 및 텍스트 수정 ("자세히 보기")
+- [x] 갤러리 섹션 수정 (`Gallery Resizing`)
+    - [x] `Gallery`: 이미지 컨테이너 너비 축소 (사진 크기 줄임)
+- [x] 전도회 및 교구 섹션 수정 (`Parish Layout`)
+    - [x] 타이틀 중앙 정렬 및 박스 외부로 이동
+    - [x] 새가족 등록 안내를 양육/훈련 박스로 이동
+    - [x] 4개 박스를 한 줄(4열)로 배치
+    - [x] 문법 오류로 인한 화면 깨짐 현상 수정
+- [x] 관리자 접근 기능 추가
+    - [x] Footer에 숨겨진 관리자 페이지 링크 추가

@@ -1,0 +1,19 @@
+
+# Tasks
+
+- [x] Analyze new data files
+    - [x] List files in `public/data` <!-- id: 16 -->
+    - [x] Inspect content/encoding of All files <!-- id: 17 -->
+    - [x] Confirm `HR2.MB` is encrypted/obfuscated <!-- id: 18 -->
+    - [x] Confirm `ko_hr2.json` has missing text (stripped Hanja) <!-- id: 27 -->
+    - [x] Confirm `ko_nkrv.json` is KRV not NKRV <!-- id: 28 -->
+- [x] Obtain Valid NKRV Data
+    - [x] **WAITING FOR USER**: Upload valid NKRV text/json <!-- id: 29 -->
+    - [x] (Alternative) User approves open-source download <!-- id: 30 -->
+- [x] Download and Convert
+    - [x] Find raw NKRV source (KoreanNKRVBible.xml) <!-- id: 31 -->
+    - [x] Create `scripts/convert_xml_to_json.cjs` (Number-based mapping) <!-- id: 32 -->
+    - [x] Generate `public/data/ko_nkrv.json` <!-- id: 33 -->
+- [x] Verification
+    - [x] Verify `ko_nkrv.json` content (Gen 2:1) <!-- id: 22 -->
+    - [x] Verify app works with new data <!-- id: 23 -->

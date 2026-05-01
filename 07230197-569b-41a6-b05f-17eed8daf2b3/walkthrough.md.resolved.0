@@ -1,0 +1,10 @@
+# Visual Verification
+
+## Admin Gallery
+- [x] "Add Photo" button is visible and functional.
+- [x] Each photo slot has a visual "Remove" button.
+- [x] The default 8-slot grid is replaced with a dynamic list.
+
+## Mobile Responsiveness
+- [x] Header `z-index` increased to 100 to prevents content overlay.
+- [x] Mobile menu button padding increased for better touch accessibility.

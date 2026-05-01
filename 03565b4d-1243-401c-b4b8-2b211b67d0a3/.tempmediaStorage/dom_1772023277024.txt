@@ -1,0 +1,49 @@
+Apple Inc.
+AAPL
+$
+266.99
+▲
+1.81
+(
+0.68
+%)
+[0] (379,137)<button class='btn-secondary '>1D />
+[1] (404,137)<button class='btn-secondary '>1W />
+[2] (431,137)<button class='btn-secondary active'>1M />
+[3] (456,137)<button class='btn-secondary '>1Y />
+[4] (481,137)<button class='btn-secondary '>5Y />
+[5] (508,137)<button class='btn-secondary '>10Y />
+[6] (500,325)<div  />
+최저
+$
+169.21
+최고
+$
+288.62
+현재가는 52주 범위 중상단에 위치하고 있습니다.
+상위
+82
+%
+항목
+실적 (단위:
+T
+)
+변동
+매출액
+416B
++3.7%
+영업이익
+143B
++8.7%
+당기순이익
+97B
++4.7%
+PER
+34.2
+-0.8
+PBR
+46.1
++0.08
+부채비율
+103%
+-2.0%p

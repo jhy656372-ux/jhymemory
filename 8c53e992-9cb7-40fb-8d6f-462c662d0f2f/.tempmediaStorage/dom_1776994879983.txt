@@ -1,0 +1,14 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (84,46)<a class='logo' href='#'>산돌교회 />
+	[1] (59,46)<span >⛪ />
+[2] (830,45)<a href='#home'>홈 />
+[3] (867,45)<a href='#about'>교회 안내 />
+[4] (925,45)<a href='#ai-pastor'>AI 신앙 상담소 />
+당신을 향한 은혜의 빛, 산돌교회
+살아있는 돌이신 예수 그리스도(벧전 2:4)의 터 위에 세워진 건강하고 따뜻한 신앙 공동체에 여러분을 초대합니다.
+[5] (500,669)<button class='btn-primary'>AI 목사님과 대화하기 />
+
+</current_dom>

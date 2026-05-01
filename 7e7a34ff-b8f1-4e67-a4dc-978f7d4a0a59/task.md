@@ -1,0 +1,25 @@
+- [x] Run application locally <!-- id: 0 -->
+- [x] Investigate `DataContext.jsx` and `AdminPage.jsx` <!-- id: 1 -->
+- [x] Fix data persistence issue in `DataContext` or `AdminPage` <!-- id: 2 -->
+- [x] Verify fix by saving changes in Admin Page <!-- id: 3 -->
+- [x] Align 'Intro' text and image to the left in `IntroPage.jsx` <!-- id: 4 -->
+- [x] Re-align H1 title with top of the image (move to right column) <!-- id: 5 -->
+- [x] Match text column width to photo width and center align text <!-- id: 6 -->
+- [x] Center align the entire content container <!-- id: 7 -->
+- [x] Add image URLs to `churchData.js` for service items <!-- id: 8 -->
+- [x] Update `ServicePage.jsx` to display images instead of icons <!-- id: 9 -->
+- [x] Bump `version` in `churchData.js` to clear cached data <!-- id: 10 -->
+- [x] Rename 'Service' section title to '지역 섬김' in `AdminPage.jsx` <!-- id: 11 -->
+- [x] Rename 'Hero' to '메인 페이지' and 'Parish' to '전도회 및 교구' in `AdminPage.jsx` <!-- id: 12 -->
+- [x] Update `IntroPage.jsx` to match HomePage Intro section design <!-- id: 13 -->
+- [x] Remove Intro Page and 'Read More' link, update navigation to scroll <!-- id: 14 -->
+- [x] Fix data corruption bug in Admin Page `SectionEditor` (nested array updates) <!-- id: 15 -->
+- [x] Add 'Friday Night Prayer' to footer worship times in `churchData.js` <!-- id: 16 -->
+- [x] Add error handling for `localStorage` save failure in `DataContext.jsx` and bump version <!-- id: 17 -->
+- [x] Force synchronous `localStorage` save in `DataContext.jsx` to prevent race conditions <!-- id: 18 -->
+- [x] Add 'Related Sites' section to Footer and `churchData.js` <!-- id: 19 -->
+- [x] Expand 'Related Sites' to 5 items and remove 'Contact Info' section <!-- id: 20 -->
+- [x] Restore 'Contact Info' section to the left of 'Worship Times' <!-- id: 21 -->
+- [x] Create `.htaccess` for Dothome deployment and guide user <!-- id: 22 -->
+- [x] Add 'Copy Data for Code' feature to Admin Page for permanent updates <!-- id: 23 -->
+- [x] Guide user through final build and deployment process <!-- id: 24 -->

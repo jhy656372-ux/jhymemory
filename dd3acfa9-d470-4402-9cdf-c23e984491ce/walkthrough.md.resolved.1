@@ -1,0 +1,23 @@
+# Dashboard Layout Optimization & Stats Update
+
+I have optimized the dashboard layout to be more compact and removed the "Best Streak" stat.
+
+## Changes
+
+### 1. Compact Layout (New!)
+To fit more content on the first screen, I made the following adjustments:
+- **Smaller Mascot**: Reduced size from 80px to 60px.
+- **Tighter Spacing**: Reduced gaps between elements (header, progress bar, habit list) from ~20-24px to ~8-16px.
+- **Slimmer Cards**: Reduced padding inside the habit cards and progress section.
+- **Mobile-First Padding**: Reduced the overall app padding to maximize screen usage.
+
+### 2. Layout Stability (Previous)
+- **Fixed Width Container**: The mascot container is fixed at `300px` to prevent shaking.
+- **Centered Speech Bubble**: The speech bubble stays centered to avoid cut-offs.
+
+### 3. Statistics Update (Previous)
+- **Removed "Best Streak"**: The "Best Streak" card is gone.
+
+## Verification
+1.  **Check Layout**: Open the **Dashboard** (`http://localhost:5173/`). You should see that the mascot is slightly smaller and the habit list starts higher up, allowing more habits to be visible without scrolling.
+2.  **Check Stability**: Toggle a habit and ensure the screen doesn't shake.

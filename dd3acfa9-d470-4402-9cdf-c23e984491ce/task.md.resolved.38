@@ -1,0 +1,7 @@
+
+- [ ] Verify [capacitor.config.json](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/capacitor.config.json) <!-- id: 0 -->
+- [x] Run `npx vite build` (Clean Build) - FAILED (Bypassed with esbuild) <!-- id: 1 -->
+- [x] Manual Injection of Logic into Dist - DONE (Manual Build + Polyfills) <!-- id: 1.5 -->
+- [x] Run `npx cap sync android` - DONE <!-- id: 2 -->
+- [x] Build APK (`gradlew assembleDebug`) - DONE <!-- id: 3 -->
+- [x] Verify APK Timestamp - DONE <!-- id: 4 -->

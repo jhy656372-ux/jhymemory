@@ -1,0 +1,54 @@
+# Photo Board Feature and Footer Fix Implementation Plan
+
+This plan outlines the steps to add a functional photo board (gallery) with posting, file upload/download capabilities, an admin interface, and a fix for the footer's mobile layout.
+
+## Proposed Changes
+
+### 1. Data Structure Update
+#### [MODIFY] [churchData.js](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/data/churchData.js)
+- Update `gallery` object to include a `posts` array instead of just `photos`.
+- Each post will have: [id](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#6-110), `title`, `content`, [date](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#58-71), `images` (array), `files` (array of `{ name, url }`).
+
+### 2. Layout Fixes
+#### [MODIFY] [Footer.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/layout/Footer.jsx)
+- Change `<li className="flex flex-col md:flex-row items-center md:items-start gap-2">` to `<li className="flex flex-row items-center md:items-start gap-2">`.
+- This ensures the MapPin icon stays in front of the address on mobile.
+
+### 3. Gallery Component (Home Page)
+#### [MODIFY] [Gallery.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Gallery.jsx)
+- Update to use `gallery.posts` instead of `gallery.photos`.
+- Display the 4 most recent posts.
+
+### 4. Gallery Page (Full View & Detail)
+#### [MODIFY] [GalleryPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/GalleryPage.jsx)
+- Implement a List View showing all posts.
+- Implement a Detail View when a post is clicked (showing title, content, images, and file download buttons).
+- Use React state to toggle between list and detail views.
+
+### 5. Admin Interface
+#### [MODIFY] [AdminPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/AdminPage.jsx)
+- Add a "게시판 관리" (Board Management) section in the admin panel.
+- Implement forms to Add, Edit, and Delete gallery posts.
+- Support multiple image uploads and file uploads using the existing [upload.php](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/public/api/upload.php) API.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- No automated tests currently exist in the project. I will perform manual verification.
+
+### Manual Verification
+1.  **Footer Fix**: Open the site, use browser developer tools to toggle mobile view (e.g., iPhone SE), and verify the MapPin icon is to the left of the address, not above it.
+2.  **Photo Board (Admin)**:
+    - Log in to `/admin`.
+    - Go to "게시판 관리".
+    - Create a new post with a title, description, one image, and one file.
+    - Save and verify "Saved successfully".
+3.  **Photo Board (Gallery)**:
+    - Go to `/gallery`.
+    - Click on the newly created post.
+    - Verify the title, description, and image are displayed correctly.
+    - Click the file download link and verify it opens/downloads the file.
+4.  **Home Page**:
+    - Verify the new post appears in the "교회 앨범" section on the home page.

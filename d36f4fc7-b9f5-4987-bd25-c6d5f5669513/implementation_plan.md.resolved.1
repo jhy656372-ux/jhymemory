@@ -1,0 +1,32 @@
+# 상세 페이지 인터랙션 개선 계획
+
+사용자의 피드백을 반영하여 홈페이지 섹션의 변경사항을 롤백하고, 각 상세 페이지 하단에 '더 보기'(또는 관련 페이지) 아이콘/링크를 추가합니다.
+
+## Proposed Changes
+
+### [Component] 홈페이지 섹션 원복 (Rollback Home Sections)
+이전 작업에서 홈페이지 섹션 하단에 추가했던 '더 보기' 버튼들을 제거합니다.
+
+- #### [MODIFY] [SundaySchool.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/SundaySchool.jsx)
+- #### [MODIFY] [Parish.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Parish.jsx)
+- #### [MODIFY] [Service.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Service.jsx)
+- #### [MODIFY] [Retreat.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Retreat.jsx)
+- #### [MODIFY] [Gallery.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Gallery.jsx)
+
+### [Component] 상세 페이지 업데이트 (Update Detail Pages)
+각 상세 페이지의 하단에 홈페이지의 다른 섹션으로 이동하거나, 관련 리스트로 돌아갈 수 있는 '더 보기' 아이콘과 링크를 추가합니다.
+
+- #### [MODIFY] [SundaySchoolPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/SundaySchoolPage.jsx)
+- #### [MODIFY] [ParishPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/ParishPage.jsx)
+- #### [MODIFY] [ServicePage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/ServicePage.jsx)
+- #### [MODIFY] [RetreatPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/RetreatPage.jsx)
+- #### [MODIFY] [GalleryPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/GalleryPage.jsx)
+
+## Verification Plan
+
+### Automated Tests
+- `npm run build`를 실행하여 롤백 및 추가 작업 후에도 빌드가 성공하는지 확인
+
+### Manual Verification
+- 홈페이지 섹션에서 제거된 버튼 확인
+- 각 상세 페이지 하단에 '더 보기' 아이콘이 적절하게 배치되었는지 확인

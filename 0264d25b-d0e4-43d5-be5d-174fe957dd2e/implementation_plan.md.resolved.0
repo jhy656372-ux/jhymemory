@@ -1,0 +1,55 @@
+# UI Refinement Implementation Plan
+
+## Goal
+Make the UI more polished by fixing status bar overlap issues, setting specific page backgrounds to white, ensuring titles are always visible, and improving responsiveness.
+
+## User Review Required
+> [!IMPORTANT]
+> - Background colors for Bible, Praise, Prayer, and Memo pages will be changed from colored tints (blue-50, etc.) to **White**.
+> - Sticky headers will be implemented to keep titles visible.
+> - `env(safe-area-inset-top)` will be used to prevent status bar overlap.
+
+## Proposed Changes
+
+### Global Styles
+#### [MODIFY] [index.css](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/index.css)
+- Add utility classes for safe area padding/margins if needed (e.g., `safe-pt`, `safe-top`).
+
+### Layout & Navigation
+#### [MODIFY] [Layout.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/Layout.jsx)
+- Ensure the main container respects `safe-area-inset-top` so the background extends but content doesn't overlap.
+- Actually, since individual pages define their own full-height containers, I might need to move the padding logic to [Layout](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx#4-27) or ensure pages handle it.
+- **Decision**: Update [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) to have a top padding that respects safe area, or pass a class to children. Given the current structure where pages have `min-h-[calc(100vh-100px)]` etc., adjustments might be needed per page or centrally in Layout.
+
+### Page Components
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/BiblePage.jsx)
+- Change root `bg-blue-50` to `bg-white`.
+- Make the "Top Box" `sticky top-0` and add `z-50`.
+- Add `padding-top: env(safe-area-inset-top)` to the sticky header to prevent it from being hidden behind the status bar.
+- Adjust internal spacing/colors if needed for contrast against white.
+
+#### [MODIFY] [PraisePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PraisePage.jsx)
+- Change root `bg-pink-50` to `bg-white`.
+- Make the Header Area `sticky top-0 z-50` with safe area padding.
+
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/PrayerPage.jsx)
+- Change root `bg-yellow-50` to `bg-white`.
+- Make the Header `sticky top-0 z-50` with safe area padding.
+
+#### [MODIFY] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/MemoPage.jsx)
+- Change root `bg-purple-50` to `bg-white`.
+- Make the Header `sticky top-0 z-50` with safe area padding.
+
+#### [MODIFY] [HomePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/HomePage.jsx)
+- Ensure it has top padding for safe area.
+
+## Verification Plan
+
+### Automated Tests
+- None (UI visual changes).
+
+### Manual Verification
+1.  **Status Bar**: Run on emulator or check code to ensure `pt-[env(safe-area-inset-top)]` is applied.
+2.  **Backgrounds**: Verify Bible, Praise, Prayer, Memo pages have white backgrounds.
+3.  **Sticky Headers**: Scroll down on each page and verify the title/controls remain visible at the top.
+4.  **Responsive**: Resize window and ensure content wraps correctly without horizontal scrolling (except for intentional scroll areas).

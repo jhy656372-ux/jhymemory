@@ -1,0 +1,42 @@
+# 게시판 가시성 및 로컬 데이터 저장 해결 계획
+
+관리자 페이지에서 게시판 글을 등록해도 홈 페이지에 반영되지 않는 문제와 로컬 환경에서의 파일 업로드 문제를 해결하고자 합니다.
+
+## 주요 변경 사항
+
+### 1. 데이터 저장 방식 개선 (Localhost 지원)
+[DataContext.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx)를 수정하여 서버(PHP) 저장에 실패하더라도 브라우저의 `localStorage`에 데이터를 저장하고 로드할 수 있도록 합니다. 이를 통해 `npm run dev` 환경에서도 게시판 등록 기능이 정상적으로 작동합니다.
+
+### 2. 헤더 메뉴에 게시판 추가
+[Header.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/layout/Header.jsx)에 '게시판' 메뉴 항목을 추가하여 사용자가 쉽게 접근할 수 있도록 하고, 홈 페이지의 게시판 섹션으로 바로 이동할 수 있는 링크(#board)를 제공합니다.
+
+### 3. 게시판 섹션 가시성 개선
+홈 페이지에서 게시판 섹션의 위치를 조금 더 위로 올리거나, 가시성을 높이는 스타일 수정을 고려합니다.
+
+---
+
+## 상세 변경 내용
+
+### Data Context
+#### [MODIFY] [DataContext.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/context/DataContext.jsx)
+- `useEffect`에서 초기 로드 시 `localStorage`에 저장된 데이터가 있는지 먼저 확인합니다.
+- [setAllData](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#79-85) 함수에서 서버 저장 성공 여부와 관계없이 [setData](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#72-78)를 호출하여 UI가 즉시 업데이트되게 하고, `localStorage`에도 백업 저장합니다.
+
+### Navigation
+#### [MODIFY] [Header.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/layout/Header.jsx)
+- `navItems` 배열에 `{ name: '게시판', path: '/#board' }`를 추가합니다.
+
+### Home Page
+#### [MODIFY] [HomePage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/HomePage.jsx)
+- 게시판 섹션을 `Service` 또는 `Retreat` 섹션 위로 이동하여 접근성을 높입니다.
+
+---
+
+## 검증 계획
+
+### 수동 검증
+1. `npm run dev`를 실행하고 관리자 페이지(/login -> /admin)에 접속합니다.
+2. 게시물을 작성하고 '저장하기'를 클릭합니다.
+3. 홈 페이지(/)로 이동하여 게시판 섹션에 작성한 글이 보이는지 확인합니다.
+4. 헤더 메뉴에 '게시판' 메뉴가 생겼는지, 클릭 시 섹션으로 이동하는지 확인합니다.
+5. 페이지를 새로고침해도 데이터가 유지되는지 확인합니다. (localStorage 작동 확인)

@@ -1,0 +1,41 @@
+
+# Tasks
+
+- [x] Analyze new data files
+    - [x] List files in `public/data` <!-- id: 16 -->
+    - [x] Inspect content/encoding of All files <!-- id: 17 -->
+    - [x] Confirm `HR2.MB` is encrypted/obfuscated <!-- id: 18 -->
+    - [x] Confirm `ko_hr2.json` has missing text (stripped Hanja) <!-- id: 27 -->
+    - [x] Confirm `ko_nkrv.json` is KRV not NKRV <!-- id: 28 -->
+- [x] Obtain Valid NKRV Data
+    - [x] **WAITING FOR USER**: Upload valid NKRV text/json <!-- id: 29 -->
+    - [x] (Alternative) User approves open-source download <!-- id: 30 -->
+- [x] Download and Convert NKRV
+    - [x] Find raw NKRV source (KoreanNKRVBible.xml) <!-- id: 31 -->
+    - [x] Create `scripts/convert_xml_to_json.cjs` (Number-based mapping) <!-- id: 32 -->
+    - [x] Generate `public/data/ko_nkrv.json` <!-- id: 33 -->
+- [x] Verification
+    - [x] Verify `ko_nkrv.json` content (Gen 2:1) <!-- id: 22 -->
+    - [x] Verify app works with new data <!-- id: 23 -->
+- [x] Remove HR2 (국한문)
+    - [x] Remove button from `BiblePage.jsx` <!-- id: 35 -->
+    - [x] Remove logic from `BibleService.js` <!-- id: 36 -->
+- [x] Fix NIV Bible
+    - [x] Inspect current `en_bible.json` issues <!-- id: 37 -->
+    - [x] (Attempt 1) Replace with BBE (Rejected) <!-- id: 39 -->
+    - [x] Find **Real** NIV source (en_niv.xml) <!-- id: 41 -->
+    - [x] Create `scripts/convert_niv_xml.cjs` <!-- id: 43 -->
+    - [x] Generate `public/data/en_bible.json` (Real NIV) <!-- id: 42 -->
+    - [x] Verify NIV content (Gen 1:1 "heavens") <!-- id: 40 -->
+- [x] Add KJV Bible
+    - [x] Find Real KJV XML source (en_kjv.xml) <!-- id: 44 -->
+    - [x] Download `en_kjv.xml` <!-- id: 45 -->
+    - [x] Create `scripts/convert_kjv_xml.cjs` <!-- id: 46 -->
+    - [x] Generate `public/data/en_kjv.json` <!-- id: 47 -->
+    - [x] Update `BibleService.js` to load KJV <!-- id: 48 -->
+    - [x] Update `BiblePage.jsx` to display KJV <!-- id: 49 -->
+- [x] Refine UI & Data
+    - [x] Rename "한글" to "개역" in `BiblePage.jsx` <!-- id: 50 -->
+    - [x] Inspect `ko_krv.json` for Hanja <!-- id: 51 -->
+    - [x] Remove Hanja from `ko_krv.json` <!-- id: 52 -->
+    - [x] Implement Bilingual Version Selector <!-- id: 53 -->

@@ -1,0 +1,14 @@
+
+# Tasks
+
+- [ ] Analyze new data files
+    - [ ] List files in `public/data` <!-- id: 16 -->
+    - [ ] Inspect content/encoding of `public/data/HR2` <!-- id: 17 -->
+    - [ ] Inspect `HR2.MB`, `HR2.PX`, `HR2.VAL` to understand their role <!-- id: 18 -->
+- [ ] Implement/Run Conversion Script
+    - [ ] Create `scripts/inspect_new_hrv.cjs` <!-- id: 19 -->
+    - [ ] Create `scripts/convert_new_hrv.cjs` <!-- id: 20 -->
+    - [ ] Generate `public/data/ko_nkrv.json` <!-- id: 21 -->
+- [ ] Verification
+    - [ ] Verify `ko_nkrv.json` content (Check for Hanja/Encoding) <!-- id: 22 -->
+    - [ ] Verify app works with new data <!-- id: 23 -->

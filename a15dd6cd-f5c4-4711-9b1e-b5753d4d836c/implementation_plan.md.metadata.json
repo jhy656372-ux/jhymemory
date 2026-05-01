@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Added specific steps to regenerate `ko_nkrv.json` from `KoreanNKRVBible.xml` with a patch for the missing Genesis 4:21. Included UI fixes for the navigation bar (bottom docking and safe area support).",
+  "updatedAt": "2026-02-18T06:30:45.160318900Z",
+  "version": "5"
+}

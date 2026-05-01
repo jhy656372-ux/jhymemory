@@ -1,0 +1,56 @@
+# Implementation Plan - My Beloved Book
+
+## Goal Description
+The goal is to finalize the "My Beloved Book" application by ensuring Bible data is correctly integrated, implementing the Praise and Prayer pages, and generating a working Android APK.
+**Update:** User requested a Landing Page, improved Bible Search/Selection, and switching the Korean version label/data to NKRV (Revised New Korean Standard Version).
+
+## User Review Required
+- **Bible Version**: Verifying if the current JSON is KRV or NKRV. If purely KRV, we might need a new data source, but for now, we will update the display labels and logic to "개역개정" as requested, while investigating data replacement options if critical differences exist.
+- **Navigation**: Switching from a purely tab-based layout to a Landing Page -> Feature Page flow.
+
+## Proposed Changes
+
+### Navigation & Home
+#### [NEW] [HomePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/HomePage.jsx)
+- Landing page with title "나의 사랑하는 책".
+- Navigation cards/buttons for:
+  - 말씀 (Bible)
+  - 찬양 (Praise)
+  - 기도 (Prayer)
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/App.jsx)
+- Introduce a 'home' state.
+- Render `HomePage` by default.
+- Pass navigation handlers to `HomePage`.
+- Add a "Back to Home" capability in the main Layout.
+
+### Bible Feature
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/BiblePage.jsx)
+- Enhance the Book/Chapter selection UI.
+- Make the "Search" or "Select" interface more prominent (e.g., a modal or top bar that expands).
+- Update version labels from "KRV" to "개역개정" (NKRV) in the UI.
+
+#### [MODIFY] [BibleService.js](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/services/BibleService.js)
+- Update default version constant/string to 'NKRV'.
+- Ensure it loads the existing [ko_krv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/data/ko_krv.json) but treats it as the primary Korean text (mapped to NKRV label).
+
+### Praise & Prayer Features (Refining)
+- Ensure they link back to the main navigation or Home.
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run dev` in `temp_run` to verify UI changes.
+
+### Manual Verification
+1.  **Home Page Navigation**:
+    - Click "말씀" -> Goes to Bible Page.
+    - Click "찬양" -> Goes to Praise Page.
+    - Click "기도" -> Goes to Prayer Page.
+2.  **Bible Search**:
+    - Open Bible Page.
+    - Click "Select Book".
+    - Verify 66 books are listed clearly.
+    - Select a book -> Select a chapter.
+    - Verify text loads.
+    - Check the version label says "개역개정".

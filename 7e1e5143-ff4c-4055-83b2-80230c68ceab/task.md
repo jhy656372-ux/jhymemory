@@ -1,0 +1,11 @@
+# Debugging Stitch MCP Server
+
+- [x] Investigate Stitch MCP Configuration <!-- id: 0 -->
+    - [x] Verify `npx` command execution manually <!-- id: 1 -->
+    - [x] Check for error output <!-- id: 2 -->
+    - [x] Authenticate with Google Cloud <!-- id: 5 -->
+    - [x] Enable `stitch.googleapis.com` API <!-- id: 15 -->
+    - [x] Verify Server Startup <!-- id: 17 -->
+        - [x] Run `npx @_davideast/stitch-mcp proxy` manually <!-- id: 18 -->
+    - [x] Adjust `mcp_config.json` if needed <!-- id: 3 -->
+- [x] Validate Fix <!-- id: 4 -->

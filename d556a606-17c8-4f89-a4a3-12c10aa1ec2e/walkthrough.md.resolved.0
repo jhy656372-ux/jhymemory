@@ -1,0 +1,17 @@
+# 앱 아이콘 변경 및 APK 빌드 완료 보고서
+
+앱 아이콘을 'Word of God' (라지 텍스트) 버전으로 변경하고, 이를 반영한 새로운 안드로이드 APK 빌드를 성공적으로 마쳤습니다.
+
+## 수행된 작업
+
+- **아이콘 이미지 업데이트**: [modify_icon.js](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/modify_icon.js)를 사용해 [resources/icon.png](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/resources/icon.png)에 'Word of God' 3줄 텍스트를 크게 적용했습니다.
+- **안드로이드 리소스 재생성**: Capacitor Assets 도구를 이용해 모든 해상도의 아이콘을 갱신했습니다.
+- **웹 및 안드로이드 동기화**: `npx cap sync android`를 통해 아이콘 자산을 안드로이드 프로젝트로 전송했습니다.
+- **APK 빌드 완료**: Gradle을 통해 최신 아이콘이 적용된 `MyBelovedBook_v40_WordOfGod.apk` 파일을 생성했습니다.
+
+## 결과물
+
+- **파일명**: `MyBelovedBook_v40_WordOfGod.apk`
+- **위치**: 프로젝트 루트 디렉토리
+
+이제 이 파일을 설치하여 새롭게 바뀐 'Word of God' 아이콘을 확인하실 수 있습니다! 😊

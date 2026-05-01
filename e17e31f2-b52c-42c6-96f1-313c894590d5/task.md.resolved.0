@@ -1,0 +1,14 @@
+# Add New Bible Version
+
+- [ ] Analyze existing Bible data structure <!-- id: 0 -->
+    - [ ] Check `src/data` content
+    - [ ] Read `BiblePage.jsx` implementation
+    - [ ] Understand JSON format of Bible text
+- [ ] Obtain new Bible data <!-- id: 1 -->
+    - [ ] Ask user for the new Bible data source or file
+    - [ ] Format data to match existing structure
+- [ ] Implement changes <!-- id: 2 -->
+    - [ ] Add new data file to `src/data`
+    - [ ] Update `BiblePage.jsx` to include the new version option
+- [ ] Verify changes <!-- id: 3 -->
+    - [ ] Test if the new version appears and loads correctly

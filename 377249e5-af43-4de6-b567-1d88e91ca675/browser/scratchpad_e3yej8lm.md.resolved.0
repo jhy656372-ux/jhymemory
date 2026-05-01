@@ -1,0 +1,6 @@
+# Task Checklist
+- [ ] Open http://localhost:5173
+- [ ] Open the browser console
+- [ ] Type "동서" in the search input
+- [ ] Click "분석하기"
+- [ ] Report results (alerts, console logs, UI changes)

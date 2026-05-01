@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "데일리 습관 추적기(Daily Habit Tracker) 애플리케이션의 문제점을 진단하고 해결하여 실행 가능한 상태로 만드는 작업 목록을 정의합니다. 현재 코드 상태 분석, 오류 수정, 실행 확인 단계를 포함합니다.",
+  "updatedAt": "2026-02-07T01:21:08.471648800Z"
+}

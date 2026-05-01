@@ -1,0 +1,35 @@
+# Daily Exercise Habit Tracker - Implementation Plan
+
+## Goal Description
+Create a web-based Daily Exercise Habit Tracker featuring cute characters to motivate users. The app will allow users to check off daily exercises and see their character react or grow.
+
+## User Review Required
+> [!IMPORTANT]
+> - Confirm the "Cute Character" style (e.g., pixel art, flat design, 3D).
+> - Stitch Project connection status needs verification.
+
+## Proposed Changes
+
+### Project Structure
+- `src/`
+    - `components/` (React components generated from Stitch)
+    - `pages/` (Main Dashboard, Character Select)
+    - `assets/` (Character images)
+
+### Tech Stack
+- **Design**: Stitch MCP (Canvas & Generation)
+- **Frontend**: React + Vite
+- **Styling**: Vanilla CSS (via Stitch generation)
+
+### Workflow
+1.  **Stitch Project Creation**: Create `ExerciseHabitTracker`.
+2.  **Design Generation**:
+    - Prompt: "A cute daily exercise tracking dashboard with a pet character that cheers you on. Pastel colors, rounded buttons."
+    - Prompt: "Character selection screen with 3 different cute pets (cat, dog, bunny)."
+3.  **Code Conversion**: Use `react:components` skill (simulated) to generate code.
+
+## Verification Plan
+### Manual Verification
+- Verify the Stitch project is created.
+- Check if generated screens match the description.
+- Run `npm run dev` (if applicable) to see the React app running.

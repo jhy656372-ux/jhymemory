@@ -1,0 +1,30 @@
+# Layout Fix & Stats Update Plan
+
+## User Review Required
+> [!IMPORTANT]
+> I will be centering the "Speech Bubble" above the mascot (instead of to the right) to prevent it from causing horizontal scrolling or layout shifts on smaller screens.
+
+## Proposed Changes
+
+### UI / Layout Stability
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.css)
+- Update `.mascot-container`:
+    - Add `width: 250px` (fixed width to prevent resizing when mascot content changes).
+    - Add `justify-content: center`.
+- Update `.speech-bubble`:
+    - Change positioning to be centered above the mascot (`left: 50%`, `transform: translateX(-50%)` logic).
+    - Update `@keyframes float` to allow `translateX(-50%)` to persist during animation.
+
+### Statistics
+#### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Stats.jsx)
+- Remove the "Best Streak" calculation and display block.
+
+## Verification Plan
+
+### Manual Verification
+1.  **Stats**: Open the Stats page and verify "Best Streak" is gone.
+2.  **Layout**:
+    -   Go to Dashboard.
+    -   Check/Uncheck a habit to trigger the mascot animation (`idle` -> `cheering` -> `idle`).
+    -   Verify that the "Daily Goal" title and surrounding elements DO NOT move left/right.
+    -   Verify the speech bubble stays centered and doesn't get cut off.

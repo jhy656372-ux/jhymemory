@@ -1,0 +1,17 @@
+# Daily Habit Tracker Tasks
+
+- [x] Analyze current project state and identify pending tasks <!-- id: 0 -->
+- [x] Create [src/utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) for shared logic <!-- id: 4 -->
+- [x] Refactor streak calculation to [calculateStreak](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#1-39) in [src/utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) <!-- id: 1 -->
+- [x] Move theme definitions and helper functions to [src/utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) <!-- id: 5 -->
+- [x] Update [HabitDetail.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/HabitDetail.jsx) to use shared streak calculation <!-- id: 6 -->
+- [x] Update [Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx) to use shared streak calculation <!-- id: 7 -->
+- [x] Update [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) and [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) to use shared theme definitions <!-- id: 8 -->
+- [x] Verify functionality after refactoring <!-- id: 2 -->
+- [x] Check Capacitor configuration and dependencies <!-- id: 9 -->
+- [x] Add mobile-specific UI tweaks (safe-area, touch handling) <!-- id: 13 -->
+- [x] Build web assets (`npm run build`) <!-- id: 10 -->
+- [x] Sync Capacitor project (`npx cap sync`) <!-- id: 11 -->
+- [/] Build Android APK (`./gradlew assembleDebug`) <!-- id: 14 -->
+- [ ] Locate and verify APK file <!-- id: 15 -->
+- [ ] **BLOCKED**: Locate Android SDK <!-- id: 16 -->

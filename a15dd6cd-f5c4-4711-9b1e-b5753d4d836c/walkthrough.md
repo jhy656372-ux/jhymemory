@@ -1,0 +1,30 @@
+# Walkthrough - Data Fix & UI Verification
+
+I have successfully fixed the missing Bible verses and verified the UI configuration.
+
+## Changes
+
+### 1. NKRV Data Fix (`public/data/ko_nkrv.json`)
+- **Issue**: Genesis 4:26 was missing because Genesis 4:21 was missing in the source XML shifting all subsequent verses.
+- **Fix**: Created and ran `scripts/fix_nkrv_data.cjs` which:
+    - Parsed `KoreanNKRVBible.xml`.
+    - Cleaned text (removed Hanja, `[]` headers, `()` symbols).
+    - **Inserted missing Genesis 4:21**.
+    - Regenerated `ko_nkrv.json` with correct verse indexing.
+- **Verification**: Confirmed Genesis 4 now has 26 verses, and Verse 26 text is correct.
+
+### 2. UI Verification
+- **Navigation Bar**: Checked `src/components/Navigation.jsx`. It correctly uses `fixed bottom-0 w-full` for mobile docking.
+- **Padding**: Checked `src/Layout.jsx`. It correctly includes `pb-20` to prevent content from being hidden behind the bar.
+- **Conclusion**: The UI code already matches the "docked to bottom" requirement.
+
+## Verification Results
+
+### Terminal Output
+```
+Patched Genesis 4: Inserted verse 21. Total verses: 26
+Verification Gen 4:26: 셋도 아들을 낳고 그의 이름을 에노스라 하였으며 그 때에 사람들이 비로소 여호와의 이름을 불렀더라
+```
+
+## Next Steps
+- Rebuild the APK to apply these data changes to your device.

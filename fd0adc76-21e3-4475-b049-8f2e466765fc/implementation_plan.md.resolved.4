@@ -1,0 +1,25 @@
+# Habit Hero Card Styling Plan
+
+## Goal Description
+The user wants the "Habit Hero" card (Profile) to have its content centered and the "result value" (likely the Avatar or Name) to appear 3D/dimensional, matching the style of the Perfect Days card.
+
+## Proposed Changes
+
+### CSS Configuration
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css)
+- Update `.profile-header`:
+    - Ensure `display: flex`, `flex-direction: column`, `align-items: center`, `justify-content: center`.
+    - `text-align: center`.
+- Update `.avatar`:
+    - Increase size slightly.
+    - Add `box-shadow` or `filter: drop-shadow` for 3D effect.
+    - Add hover animation (scale/rotate).
+- Update `.profile-header h3` (The Name):
+    - Add `text-shadow` similar to `.big-number`.
+
+## Verification Plan
+
+### Manual Verification
+1.  Navigate to `/profile`.
+2.  Check that the Avatar, Name, and Level are perfectly centered in the card.
+3.  Verify that the Avatar/Name has a 3D pop effect.

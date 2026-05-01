@@ -1,0 +1,9 @@
+# Refining UI and Building APK v12
+
+- [x] Fix PrayerPage text overflow (use line-clamp-3) <!-- id: 28 -->
+- [x] PraisePage: Reduce "Recommended Praise" size to text-base <!-- id: 29 -->
+- [x] PraisePage: Compact video items (smaller title, smaller box) <!-- id: 30 -->
+- [x] PraisePage: Compact search box (reduce padding) <!-- id: 31 -->
+- [x] Build React application (Clean Install Required) <!-- id: 32 -->
+- [x] Sync with Capacitor <!-- id: 33 -->
+- [x] Build Android APK (v14) <!-- id: 34 -->

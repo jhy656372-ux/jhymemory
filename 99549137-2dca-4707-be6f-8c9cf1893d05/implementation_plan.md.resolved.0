@@ -1,0 +1,30 @@
+# Layout Adjustment Plan
+
+## Goal
+Rearrange the elements on the first page (Dashboard) so that the **Character** is positioned between the **Title** and the **Speech Bubble**.
+
+## Proposed Changes
+
+### UI Logic
+The user requested the character to be between the speech bubble and the title.
+Currently, the visual order is **Speech Bubble -> Character -> Title**.
+To satisfy the request in a way that likely improves the layout (Title at the top):
+We will change the order to: **Title -> Character -> Speech Bubble**.
+
+### Components
+
+#### [MODIFY] [Dashboard.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Dashboard.jsx)
+- Move the `<h1 className="app-title">` element to be the **first child** of `<header className="header">`, placing it before the `.mascot-container`.
+
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.css)
+- Update `.speech-bubble` styles to position it **below** the mascot.
+  - Currently it is absolute positioned at the top (`top: -10px`).
+  - Change to standard static positioning (flex item) or absolute at bottom.
+  - Recommended: Switch to flex flow within `.mascot-container` (Mascot First, Bubble Second) and remove absolute positioning for a more natural flow.
+  
+## Verification Plan
+
+### Manual Verification
+- Since I cannot see the screen, I will verify the code structure:
+  - [Dashboard.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Dashboard.jsx): Ensure `h1` is before `mascot-container`.
+  - [App.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.css): Ensure `.speech-bubble` is no longer absolutely positioned to the top, and preserves the "Between" logic.

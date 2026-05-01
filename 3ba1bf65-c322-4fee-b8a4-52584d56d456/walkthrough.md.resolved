@@ -1,0 +1,38 @@
+# Daily Habit Tracker - Feature Verification
+
+I have added the requested **Edit** and **Delete** functionalities and polished the UI for a premium feel. Use this guide to verify the changes.
+
+## 1. UI & Visuals Check
+- [ ] **Background**: Verify the new subtle warm gradient background.
+- [ ] **Cards**: Cards should have a "frosted glass" look (Glassmorphism) with soft blur and white borders.
+- [ ] **Mascot**: Ensure the mascot animation works when toggling habits.
+
+## 2. Edit Feature Verification
+1.  Click on the arrow **➡️** on any habit to go to the **Detail Page**.
+2.  Click the **Pencil Icon (✏️)** next to the habit title.
+3.  The title should turn into an input field.
+4.  Change the text (e.g., "Morning Stretch" -> "Morning Yoga").
+5.  Click **"Save"**.
+6.  Verify the title updates immediately and persists when you go back to the Dashboard.
+
+## 3. Delete Feature Verification
+1.  Go to the **Detail Page** of a habit you want to remove.
+2.  Click **"🗑️ Delete Habit"** at the bottom.
+3.  A confirmation area ("Are you sure?") should appear.
+4.  Click **"Yes, Delete"**.
+5.  You should be redirected to the **Dashboard**.
+6.  Verify the habit is gone from the list.
+
+## 4. Mobile Responsiveness
+- [ ] Resize your browser window to mobile width (~375px).
+- [ ] Ensure the bottom nav and habit cards fit perfectly without horizontal scrolling.
+
+## 5. Navigation & New Pages
+- [ ] **Navigation**: Tap the bottom icons (Home 🏠, Stats 📊, Profile 👤). Verify smooth transition.
+- [ ] **Stats Page**: Check if "Active Habits" count matches your list.
+- [ ] **Profile Page**:
+    -   Check if the "Reset All Data" button works (Warning: This wipes everything!).
+    -   Verify that it redirects safely or refreshes the state.
+
+> [!TIP]
+> Try adding a new habit and then editing it to ensure the full flow works!

@@ -1,0 +1,31 @@
+# Implementation Plan - Memo Feature & Bible Cleanup
+
+## Goal Description
+The user wants to add a Memo feature accessible from the main page (under Prayer) that supports checkboxes, toggles, pagination (5 items/page), and persistence. Additionally, the Bible text needs to be cleaned of `&#x27;` and `!` characters.
+
+## Proposed Changes
+
+### Bible Text Cleanup
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/BiblePage.jsx)
+- Update the text replacement logic to include removing `!` alongside `&#x27;`.
+
+### Memo Feature
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/App.jsx) (or relevant navigation file)
+- Add a "Memo" button/link to the main navigation or dashboard, positioned under "Prayer".
+- Ensure a route exists for `/memo`.
+
+#### [VERIFY] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/pages/MemoPage.jsx)
+- Confirm existing implementation supports:
+    - Checkbox/Toggle (Done state)
+    - Persistence (LocalStorage)
+    - Pagination (5 items limit)
+
+## Verification Plan
+### Manual Verification
+- **Bible Page**: Open a chapter with known special characters (or just check general text) and ensure `!` and `&#x27;` are gone.
+- **Memo Feature**:
+    - Click "Memo" button from main page.
+    - Add 6 memos.
+    - Verify pagination appears (5 on page 1, 1 on page 2).
+    - Toggle a memo (check/uncheck).
+    - Reload page to verify persistence.

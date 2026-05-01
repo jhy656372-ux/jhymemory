@@ -1,0 +1,42 @@
+# Verification: Manual Build Process (v3 - Final Refinements)
+
+This walkthrough documents the successful resolution of the build failures and blank screen issues, along with final UI/UX refinements.
+
+## Key Solutions
+
+### 1. Fix Blank Screen (Monolithic Architecture)
+-   **Problem:** The Android WebView failed to load ES modules (`import`/`export`) or handle complex bundling interactions, resulting in a blank screen.
+-   **Solution:** Removed reliance on `vite build`. Created a manual `dist` folder:
+    -   [dist/app_logic.js](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/app_logic.js): Contains **ALL** React components and logic in a single file, using global `React`/`ReactDOM` variables.
+    -   [dist/styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css): Consolidated all CSS.
+    -   [dist/index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/index.html): Simple entry point loading these assets.
+
+### 2. Navigation Bar Width Fix
+-   **Problem:** Nav bar was wider than the page content.
+-   **Solution:** Added `* { box-sizing: border-box; }` to CSS. This prevents padding from adding to the `100%` width.
+
+### 3. Horizontal Shake Fix
+-   **Problem:** Page could scroll horizontally (wobble).
+-   **Solution:** Added `body { overflow-x: hidden; width: 100%; }` to CSS.
+
+### 4. Stats Page "Active Habits" Layout
+-   **Problem:** The "Overall Status" list took up too much vertical space, and converting it to a row initially broke the parent container ("completely broken box").
+-   **Solution:** Refined `.progress-list` CSS:
+    -   `display: flex; flex-direction: row;` (Single line)
+    -   `overflow-x: auto;` (Scrollable)
+    -   `max-width: 100%;` (Prevent breaking parent width)
+    -   `flex-shrink: 0;` on items (Prevent squashing)
+
+### 5. CSS Override & Versioning Issue (v1.1)
+-   **Problem:** Changes were not reflecting because [dist/index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/index.html) contained stale inline CSS that overrode the external [styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css).
+-   **Solution:** Removed duplicate `<style>` block from [dist/index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/index.html).
+-   **Verification:** Bumped version to **1.1** (Code 2).
+
+### 6. Emergency UI Restoration (v1.2)
+-   **Problem:** Removing the inline styles from [index.html](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/index.html) caused the UI boxes (`.glass-card`) to disappear because those styles were missing from the external [styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css).
+-   **Solution:** Appended the missing `.glass-card` and button styles to [dist/styles.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/dist/styles.css).
+-   **Revert:** Removed the "(v1.1)" title from the stats page as requested.
+-   **Final Artifact:** `daily-habit-tracker-restore-v1.2.apk`
+
+## Final Artifact
+-   **APK File:** `daily-habit-tracker-restore-v1.2.apk` (Located in project root)

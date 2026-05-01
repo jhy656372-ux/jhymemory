@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "서버가 실행되지 않는 문제를 해결하기 위한 계획입니다. 가상 드라이브(T:)를 연결하고 FastAPI 서버를 실행하는 방법을 안내하고 자동 실행 스크립트를 생성합니다.",
+  "updatedAt":  "2026-04-02T23:12:34.626709900Z",
+  "requestFeedback":  true
+}

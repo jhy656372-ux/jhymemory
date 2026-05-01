@@ -1,0 +1,12 @@
+# UI Design & Layout Refinements
+
+- [ ] Status Bar Visibility Fix <!-- id: 0 -->
+    - [ ] Ensure background does not cover the status bar on the Home page.
+    - [ ] Ensure background does not cover the status bar on other pages (Bible, Praise, Prayer, Memo).
+    - [ ] Implement `safe-area-inset-top` where necessary.
+- [ ] Page Styling Updates <!-- id: 1 -->
+    - [ ] Set background color to white for Bible, Praise, Prayer, and Memo pages.
+    - [ ] Ensure titles are always visible (sticky or top-aligned) on these pages.
+- [ ] Responsive Layout Optimization <!-- id: 2 -->
+    - [ ] Adjust layout to ensure content is visible even with reduced width or font changes.
+    - [ ] Review and fix overflow issues.

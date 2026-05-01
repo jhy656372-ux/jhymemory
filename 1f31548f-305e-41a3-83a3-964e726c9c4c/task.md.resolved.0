@@ -1,0 +1,16 @@
+# AI Lip Sync Web App (Open Source)
+
+- [ ] Planning
+  - [/] Define architecture (React + FastAPI)
+  - [/] Create implementation plan
+- [ ] Frontend Development
+  - [ ] Setup Vite React project
+  - [ ] Implement UI (Upload image, upload audio, generate button, video player)
+  - [ ] Add premium CSS styling (Dark mode, glassmorphism, animations)
+- [ ] Backend Development
+  - [ ] Setup FastAPI project
+  - [ ] Implement file upload API
+  - [ ] Integrate open-source Lip Sync inference (SadTalker / Wav2Lip)
+- [ ] Integration & Testing
+  - [ ] Connect Frontend to Backend
+  - [ ] Evaluate video generation

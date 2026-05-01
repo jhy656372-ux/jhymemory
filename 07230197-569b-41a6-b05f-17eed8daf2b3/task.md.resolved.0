@@ -1,0 +1,7 @@
+# Tasks
+
+- [ ] Remove 8-photo limit in Admin Gallery
+- [ ] Fix mobile responsiveness issues
+    - [ ] Diagnose the "no response" issue on mobile
+    - [ ] Check media queries and viewport settings
+    - [ ] Verify touch events and interactions

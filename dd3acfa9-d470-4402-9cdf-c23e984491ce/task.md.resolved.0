@@ -1,0 +1,7 @@
+
+- [ ] Locate and remove "Best Streak" from statistics ([Dashboard.jsx?]) <!-- id: 0 -->
+- [ ] Analyze layout stability during habit toggle <!-- id: 1 -->
+    - [ ] Check `Dashboard.jsx` for conditional rendering causing shifts
+    - [ ] Check `App.css` / `index.css` for container sizing
+- [ ] Fix layout shift issue <!-- id: 2 -->
+- [ ] Verify changes <!-- id: 3 -->

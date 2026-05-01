@@ -1,0 +1,47 @@
+# Bible App Enhancements
+
+- [/] Bible Text Cleanup <!-- id: 0 -->
+    - [x] Update [BiblePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx) to remove `&#x27;` and `!` characters from text <!-- id: 1 -->
+- [ ] Memo Feature Implementation <!-- id: 2 -->
+    - [ ] Analyze [App.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.jsx) to understand navigation and "First Page" structure <!-- id: 3 -->
+    - [ ] Add "Memo" button to the "First Page" (likely under Prayer) <!-- id: 4 -->
+    - [ ] Ensure [MemoPage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/MemoPage.jsx) is correctly routed and accessible <!-- id: 5 -->
+    - [ ] Verify [MemoPage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/MemoPage.jsx) features (Persistence, Checkbox/Toggle, Pagination) <!-- id: 6 -->
+- [/] Verification <!-- id: 7 -->
+    - [/] Verify Bible text cleanup <!-- id: 8 -->
+    - [/] Verify Memo creation, storage, and pagination <!-- id: 9 -->
+- [x] Memo Page Refinement <!-- id: 10 -->
+    - [x] Update title to "메모" and placeholder to "새로운 메모를 입력하세요" <!-- id: 11 -->
+    - [x] Remove checkbox and toggle functionality <!-- id: 12 -->
+    - [x] Update background/theme to purple (matching Home Page Memo button) <!-- id: 13 -->
+- [ ] UI/UX Improvements <!-- id: 18 -->
+    - [x] **Bible Page**: Update background to Blue theme (match Home icon) <!-- id: 19 -->
+    - [x] **Navigation**: Add "Memo" icon to bottom bar <!-- id: 20 -->
+    - [x] **Prayer Page**: Move submit button below the text area <!-- id: 21 -->
+- [x] UI Refinement Round 2 <!-- id: 22 -->
+    - [x] **Navigation**: Change grid to 5 columns to fit Memo icon <!-- id: 23 -->
+- [x] UI Refinement Round 2 <!-- id: 22 -->
+    - [x] **Navigation**: Change grid to 5 columns to fit Memo icon <!-- id: 23 -->
+    - [x] **Prayer Page**: Reduce input/box size, center oval button, match font size to Bible <!-- id: 24 -->
+- [x] UI Refinement Round 3 <!-- id: 25 -->
+    - [x] **Global**: Add padding/margins to Bible, Praise, Prayer pages to show colored background <!-- id: 26 -->
+- [x] UI Refinement Round 3 <!-- id: 25 -->
+    - [x] **Global**: Add padding/margins to Bible, Praise, Prayer pages to show colored background <!-- id: 26 -->
+    - [x] **Prayer Page**: Center alignment for button and list text <!-- id: 27 -->
+- [x] UI Refinement Round 3 <!-- id: 25 -->
+    - [x] **Global**: Add padding/margins to Bible, Praise, Prayer pages to show colored background <!-- id: 26 -->
+    - [x] **Prayer Page**: Center alignment for button and list text <!-- id: 27 -->
+- [x] UI Refinement Round 4 <!-- id: 28 -->
+    - [x] **Prayer Page**: Change theme from Orange to Yellow (match Home icon) <!-- id: 29 -->
+- [x] UI Refinement Round 5 <!-- id: 30 -->
+    - [x] **Prayer Page**: Match layout to Memo Page (cleaner input, no gradient box) <!-- id: 31 -->
+    - [x] **Prayer Page**: Remove initial mock data (start empty) <!-- id: 32 -->
+- [x] UI Refinement Round 6 <!-- id: 33 -->
+    - [x] **Memo Page**: Display creation date (YYYY.MM.DD) <!-- id: 34 -->
+    - [x] **Prayer Page**: Display creation date (YYYY.MM.DD) <!-- id: 35 -->
+    - [x] **Persistence**: Verify localStorage is working (already implemented) <!-- id: 36 -->
+- [x] UI Refinement Round 7 <!-- id: 37 -->
+    - [x] **Praise Page**: Update video list to user-provided 3 links <!-- id: 38 -->
+- [x] UI Refinement Round 8 <!-- id: 39 -->
+    - [x] **Praise Page**: Clean up video card (Show ONLY Title) <!-- id: 40 -->
+    - [x] **Praise Page**: Verify search functionality <!-- id: 41 -->

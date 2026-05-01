@@ -1,0 +1,5 @@
+- [/] 푸터 빈 태그 (<br>) 노출 문제 근본 해결 (3차)
+    - [ ] [AdminPage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx) 입력 제한 로직 추가
+    - [ ] [Footer.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/layout/Footer.jsx) 전체 필드 태그 정제 로직 적용
+- [ ] 게시판 개수 재확인 (2개 노출 유지)
+- [ ] 최종 빌드 및 전체 작동 확인

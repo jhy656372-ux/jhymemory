@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for adding a `count` property to habits.\n1.  **App.jsx**: Update `habits` initialization to include `count`. Update `toggleHabit` to increment/decrement `count`. `resetDailyProgress` remains unchanged as it only filters `history`.\n2.  **Stats.jsx**: Update \"Cumulative Completions\" and \"Total Status\" list to use `habit.count`.",
+  "updatedAt": "2026-02-19T09:40:47.328570600Z",
+  "version": "4"
+}

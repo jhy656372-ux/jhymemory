@@ -1,0 +1,17 @@
+# 산돌교회 웹사이트 개발 태스크 (Local AI 연동)
+
+- [x] 프로젝트 초기화 및 환경 설정
+  - [x] Vite + React 프로젝트 생성 (`church-website`)
+  - [x] 패키지 설치 (`npm install`)
+  - [x] Vite Proxy 설정 (`vite.config.js`에 `http://localhost:11434` 연결)
+- [x] UI/UX 디자인 기초 설정
+  - [x] '깔끔한 화이트' 테마의 순수 CSS(Vanilla CSS) 글로벌 설정 (`index.css`)
+- [x] 핵심 컴포넌트 구현
+  - [x] **헤더(네비게이션)**: 로고 및 메뉴
+  - [x] **Hero 섹션**: 메인 비주얼 및 환영 메시지
+  - [x] **교회 소개 섹션**: 예배 시간 및 오시는 길
+  - [x] **AI 신앙 상담소(로컬 AI)**: 사용자의 고민/질문을 입력받아 로컬 AI가 응답해주는 UI
+- [x] 통합 및 테스트
+  - [x] `App.jsx`에 컴포넌트 조립
+  - [x] `npm run dev` 실행 및 레이아웃/AI 통신 확인
+- [ ] 완료 및 Walkthrough 작성

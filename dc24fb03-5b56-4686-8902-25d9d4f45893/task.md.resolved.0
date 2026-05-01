@@ -1,0 +1,6 @@
+# AI 립싱크 생성기 개선 작업 (AI Lip Sync Generator Improvement)
+
+- [ ] 현재 립싱크 생성 방식 및 오류 원인 분석 (Analyze current lip-sync method and errors)
+- [ ] 더 자연스러운 립싱크 모델(SadTalker, Wav2Lip 등) 연동 계획 수립 (Plan integration of advanced lip-sync models)
+- [ ] 백엔드(FastAPI) 및 모델 연동 로직 개선 (Improve backend and model integration logic)
+- [ ] 프론트엔드 연동 확인 및 테스트 (Verify frontend integration and test)

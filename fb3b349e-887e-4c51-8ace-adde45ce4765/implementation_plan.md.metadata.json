@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "CMS 기능 구현을 위한 상세 계획입니다. App.jsx 수정, AdminPage 생성, 컴포넌트 리팩토링 및 검증 계획을 포함합니다.",
+  "updatedAt": "2026-02-11T12:11:17.229601800Z"
+}

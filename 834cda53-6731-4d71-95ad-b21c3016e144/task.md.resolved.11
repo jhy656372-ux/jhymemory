@@ -1,0 +1,6 @@
+# Fixing Admin Gallery & Footer
+
+- [x] Admin: Enforce 12-photo limit in Gallery management <!-- id: 17 -->
+- [x] Footer: Fix vertical separator visibility (layout fix) <!-- id: 18 -->
+- [x] Data: Clean up gallery data & increment version <!-- id: 19 -->
+- [x] Re-build <!-- id: 20 -->

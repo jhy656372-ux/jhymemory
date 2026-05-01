@@ -1,0 +1,41 @@
+# Date Handling Fix Plan
+
+## Goal Description
+The user reported that "Perfect Days" and habit history are not verifying/updating correctly. 
+The root cause is the use of `new Date().toISOString().split('T')[0]`, which returns the UTC date. In Korea (UTC+9), this means that between 00:00 and 09:00 AM, the app records actions as happening on the *previous* day.
+This change ensures the app always uses the device's **Local Time** for dates.
+
+## User Review Required
+> [!NOTE]
+> This fix changes how "Today" is calculated. It will use the local device time. If a user travels across timezones, "Today" will shift accordingly. This is generally the expected behavior for a personal habit tracker.
+
+## Proposed Changes
+
+### Logic Layer
+#### [MODIFY] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- Update [getTodayDate()](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59) to return `YYYY-MM-DD` in **Local Time**.
+
+### Component Layer
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.jsx)
+- Remove local [getTodayDate](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59) function.
+- Import [getTodayDate](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59) from [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js).
+- Use the centralized function for state updates.
+
+#### [MODIFY] [Dashboard.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Dashboard.jsx)
+- Import [getTodayDate](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59) from [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js).
+- Replace `new Date().toISOString()...` with [getTodayDate()](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59).
+
+#### [MODIFY] [HabitDetail.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/HabitDetail.jsx)
+- Import [getTodayDate](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59) from [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js).
+- Replace `new Date().toISOString()...` with [getTodayDate()](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59).
+
+## Verification Plan
+
+### Manual Verification
+1.  **Code Review**: Ensure all instances of `toISOString().split('T')[0]` are replaced.
+2.  **Date Check**:
+    -   I will add a temporary `console.log` in [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) to print [getTodayDate()](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#55-59) output.
+    -   Since the current time is 08:XX AM KST (which would be previous day in UTC), I can verify if the fix works by seeing if it prints the *current* date (11th) instead of the previous one (10th).
+3.  **App Build**:
+    -   Rebuild the Android APK.
+    -   User installs and checks if the date shows correctly on the Dashboard/Detail view.

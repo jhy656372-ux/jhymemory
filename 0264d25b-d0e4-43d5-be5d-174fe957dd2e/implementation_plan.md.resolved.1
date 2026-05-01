@@ -1,0 +1,51 @@
+# UI 개선 구현 계획
+
+## 목표
+상태바 겹침 문제를 해결하고, 상세 페이지들의 배경을 흰색으로 변경하며, 제목이 항상 보이도록(Sticky) 하고, 다양한 화면 크기에서도 내용이 잘 보이도록 반응형 동작을 개선합니다.
+
+## 사용자 검토 필요 사항
+> [!IMPORTANT]
+> - 말씀, 찬양, 기도, 메모 페이지의 배경색이 기존 파스텔 톤에서 **흰색**으로 변경됩니다.
+> - 제목 및 컨트롤 영역이 스크롤 시에도 상단에 고정됩니다.
+> - 모바일 상태바 영역 침범을 막기 위해 `env(safe-area-inset-top)` CSS 속성이 적용됩니다.
+
+## 변경 제안
+
+### 전역 스타일
+#### [MODIFY] [index.css](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/index.css)
+- 안전 영역(Safe Area) 패딩을 위한 유틸리티 클래스 (`safe-pt`, `safe-top` 등) 추가
+
+### 레이아웃 및 내비게이션
+#### [MODIFY] [Layout.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/Layout.jsx)
+- 전체 레이아웃 컨테이너가 상태바 영역을 침범하지 않도록 설정하거나, 각 페이지로 제어권 위임 확인
+
+### 페이지 컴포넌트
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/BiblePage.jsx)
+- 루트 배경색을 `bg-white`로 변경
+- 상단 버전 선택 및 네비게이션 박스에 `sticky top-0 z-50` 적용
+- 상태바 영역만큼 상단 패딩 추가
+
+#### [MODIFY] [PraisePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PraisePage.jsx)
+- 루트 배경색을 `bg-white`로 변경
+- 헤더 영역 고정 및 스타일 조정
+
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PrayerPage.jsx)
+- 루트 배경색을 `bg-white`로 변경
+- 헤더 영역 고정 및 스타일 조정
+
+#### [MODIFY] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/MemoPage.jsx)
+- 루트 배경색을 `bg-white`로 변경
+- 헤더 영역 고정 및 스타일 조정
+
+#### [MODIFY] [HomePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/HomePage.jsx)
+- 상단 여백 추가하여 상태바 겹침 방지
+
+## 검증 계획
+
+### 수동 검증
+1.  **상태바 확인**: 코드 상 `pt-[env(safe-area-inset-top)]` 또는 `pt-safe` 클래스가 올바르게 적용되었는지 확인
+2.  **디자인 확인**:
+    - 말씀, 찬양, 기도, 메모 페이지 배경이 **흰색**인지
+    - 스크롤 시 제목 바가 상단에 **고정**되는지
+3.  **반응형 확인**:
+    - 브라우저 창 크기를 줄였을 때 내용이 잘리지 않고 스크롤 가능한지 확인

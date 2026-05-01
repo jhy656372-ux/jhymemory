@@ -1,0 +1,29 @@
+# App Refinement & Data Fix Plan
+
+## Goal
+1.  Fix missing verse (Genesis 4:26) in NKRV data.
+2.  Dock the navigation bar to the very bottom of the screen on mobile.
+3.  Rebuild Android APK.
+
+## Data Fix
+- **Issue**: User reported Genesis 4:26 is missing in [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json).
+- **Investigation**: Verify if it's missing or empty. Check [ko_ko_raw.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_ko_raw.json) or other sources.
+- **Action**: Create `scripts/fix_missing_verses.cjs` to:
+    - Load [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json).
+    - Check Genesis 4 length.
+    - Insert the missing verse if found in source or provide it manually.
+    - Verify verse counts for all chapters against a standard list (if available) or just spot check.
+
+## UI Fix
+- **File**: [src/components/Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx)
+- **Change**:
+    - Current: `fixed bottom-4 left-4 right-4 ... rounded-2xl` (Floating pill design)
+    - New: `fixed bottom-0 left-0 right-0 ... rounded-t-2xl` (Docked bar design)
+    - Remove `left-4`, `right-4`, `bottom-4`.
+    - Set `w-full`.
+    - Adjust padding/margins inside to look good.
+
+## Build
+- Run `npm run build`
+- Run `npx cap sync`
+- Run `./gradlew assembleDebug`

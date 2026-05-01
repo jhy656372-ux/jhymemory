@@ -1,0 +1,29 @@
+# Restoring Contact Info to Footer
+
+The user wants to restore the "Contact Info" (Address, Phone, Website) section to the footer, specifically positioning it to the **left** of the "Worship Times" section.
+
+## User Review Required
+> [!NOTE]
+> I will re-enable the display of Address, Phone, and Website in the footer. The new layout order will be:
+> 1. Church Name/Description
+> 2. **Contact Info (New Position)**
+> 3. Worship Times
+> 4. Related Sites
+
+## Proposed Changes
+
+### Data Layer
+#### [MODIFY] [churchData.js](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/data/churchData.js)
+- Increment `version` to 10.
+
+### Component Layer
+#### [MODIFY] [Footer.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/layout/Footer.jsx)
+- Re-introduce the Contact Info column.
+- Position it *before* the "Worship Times" column.
+- Include Address, Phone, and Website as requested.
+
+## Verification Plan
+
+### Manual Verification
+- Verify the footer layout order: Church Info -> Contact Info -> Worship Times -> Related Sites.
+- Verify the content of the restored section.

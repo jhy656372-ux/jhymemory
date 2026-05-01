@@ -1,0 +1,19 @@
+# Statistics Layout Alignment Plan
+
+## Goal Description
+The user wants to align the result values in the statistics section of the [Stats](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx#4-77) page. Currently, the values might be misaligned visually. The goal is to ensure the numbers and labels in the statistics cards are properly centered and aligned.
+
+## Proposed Changes
+
+### CSS Configuration
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css)
+- Update `.stats-row` to use `display: flex` with `justify-content: space-around` or `space-between` to distribute items evenly.
+- Update `.stat-item` to ensure text centering and proper padding.
+- Ensure `.mini-stat-row` in the overview section aligns the text and the badge correctly, likely using `align-items: center` and `justify-content: space-between`.
+
+## Verification Plan
+
+### Manual Verification
+1.  Navigate to the Statistics page (`/stats`).
+2.  Observe the "Active Habits" and "Total Checks" cards. They should be evenly spaced and their content centered.
+3.  Observe the "Overview" list. The habit name and frequency badge should be aligned on the same horizontal line, with the name on the left and badge on the right.

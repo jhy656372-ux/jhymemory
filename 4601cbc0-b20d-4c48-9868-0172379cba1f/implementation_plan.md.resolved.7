@@ -1,0 +1,32 @@
+# Implementation Plan - Fix Notification Permissions (ROUND 2)
+
+## Goal
+Resolve the persistent "permission denied" error when scheduling notifications on Android 13+.
+
+## User Review Required
+> [!IMPORTANT]
+> Android 13+ requires the `POST_NOTIFICATIONS` permission to be explicitly requested and granted.
+
+## Proposed Changes
+
+### Android Configuration
+#### [MODIFY] [AndroidManifest.xml](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/android/app/src/main/AndroidManifest.xml)
+- Ensure `POST_NOTIFICATIONS` permission is declared (Critical for Android 13+).
+- Ensure `SCHEDULE_EXACT_ALARM` is declared.
+- Add `WAKE_LOCK` and `VIBRATE` if missing.
+
+### Code Logic
+#### [MODIFY] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- Explicitly check for `display` status in permission response.
+- If `denied`, try to direct user to settings or show a more helpful toast (e.g., "Please enable notifications in settings").
+- **Crucial**: Capacitor 4/5 sometimes maps `POST_NOTIFICATIONS` oddly. We might need to ensure we are requesting the 'display' alias if using the `LocalNotifications` plugin directly.
+
+### Build
+- Clean build again to ensure Manifest changes are picked up.
+
+## Verification Plan
+1. **Rebuild APK**: `npm run build` -> `npx cap sync` -> `gradlew assembleDebug`.
+2. **Install & Test**:
+    - **Notifications**: Click "Turn On".
+    - **Expected**: System permission dialog should appear.
+    - **Fallback**: If denied, toast should say "Please enable in settings".

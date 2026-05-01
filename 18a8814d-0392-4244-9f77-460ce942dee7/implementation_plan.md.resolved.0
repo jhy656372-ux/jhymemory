@@ -1,0 +1,45 @@
+# Implementation Plan - Bible Text Cleanup & Memo Feature
+
+## Goal Description
+1.  **Clean up Bible Text:** Remove the HTML entity `&#x27;` occurring in the Bible text on [BiblePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx).
+2.  **Add Memo Feature:** Add a link on the Home Page (under Prayer) to a new Memo Page. The Memo Page will support adding memos with checkboxes/toggles and will implement pagination (5 items per page).
+
+## User Review Required
+-   **Persistence:** I will assume local storage or `DataContext` for now unless a backend is explicitly required for this new feature, consistent with recent "Server-Side Persistence" work. I'll check `DataContext` to see if it's already set up for general data.
+
+## Proposed Changes
+
+### Bible Page Cleanup
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/BiblePage.jsx)
+-   Sanitize the `text` content to remove `&#x27;`.
+
+### Memo Feature
+#### [MODIFY] [HomePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/HomePage.jsx)
+-   Add a "Memo" section/button below the "Prayer" section.
+-   Link it to `/memo`.
+
+#### [NEW] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/MemoPage.jsx)
+-   create a new page component.
+-   Implement state for memos (id, text, type: checkbox/toggle, checked/toggled).
+-   Implement pagination (slice array of memos, 5 per page).
+-   UI for adding new memos.
+-   UI for listing memos with checkbox/toggle interactions.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/App.jsx) (or main router file)
+-   Add route for `/memo`.
+
+#### [MODIFY] [DataContext.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/context/DataContext.jsx) (if applicable)
+-   Add `memos` state and functions to `addMemo`, `toggleMemo`, etc.
+
+## Verification Plan
+### Automated Tests
+-   None specified.
+
+### Manual Verification
+-   **Bible Page:** Open Bible Page and check specifically for `&#x27;` characters (browsers might render them as `'`, so I need to check if the user meant literal `&#x27;` text appearing or just the apostrophe itself needs removal? "Scripture text in Korean bible... remove &#x27;". Usually `&#x27;` appears when data is improperly escaped. I will check raw data vs rendered.).
+-   **Memo:**
+    -   Click "Memo" on Home Page -> Go to Memo Page.
+    -   Add 6 memos.
+    -   Verify only 5 show on page 1.
+    -   Verify page 2 shows the 6th memo.
+    -   Test checkboxes and toggles.

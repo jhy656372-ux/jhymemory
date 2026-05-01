@@ -1,0 +1,28 @@
+# Stats Page Refinement Plan
+
+## Goal
+Compact the Stats page layout, prevent text wrapping on mobile, and correct the "Total Count" logic.
+
+## Proposed Changes
+
+### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx)
+- **Logic Change:** Calculate `totalCompletions` (Total Count) by summing the length of the `history` array for every habit.
+  ```javascript
+  const totalCompletions = habits.reduce((acc, habit) => acc + habit.history.length, 0);
+  ```
+- **UI Update:** Replace the "Total Habits" display (which currently shows `habits.length`) with this new `totalCompletions`. *Wait, the user said "Total Status Count is cumulative regardless of Perfect Day". I assume this refers to a "Total Completed Habits" count.*
+- **Layout Update:** Change the structure of the first box to allow single-line display.
+  - Remove `<br />` tags from labels.
+  - Apply a new class or style to force horizontal layout for these specific items.
+
+### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.css)
+- **Layout:** Update `.stat-item` or create a variant `.stat-item-row` that uses `flex-direction: row` with `justify-content: space-between` or `gap`.
+  - Adjust width/padding to ensure they fit side-by-side or stacked vertically but with internal horizontal layout (Context: "compact vertical height" implies they might still be side-by-side blocks, but the *contents* of each block should be one line. OR, the user wants the *entire box* to be shorter by making the text one line).
+  - *Interpretation:* "Each on one line" -> `[Count] [Label]` instead of `[Count] \n [Label]`.
+- **Typography:** Add or update `.sub-text` class to have a smaller font size (e.g., `12px` or `0.8rem`) to prevent wrapping on small screens.
+
+## Verification Plan
+- **Manual Verification:**
+  - Check if "Active Habits" and "Today's Achievement" are single-line.
+  - Check if "Perfect Day" description text is smaller and doesn't wrap awkwardly.
+  - Verify "Total Count" increases when I toggle a habit, regardless of whether it's a perfect day.

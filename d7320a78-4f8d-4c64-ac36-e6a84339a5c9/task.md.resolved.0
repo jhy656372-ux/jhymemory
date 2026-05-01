@@ -1,0 +1,15 @@
+# Task: Daily Habit Tracker Enhancements
+
+## One-Screen Layout Implementation
+- [ ] Analyze current routing/layout structure in [App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx) and [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Navigation.jsx) <!-- id: 0 -->
+- [ ] Refactor layout to display Dashboard, Stats, and Profile within a single screen view (likely Tab/Navigation based or Single Dashboard view depending on code analysis) <!-- id: 1 -->
+
+## Stats Logic Update
+- [ ] Analyze data flow between Dashboard (habit checking) and Stats <!-- id: 2 -->
+- [ ] Implement "Total Status" (전체 현황) increment logic when a habit is achieved <!-- id: 3 -->
+- [ ] Ensure other statistics remain unchanged <!-- id: 4 -->
+
+## Verification
+- [ ] Start local development server <!-- id: 5 -->
+- [ ] Verify layout changes <!-- id: 6 -->
+- [ ] Verify stats update logic <!-- id: 7 -->

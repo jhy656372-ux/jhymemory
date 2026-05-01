@@ -1,0 +1,28 @@
+# Adding 'Related Sites' to Footer
+
+The user wants to add a "Related Sites" (관심사이트) section to the footer, positioned between "Worship Times" and "Contact Info".
+
+## User Review Required
+> [!NOTE]
+> I will add sample links (e.g., General Assembly, Presbytery) to [churchData.js](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/data/churchData.js). You can update these links later via the Admin Page.
+
+## Proposed Changes
+
+### Data Layer
+#### [MODIFY] [churchData.js](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/data/churchData.js)
+- Increment `version` to 8.
+- Add `relatedSites` array to `footer` object.
+    - Structure: `{ name: "Site Name", url: "https://..." }`
+
+### Component Layer
+#### [MODIFY] [Footer.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/layout/Footer.jsx)
+- Add a new column between "Worship Times" and "Contact Info".
+- Render the `relatedSites` list.
+- Add necessary responsive dividers (horizontal for mobile, vertical for desktop).
+
+## Verification Plan
+
+### Manual Verification
+- Check if "관심사이트" appears in the footer.
+- Verify the layout on desktop (4 columns) and mobile (stacked).
+- Click links to ensure they open in a new tab.

@@ -1,0 +1,24 @@
+# Task List: My Beloved Book (나의 사랑하는 책)
+
+- [ ] Project Initialization <!-- id: 0 -->
+    - [ ] Create Vite + React project <!-- id: 1 -->
+    - [ ] Install dependencies (Tailwind CSS, Lucide React, Framer Motion) <!-- id: 2 -->
+    - [ ] Setup clean project structure <!-- id: 3 -->
+- [ ] Design System & Layout <!-- id: 4 -->
+    - [ ] Define color palette (Soft, warm tones) <!-- id: 5 -->
+    - [ ] specific font selection (Premium Korean fonts) <!-- id: 6 -->
+    - [ ] Create main layout shell (Navigation, Responsive container) <!-- id: 7 -->
+- [ ] Feature: Bible (말씀) <!-- id: 8 -->
+    - [ ] Implement Bible text viewer (bilingual support) <!-- id: 9 -->
+    - [ ] Add chapter/verse navigation <!-- id: 10 -->
+    - [ ] Implement Audio player UI (mock/functional) <!-- id: 11 -->
+- [ ] Feature: Praise (찬양) <!-- id: 12 -->
+    - [ ] Create search interface <!-- id: 13 -->
+    - [ ] Implement video/audio player list (YouTube embed) <!-- id: 14 -->
+- [ ] Feature: Prayer (기도) <!-- id: 15 -->
+    - [ ] Create CRUD interface for prayer requests <!-- id: 16 -->
+    - [ ] Implement pagination logic <!-- id: 17 -->
+    - [ ] Add persistence (LocalStorage) <!-- id: 18 -->
+- [ ] Final Polish <!-- id: 19 -->
+    - [ ] Animations and transitions <!-- id: 20 -->
+    - [ ] Responsive design adjustments <!-- id: 21 -->

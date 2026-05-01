@@ -1,0 +1,15 @@
+# Tasks
+
+[x] Fix Notification Permissions <!-- id: 21 -->
+    - [x] Refactor [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) for robust permission handling <!-- id: 22 -->
+    - [x] Add detailed error logging in [utils.js](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js) (Done in refactor) <!-- id: 23 -->
+    - [x] Add `POST_NOTIFICATIONS` to Manifest (Round 2) <!-- id: 31 -->
+    - [x] Fix UI Toggle Logic (Round 3) <!-- id: 32 -->
+    - [x] Downgrade Target SDK to 32 (Compatibility Mode) <!-- id: 33 -->
+- [x] Implement Global Reset <!-- id: 24 -->
+    - [x] Create [resetAllData](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx#123-136) in [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) (clears habits, theme, perfectDayLog) <!-- id: 25 -->
+    - [x] Pass [resetAllData](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx#123-136) to [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) <!-- id: 26 -->
+    - [x] Verify [Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx) reflects reset data (Implicit via prop) <!-- id: 27 -->
+- [x] Build & Verify <!-- id: 28 -->
+    - [x] Rebuild Android APK <!-- id: 29 -->
+    - [ ] Manual Verification (Notifications + Reset) <!-- id: 30 -->

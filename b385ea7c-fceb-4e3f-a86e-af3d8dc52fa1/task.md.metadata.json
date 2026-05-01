@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Initial task list for fixing Bible data in `ko_krv.json` and addressing bookmark persistence issues in `BiblePage.jsx`.",
+  "updatedAt": "2026-02-21T11:34:49.787016300Z"
+}

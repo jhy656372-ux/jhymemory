@@ -1,0 +1,23 @@
+- [ ] Fix Missing Verses in NKRV
+    - [ ] Verify missing Genesis 4:26 in `ko_nkrv.json`
+    - [x] Create `scripts/fix_nkrv_data.cjs` to regenerate `ko_nkrv.json` from XML.
+  - [x] Implement cleaning logic (remove `[]`, `()`, Hanja).
+  - [x] Implement patching logic (insert Gen 4:21).
+- [x] Run script and verify Genesis 4:26 exists and is correct.
+- [x] Inspect and fix `Navigation.jsx` for bottom docking.
+- [x] Add padding to `App.jsx` or main container to prevent overlap.
+- [x] Verify changes.
+- [ ] Build and Deploy (if requested).
+    - [ ] Run `npm run build`.
+    - [ ] Run `npx cap sync`.
+    - [ ] Run `gradlew assembleDebug` in `android` directory.
+    - [ ] Verify APK existence.
+    - [ ] Verify all books/chapters have correct verse counts
+- [ ] Fix Bottom Bar UI
+    - [ ] Analyze `Layout.jsx` and `index.css` for bottom bar positioning
+    - [ ] Ensure bottom bar is fixed to the bottom of the viewport (handling safe areas)
+    - [ ] Verify on mobile view
+- [ ] Rebuild APK
+    - [ ] Build web assets
+    - [ ] Sync Capacitor
+    - [ ] Build APK

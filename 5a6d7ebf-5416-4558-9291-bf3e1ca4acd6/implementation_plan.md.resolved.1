@@ -1,0 +1,32 @@
+# Layout and Content Updates Plan
+
+## Goal
+Adjust the layout of the Church Intro section and the Parish section as requested by the user.
+
+## Proposed Changes
+
+### [Intro.jsx] / [IntroPage.jsx]
+- **Align Text**: Change the flex alignment from `items-center` to `items-start` (or verify exact alignment needs). The user wants the text to "match" the left photo, which usually implies sharing the same top line.
+
+### [churchData.js]
+- **Refactor `parish.groups`**:
+    - Insert the `newFamily` object as a distinct group item into the `groups` array, positioned between "Parish" (Index 2) and "Training" (Index 3).
+    - Remove the separate `parish.newFamily` object.
+- **Add Images**:
+    - Add an optional `image` property to the Men's Mission and Women's Mission group objects.
+    - Provide a placeholder URL or empty string for now.
+
+### [Parish.jsx]
+- **Grid Layout**: Update grid columns to accommodate 5 items.
+    - Change `lg:grid-cols-4` to `lg:grid-cols-5` or use a responsive flex layout if 5 columns are too narrow.
+- **New Family Rendering**:
+    - Since `newFamily` is now a group, ensure it renders correctly (it might have `desc` but no `items`).
+    - Remove the old conditional code that rendered `newFamily` inside the 'Training' card.
+- **Image Rendering**:
+    - Check for `group.image` and render it if present. The user said "in the empty space", which likely means at the bottom of the card.
+
+## Verification Plan
+1.  **Visual Check**:
+    - Verify Intro text is top-aligned with the image.
+    - Verify Parish section has 5 boxes in a row (or wrapped nicely).
+    - Verify Men's/Women's mission boxes show the image (or space for it).

@@ -1,0 +1,40 @@
+# Feature Updates: Persist "Perfect Day" Status
+
+## User Review Required
+> [!NOTE]
+> This change ensures that once you achieve a "Perfect Day" (all habits completed), it stays counted even if you reset the day to start over. The "Perfect Day" count will be a combination of your current habit history AND a separate log of days you've already mastered.
+
+## Proposed Changes
+
+### Logic & State Management
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.jsx)
+- **Add State**: `perfectDayLog` (array of date strings), initialized from `localStorage`.
+- **Update Effect**: Persist `perfectDayLog` to `localStorage` whenever it changes.
+- **Update [resetDailyProgress](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx#97-105)**:
+    - Before resetting history, add the current `today` date to `perfectDayLog` if it isn't already there.
+    - Pass `perfectDayLog` to [Profile](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx#5-270) and [Stats](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx#4-68) components as a prop.
+
+#### [MODIFY] [utils.js](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/utils.js)
+- **Update [calculatePerfectDays](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#60-77)**:
+    - Accept a second argument: `perfectDayLog`.
+    - Logic:
+        1. Calculate perfect days from current `habits` history (as before).
+        2. Combine these dates with `perfectDayLog`.
+        3. Return the count of *unique* dates in the union.
+
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Profile.jsx)
+- **Update Props**: Accept `perfectDayLog`.
+- **Update Usage**: Pass `perfectDayLog` to [calculatePerfectDays](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#60-77).
+
+#### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/Stats.jsx)
+- **Update Props**: Accept `perfectDayLog`.
+- **Update Usage**: Pass `perfectDayLog` to [calculatePerfectDays](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#60-77) (if applicable, though Stats usually calculates per-habit. I'll check if it displays global perfect days).
+
+## Verification Plan
+### Manual Verification
+1.  **Achieve Perfect Day**: Check off all habits for today.
+2.  **Verify Count**: Check Profile, note "Perfect Days" count (e.g., 5).
+3.  **Reset Day**: Click "Reset Day" on Dashboard.
+4.  **Verify Count Persists**: Check Profile again. The count should **still be 5**, not 4.
+5.  **Re-complete Habits**: Check off habits again.
+6.  **Verify Count Stability**: The count should remain 5 (not increase to 6 for the same day).

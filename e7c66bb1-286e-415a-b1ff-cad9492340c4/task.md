@@ -1,0 +1,23 @@
+# Daily Exercise Habit Tracker Project
+
+- [x] Initialize Project & Plan
+    - [x] Create `implementation_plan.md` <!-- id: 1 -->
+    - [x] Create Stitch Project (`daily-habit-tracker`) <!-- id: 2 -->
+- [x] Design Phase (Stitch)
+    - [x] Generate Main Dashboard with Cute Character Theme <!-- id: 3 -->
+    - [x] Generate Habit Check Interaction UI <!-- id: 4 -->
+    - [x] Create `DESIGN.md` (Design System Documentation) <!-- id: 5 -->
+- [x] Development Phase (React)
+    - [x] Initialize React + Vite Project Structure <!-- id: 6 -->
+    - [x] Configure `index.css` & Tailwind/Vanilla CSS <!-- id: 7 -->
+    - [x] Implement Main Dashboard Component <!-- id: 8 -->
+    - [x] Implement Habit Checking Logic <!-- id: 9 -->
+- [x] Habit Detail Page Implementation <!-- id: 13 -->
+    - [x] Install `react-router-dom` <!-- id: 14 -->
+    - [x] Create `HabitDetail` Component <!-- id: 15 -->
+    - [x] Update `App.jsx` with Routing <!-- id: 16 -->
+    - [x] Add Navigation from Dashboard to Detail <!-- id: 17 -->
+- [ ] Verification <!-- id: 10 -->
+    - [ ] Verify UI Responsiveness <!-- id: 11 -->
+    - [ ] Test Habit Toggle Functionality <!-- id: 12 -->
+    - [ ] Test Navigation to/from Detail Page <!-- id: 18 -->

@@ -1,0 +1,34 @@
+# Auth & Retreat Update Plan
+
+## Goal
+1.  Display the Retreat page description in multiple lines.
+2.  Implement a simple Login system to protect the Admin page.
+
+## Proposed Changes
+
+### [RetreatPage.jsx]
+-   **Text Styling**: Remove `whitespace-nowrap overflow-hidden text-ellipsis`. Add `whitespace-pre-line` to respect newlines.
+
+### [Auth & DataContext]
+-   **State**: Add `isAuthenticated` and `login(password)` / `logout()` methods to `DataContext`.
+-   **Persistence**: Save auth state to `localStorage` (or `sessionStorage` for security, but user wants convenience).
+-   **Password**: Hardcode a simple password (e.g., "sandol1234") in the client for now (MVP).
+
+### [LoginPage.jsx] (New)
+-   Simple form with Password input.
+-   On success: [setAllData](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#37-41) (if needed) or just `login()`, then redirect to `/admin`.
+
+### [Header.jsx]
+-   Add a "Login" button (if not logged in) or "Admin" / "Logout" button (if logged in).
+-   Position: "Next to the top image" - implies Header right side.
+
+### [App.jsx]
+-   Add Route for `/login`.
+-   Protect `/admin`: Wrap [AdminPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#141-238) in a `ProtectedRoute` component or check auth inside [AdminPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#141-238).
+
+## Verification Plan
+1.  Check Retreat page text wrapping.
+2.  Verify Login button appears in Header.
+3.  Verify clicking Login goes to Login page.
+4.  Verify correct password grants access to Admin.
+5.  Verify direct access to `/admin` redirects to Login (optional, but good practice).

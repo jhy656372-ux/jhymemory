@@ -1,0 +1,15 @@
+# Task Checklist
+
+- [ ] Explore codebase to understand current implementation of BiblePage and HomePage <!-- id: 0 -->
+- [ ] **Bible Page Cleanup** <!-- id: 1 -->
+    - [ ] Locate the source of `&#x27;` in [BiblePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx) or its data source. <!-- id: 2 -->
+    - [ ] Remove or replace `&#x27;` from the text. <!-- id: 3 -->
+- [ ] **Memo Feature Implementation** <!-- id: 4 -->
+    - [ ] Create `MemoPage.jsx` with: <!-- id: 5 -->
+        - [ ] List of memos (max 5 per page). <!-- id: 6 -->
+        - [ ] Pagination logic. <!-- id: 7 -->
+        - [ ] Add/Edit functionality (Checkboxes, Toggles). <!-- id: 8 -->
+    - [ ] Add Memo Box to [HomePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/HomePage.jsx) under the Prayer section. <!-- id: 9 -->
+    - [ ] Add routing for the new Memo page. <!-- id: 10 -->
+    - [ ] Implement state management for Memos (likely in `DataContext` or similar). <!-- id: 11 -->
+- [ ] Verify changes <!-- id: 12 -->

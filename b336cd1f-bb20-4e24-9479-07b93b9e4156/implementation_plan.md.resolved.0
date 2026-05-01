@@ -1,0 +1,36 @@
+# 게시판 기능 정상화 및 안정성 강화 계획
+
+산돌교회 홈페이지의 게시판이 정상적으로 작동하지 않는 문제(게시물 손실, 관리자 페이지 표시 오류 등)를 해결하기 위한 기술적 해결책을 제안합니다.
+
+## 제안 배경 및 분석
+- **데이터 영속성 차단**: `localStorage` 저장 과정에서 오류(용량 초과 등)가 발생할 경우, 서버([save.php](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/public/api/save.php))로의 데이터 전송이 완전히 중단되는 로직 오류를 발견했습니다.
+- **초기화 로직 보완**: 데이터 로드 실패 시의 폴백(Fallback) 구조가 게시판 데이터를 완벽하게 보장하지 못할 가능성이 있습니다.
+- **관리자 페이지 가시성**: 게시판 데이터 유무에 따라 관리자 페이지에서 게시판 편집기가 사라지는 현상을 방지해야 합니다.
+
+## 주요 변경 사항
+
+### 1. [context] DataContext.jsx ([MODIFY](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/context/DataContext.jsx))
+- **저장 로직 개선**: `localStorage.setItem`을 `try-catch`로 감싸 로컬 저장소가 가득 차더라도 서버 저장은 진행되도록 수정합니다.
+- **폴백 로직 강화**: 데이터 로드 시 `board` 섹션이 누락된 경우 기본 구조를 자동으로 삽입하여 컴포넌트 오류를 방지합니다.
+- **콘솔 로그 상세화**: 문제 발생 시 추적이 용이하도록 상세한 디버깅 로그를 추가합니다.
+
+### 2. [pages] AdminPage.jsx ([MODIFY](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/AdminPage.jsx))
+- **게시판 편집기 안정화**: `board` 데이터가 존재하지 않을 경우를 대비한 방어 코드를 강화합니다.
+- **저장 상태 피드백**: 저장 시도 시 발생할 수 있는 잠재적 오류에 대한 사용자 알림을 상세화합니다.
+
+### 3. [components] Board.jsx ([MODIFY](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/sections/Board.jsx))
+- **홈페이지 표시 로직 점검**: 데이터 구조가 유효하지 않을 때 섹션이 완전히 사라지는 대신 "준비 중" 등의 메시지를 표시하거나 안전하게 렌더링하도록 보완합니다.
+
+## 검증 계획
+
+### 자동화 테스트 및 코드 확인
+- 수정된 [saveDataToServer](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#58-96) 함수가 `localStorage` 오류 상황에서도 정상적으로 작동하는지 시뮬레이션 코드로 확인합니다.
+
+### 수동 검증 안내
+1. 관리자 페이지(`/admin`)에 접속하여 게시물을 추가하고 저장합니다.
+2. 페이지를 새로고침한 후 추가한 게시물이 유지되는지 확인합니다.
+3. 홈페이지(`#board` 섹션)와 게시판 상세 페이지(`/board`)에서 게시물이 정상적으로 보이는지 확인합니다.
+4. (선택 사항) 로컬 환경에서 [save.php](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/public/api/save.php)가 작동하지 않더라도 `localStorage`에 데이터가 남는지 확인합니다.
+
+> [!IMPORTANT]
+> 이 작업은 사용자의 데이터를 안전하게 보존하고, 브라우저 환경에 구애받지 않고 게시판을 관리할 수 있도록 하는 데 중점을 둡니다.

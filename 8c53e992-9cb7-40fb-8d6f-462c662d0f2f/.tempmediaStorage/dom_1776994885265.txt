@@ -1,0 +1,24 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,809)<div  />
+	[1] (84,46)<a class='logo' href='#'>산돌교회 />
+		[2] (59,46)<span >⛪ />
+	[3] (830,45)<a href='#home'>홈 />
+	[4] (867,45)<a href='#about'>교회 안내 />
+	[5] (925,45)<a href='#ai-pastor'>AI 신앙 상담소 />
+	AI 목사님과 대화하기
+	예배 안내
+	주일 예배
+	1부 예배: 주일 오전 9:00
+	2부 예배: 주일 오전 11:00
+	본당 대예배실
+	수요 예배
+	수요일 오후 7:30
+	비전홀
+	새벽 기도회
+	매일 오전 5:30
+	소예배실
+
+</current_dom>

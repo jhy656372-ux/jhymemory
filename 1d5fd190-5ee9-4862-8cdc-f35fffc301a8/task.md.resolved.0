@@ -1,0 +1,6 @@
+# Daily Habit Tracker Tasks
+
+- [ ] Analyze current project state and identify pending tasks <!-- id: 0 -->
+- [ ] Refactor streak calculation to a utility function (DRY principle) <!-- id: 1 -->
+- [ ] Verify functionality of Level Display in Profile component <!-- id: 2 -->
+- [ ] Check for other code duplication or potential bugs <!-- id: 3 -->

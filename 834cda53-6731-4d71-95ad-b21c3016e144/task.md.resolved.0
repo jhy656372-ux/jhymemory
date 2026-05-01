@@ -1,0 +1,6 @@
+# Deployment Task
+
+- [ ] Check project configuration (`package.json`, `vite.config.js`) <!-- id: 0 -->
+- [ ] Run build (`npm run build`) <!-- id: 1 -->
+- [ ] Verify build output <!-- id: 2 -->
+- [ ] Provide instructions/assistance for upload <!-- id: 3 -->

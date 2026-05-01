@@ -1,0 +1,44 @@
+# 산돌교회 홈페이지 제작
+
+- [x] 프로젝트 기본 설정 및 구조 잡기 <!-- id: 0 -->
+    - [x] [task.md](file:///C:/Users/admin/.gemini/antigravity/brain/18cb111b-323a-410c-9bfe-e8f38108430f/task.md) 및 [implementation_plan.md](file:///C:/Users/admin/.gemini/antigravity/brain/18cb111b-323a-410c-9bfe-e8f38108430f/implementation_plan.md) 작성 <!-- id: 1 -->
+    - [x] Vite + React 프로젝트 생성 <!-- id: 2 -->
+    - [x] 기본 파일 구조 정리 및 디자인 시스템(TailwindCSS 등) 설정 <!-- id: 3 -->
+- [x] 홈페이지 섹션 구현 <!-- id: 4 -->
+    - [x] 헤더 (로고, 네비게이션) <!-- id: 5 -->
+    - [x] 히어로 섹션 (환영 메시지, 메인 이미지) <!-- id: 6 -->
+    - [x] 교회소개 및 환영 인사 섹션 <!-- id: 7 -->
+    - [x] 주일학교 섹션 (유치부, 유초등부, 중고등부, 청년부) <!-- id: 8 -->
+    - [x] 전도회/교구 섹션 (남녀전도회, 구역모임) <!-- id: 15 -->
+    - [x] 지역섬김 섹션 <!-- id: 16 -->
+    - [x] 산돌수양관 섹션 <!-- id: 17 -->
+    - [x] 갤러리/사진 섹션 <!-- id: 9 -->
+- [x] 하단(Footer) 정보 구현 <!-- id: 10 -->
+    - [x] 주소, 전화번호, 홈페이지 정보 추가 <!-- id: 11 -->
+- [x] 디자인 폴리싱 및 반응형 점검 <!-- id: 12 -->
+    - [x] 모바일/데스크탑 반응형 확인 <!-- id: 13 -->
+    - [x] 애니메이션 및 호버 효과 추가 <!-- id: 14 -->
+- [x] 사용자 피드백 반영 (1차) <!-- id: 18 -->
+    - [x] 히어로 섹션 버튼 삭제 <!-- id: 19 -->
+    - [x] 주일학교, 전도회, 지역섬김 섹션 카드 스타일 통일/강화 <!-- id: 20 -->
+    - [x] 지역섬김 섹션 텍스트 확인 및 수정 <!-- id: 21 -->
+- [x] 상세 페이지 및 데이터 분리 작업 <!-- id: 22 -->
+    - [x] `react-router-dom` 설치 및 설정 <!-- id: 23 -->
+    - [x] [src/data/churchData.js](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/data/churchData.js) 생성 및 데이터 이관 <!-- id: 24 -->
+    - [x] 상세 페이지 컴포넌트(`pages/`) 생성 <!-- id: 25 -->
+    - [x] 라우터 설정 ([App.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/App.jsx)) 및 헤더 링크 수정 <!-- id: 26 -->
+- [x] 메인 섹션 데이터 연동 및 링크 연결 <!-- id: 28 -->
+    - [x] [Hero.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Hero.jsx): 데이터 연동 <!-- id: 29 -->
+    - [x] [Intro.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Intro.jsx): 데이터 연동 및 링크 추가 <!-- id: 30 -->
+    - [x] [SundaySchool.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/SundaySchool.jsx): 데이터 연동 및 링크 추가 <!-- id: 31 -->
+    - [x] [Parish.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx): 데이터 연동 및 링크 추가 <!-- id: 32 -->
+    - [x] [Service.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Service.jsx): 데이터 연동 및 링크 추가 <!-- id: 33 -->
+    - [x] [Retreat.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Retreat.jsx): 데이터 연동 및 링크 추가 <!-- id: 34 -->
+    - [x] [Gallery.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Gallery.jsx): 데이터 연동 및 링크 추가 <!-- id: 35 -->
+- [x] 수양관 페이지 개선 <!-- id: 36 -->
+    - [x] 텍스트 레이아웃 수정 (한 줄 표시, 중앙 정렬) <!-- id: 37 -->
+    - [x] 시설 안내 클릭 시 이미지 변경 기능 구현 <!-- id: 38 -->
+    - [x] [churchData.js](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/data/churchData.js)에 시설별 이미지 데이터 추가 <!-- id: 39 -->
+- [x] UI 레이아웃 및 스타일 개선 <!-- id: 40 -->
+    - [x] [RetreatPage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/RetreatPage.jsx): 시설 안내 수직 중앙 정렬 및 버튼 삭제 <!-- id: 41 -->
+    - [x] [Footer.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/layout/Footer.jsx): 하단 구분선 및 박스형 중앙 정렬 레이아웃 적용 <!-- id: 42 -->

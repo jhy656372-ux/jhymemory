@@ -1,0 +1,12 @@
+# AI 작곡가 웹 앱 확인 작업
+
+## 체크리스트
+- [x] http://localhost:5174 접속 및 UI 확인 (오버레이 발생)
+- [x] Vite 충돌 오버레이(Crash Overlay) 확인 (여전히 존재함)
+- [x] 콘솔 에러 유무 확인 (index.css 500 에러 및 PostCSS 에러)
+- [x] 디자인 스타일링 확인 (에러로 인해 확인 불가)
+
+## 진행 상황
+- 브라우저를 통해 확인한 결과, Vite 에러 오버레이가 화면을 가리고 있습니다.
+- 에러 원인: [src/index.css](file:///c:/Users/admin/.gemini/%EC%9D%8C%EC%95%85%EB%A7%8C%EB%93%A4%EA%B8%B0/src/index.css) 파일에서 `border-border` 클래스가 존재하지 않는다는 PostCSS 에러가 발생했습니다.
+- 브라우저 콘솔에도 `index.css` 로드 실패(500 에러)가 기록되어 있습니다.

@@ -1,0 +1,6 @@
+# Project Setup & Migration
+
+- [ ] Locate previous project files in "테스트7" <!-- id: 0 -->
+- [ ] Initialize "나의 사랑하는 책" project structure <!-- id: 1 -->
+- [ ] Migrate/Recreate project files (`src`, `public`, `package.json`, etc.) <!-- id: 2 -->
+- [ ] Verify application runs correctly in the new location <!-- id: 3 -->

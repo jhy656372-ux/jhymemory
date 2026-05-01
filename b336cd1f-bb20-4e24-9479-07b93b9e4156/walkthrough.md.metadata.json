@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "에디터 엔진 개편 및 홈페이지 전역 HTML 태그 노출 오류 수정 내역입니다. 모든 섹션과 서브 페이지에서 의도한 서식이 완벽하게 렌더링되도록 조치했습니다.",
+  "updatedAt": "2026-02-23T00:43:59.882963300Z",
+  "version": "9"
+}

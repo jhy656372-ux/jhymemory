@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "말씀(성경) 페이지에 형광펜과 책갈피 기능을 추가하기 위한 기술 설계서입니다. 구절 터치 시 도구 모음(팝업) 표시, 4가지 색상의 형광펜, 책갈피 등록 및 조회 기능을 포함합니다. 데이터는 `localStorage`에 저장됩니다.",
+  "updatedAt": "2026-02-21T01:27:09.553892700Z",
+  "version": "1"
+}

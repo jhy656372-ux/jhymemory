@@ -1,0 +1,35 @@
+# Removing Intro Page and Updating Homepage Link
+
+The user wants to remove the separate "Church Introduction" page (`/intro`) and reliance on the "Read More" link from the homepage. The content on the homepage's Intro section is sufficient.
+
+## User Review Required
+> [!NOTE]
+> I will delete [IntroPage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/IntroPage.jsx) and remove the `/intro` route. The "Church Intro" menu item in the header will be updated to scroll to the Intro section on the homepage instead of navigating to a new page.
+
+## Proposed Changes
+
+### Component Layer
+#### [MODIFY] [Intro.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/sections/Intro.jsx)
+- Remove the `Link` wrapper around the content.
+- Remove the "more view" (더 보기) text/button.
+- Ensure the section ID `intro` is preserved for scrolling.
+
+#### [MODIFY] [Header.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/components/layout/Header.jsx)
+- Update the navigation item for '교회소개' to point to `#intro` (or `/` if already on home, but handling hash scroll is better).
+- If using `react-router-hash-link` is not an option (not installed), I will use a simple anchor tag or a helper function to scroll. Given the current setup, I'll likely just make it a hash link or check if `react-router-dom`'s `HashLink` or manual scrolling is needed.
+- *Correction*: I'll stick to simple `#intro` for now, or use a scroll handler if `react-router-dom` interferes.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/App.jsx)
+- Remove the `/intro` route definition.
+- Remove the import of [IntroPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/IntroPage.jsx#5-47).
+
+#### [DELETE] [IntroPage.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/pages/IntroPage.jsx)
+- Delete the file.
+
+## Verification Plan
+
+### Manual Verification
+- Run the development server.
+- Verify that clicking "Church Intro" in the header scrolls to the intro section on the homepage.
+- Verify that there is no "Read More" link on the homepage intro section.
+- Verify that accessing `/intro` redirects to home or shows 404 (handled by router).

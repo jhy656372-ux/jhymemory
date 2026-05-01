@@ -1,0 +1,14 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (500,500)<div  />
+	관심종목 모니터링
+	[1] (449,392)<input placeholder='분석할 종목을 입력해 주세요.' />
+	[2] (668,392)<button class='search-btn'>분석하기 />
+	KOSPI (2/25)
+	6,083.86
+	KOSDAQ (2/25)
+	1,165.25
+
+</current_dom>

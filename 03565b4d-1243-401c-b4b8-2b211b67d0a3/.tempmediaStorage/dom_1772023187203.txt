@@ -1,0 +1,35 @@
+[0] (318,56)<button >되돌아가기 />
+관심종목 모니터링
+[1] (449,141)<input placeholder='분석할 종목을 입력해 주세요.' />
+[2] (668,141)<button class='search-btn'>분석하기 />
+삼성전자
+A005930
+₩
+203,500
+▲
+3,500
+(
+1.75
+%)
+[3] (250,362)<button class='btn-secondary '>1D />
+[4] (303,362)<button class='btn-secondary '>1W />
+[5] (357,362)<button class='btn-secondary '>1M />
+[6] (409,362)<button class='btn-secondary active'>1Y />
+[7] (460,362)<button class='btn-secondary '>5Y />
+[8] (516,362)<button class='btn-secondary '>10Y />
+[9] (500,556)<div  />
+최저
+₩
+162,800
+최고
+₩
+244,200
+현재가는 52주 범위 중상단에 위치하고 있습니다.
+상위
+50
+%
+항목
+실적 (단위:
+조
+)
+변동

@@ -1,0 +1,23 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+코다리 립싱크 AI 솔루션
+얼굴 이미지와 음성 파일을 올려 나만의 립싱크 비디오를 만들어보세요.
+[0] (307,509)<div >🧑‍🎤
+캐릭터 이미지 업로드
+JPG, PNG 파일 />
+	[1] (307,509)<input id='imageInput' />
+	🧑‍🎤
+	캐릭터 이미지 업로드
+	JPG, PNG 파일
+[2] (693,509)<div >🎵
+음성 사운드 업로드
+MP3, WAV 파일 />
+	[3] (693,509)<input id='audioInput' />
+	🎵
+	음성 사운드 업로드
+	MP3, WAV 파일
+립싱크 생성 시작하기 ✨
+
+</current_dom>

@@ -1,0 +1,8 @@
+# Final Polish
+
+- [x] Admin: Enforce 12-photo limit in Gallery management <!-- id: 17 -->
+- [x] Footer: Fix vertical separator visibility (layout fix) <!-- id: 18 -->
+- [ ] Admin: Enhance Gallery Upload UI (Make file input prominent in local slots) <!-- id: 21 -->
+- [ ] Footer: Increase separator visibility (color/height) <!-- id: 22 -->
+- [ ] Data: Increment version to 17 <!-- id: 23 -->
+- [ ] Re-build <!-- id: 24 -->

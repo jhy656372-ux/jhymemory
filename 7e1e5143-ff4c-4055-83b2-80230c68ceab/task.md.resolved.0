@@ -1,0 +1,7 @@
+# Debugging Stitch MCP Server
+
+- [/] Investigate Stitch MCP Configuration <!-- id: 0 -->
+    - [ ] Verify `npx` command execution manually <!-- id: 1 -->
+    - [ ] Check for error output <!-- id: 2 -->
+    - [ ] Adjust [mcp_config.json](file:///c:/Users/admin/.gemini/antigravity/mcp_config.json) if needed <!-- id: 3 -->
+- [ ] Validate Fix <!-- id: 4 -->

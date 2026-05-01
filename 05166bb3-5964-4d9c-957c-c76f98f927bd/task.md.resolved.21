@@ -1,0 +1,5 @@
+- [x] 내비게이션 바를 배경 통합형으로 고정 배치
+- [x] [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx) 및 [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) 수정 (완전 투명화)
+- [/] 웹 에셋 빌드 및 Capacitor 동기화
+- [x] Android APK 재빌드 (`v21`)
+- [x] 최종 결과 확인 (바탕 위 고정 여부 확인)

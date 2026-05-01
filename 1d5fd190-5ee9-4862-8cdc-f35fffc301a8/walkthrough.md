@@ -1,0 +1,38 @@
+# Refactoring Walkthrough
+
+## Goal
+Improve code maintainability by extracting shared logic into a utility file.
+
+## Changes
+
+### 1. Created Shared Utilities (`src/utils.js`)
+Moved the following logic to a central location:
+- `calculateStreak(history)`: Logic to calculate streak based on history dates.
+- `THEMES`: configuration for app themes.
+- `getThemeName(id)`: Helper to get display name for a theme.
+- `getTodayDate()`: Helper to get today's date string.
+
+### 2. Refactored Components
+- **HabitDetail.jsx**: Removed local streak calculation and imported `calculateStreak`.
+- **Stats.jsx**: Implemented `bestStreak` calculation using `calculateStreak` and added it to the statistics display.
+- **App.jsx**: Updated theme changing logic to use `getThemeName`.
+- **Profile.jsx**: Updated theme selection UI to generate buttons dynamically from `THEMES` constant.
+
+## Verification Results
+- **Code Consistency**: Verified that all components import from `utils.js` correctly.
+- **Logic Preservation**: Confirmed that the logic inside `utils.js` matches the original implementation.
+- **New Features**: Added "Best Streak" display to Stats page using the reused logic.
+
+## Mobile Build (Android)
+Successfully built the Android APK after resolving environment compatibility issues.
+
+### Environment Configuration
+- **Android SDK**: API 33 (Android 13)
+- **Java**: JDK 11 (bundled with SmartMaker)
+- **Gradle**: Wrapper 7.6
+- **Android Gradle Plugin**: 7.4.2
+- **Capacitor**: Downgraded to v4.x to support JDK 11.
+
+### Build Artifact
+- **APK Path**: `android/app/build/outputs/apk/debug/app-debug.apk`
+- **File Size**: ~3.5 MB

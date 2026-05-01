@@ -1,0 +1,42 @@
+# Expanding Settings Features
+
+- [x] Check [Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx) and [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css) <!-- id: 6 -->
+- [x] Modify CSS/JSX for alignment <!-- id: 7 -->
+- [x] Center "Overview" list items in [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css) <!-- id: 8 -->
+- [x] Style `.stat-item` to look like boxes in [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css) <!-- id: 9 -->
+- [x] Vertically center content in `.detail-card` <!-- id: 10 -->
+- [x] Fix width of `.stat-item` to prevent stretching <!-- id: 11 -->
+- [x] Center content in `.stat-highlight` <!-- id: 12 -->
+- [x] Add 3D effect to `.big-number` <!-- id: 13 -->
+- [x] Center content in `.profile-header` <!-- id: 14 -->
+- [x] Add 3D/pop effect to avatar or name in Profile <!-- id: 15 -->
+- [x] Center content in `.setting-item` <!-- id: 16 -->
+- [x] Apply 3D effect to `.delete-btn` and `.badge` <!-- id: 17 -->
+- [x] Add `theme` state to [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) <!-- id: 18 -->
+- [x] Implement theme toggle logic in [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) <!-- id: 19 -->
+- [x] Implement notification toggle in [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) <!-- id: 20 -->
+- [x] Update [index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css) for Dark Mode variables <!-- id: 21 -->
+- [x] Explain current notification purpose to user <!-- id: 22 -->
+- [x] Implement actual notification logic (Toast/Simulated) <!-- id: 23 -->
+- [x] Define 'Ocean' theme in [index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css) <!-- id: 24 -->
+- [x] Refactor theme logic in [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) to support 3 themes <!-- id: 25 -->
+- [x] Update [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) UI for theme selection <!-- id: 26 -->
+- [x] Implement notification time picker in [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) <!-- id: 27 -->
+- [x] Define 'Yellow' theme in [index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css) <!-- id: 28 -->
+- [x] Update [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) and [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) for Yellow theme <!-- id: 29 -->
+- [x] Rename 'Dark' theme to 'Purple' in all files <!-- id: 31 -->
+- [x] Define 'Green' theme in [index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css) <!-- id: 32 -->
+- [x] Update [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx) and [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx) for Purple and Green themes <!-- id: 33 -->
+- [x] Make theme selection boxes smaller to fit 5 in one row <!-- id: 34 -->
+- [x] Update Purple theme to have white inner boxes for contrast <!-- id: 35 -->
+- [x] Revert Purple theme card to white, ensure text contrast <!-- id: 36 -->
+- [x] Center 'Theme' label and bold 'Notifications' label <!-- id: 37 -->
+- [x] Change notification button text to 'Turn On'/'Turn Off' for clarity <!-- id: 38 -->
+- [x] Change 'Hello, Hero!' to 'Daily Habit' on Dashboard <!-- id: 39 -->
+- [x] Make 'Daily Habit' title change color with theme <!-- id: 40 -->
+- [x] Make Dashboard arrow (➡️) change color with theme <!-- id: 41 -->
+- [x] Increase Dashboard arrow thickness for better visibility <!-- id: 42 -->
+- [x] Make statistics numbers and overview values change color with theme <!-- id: 43 -->
+- [x] Implement avatar level-up system based on habit completions <!-- id: 44 -->
+- [x] Implement 'Evolution Path' UI in Profile to show all levels <!-- id: 45 -->
+- [ ] Move 'Evolution Path' inside 'Habit Hero' card for better layout <!-- id: 46 -->

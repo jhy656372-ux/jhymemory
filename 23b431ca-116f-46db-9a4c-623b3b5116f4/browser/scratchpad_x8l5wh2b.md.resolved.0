@@ -1,0 +1,6 @@
+# UI Verification Task
+
+- [ ] Open http://localhost:5174
+- [ ] Observe UI for broken elements or missing CSS
+- [ ] Check console for errors
+- [ ] Report findings

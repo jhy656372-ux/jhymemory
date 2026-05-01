@@ -1,0 +1,61 @@
+# Implementation Plan - Single Screen & Stats Update
+
+## Goal Description
+Refactor the application to use a single-screen layout (SPA without route transitions) where Dashboard, Stats, and Profile are accessed via a persistent bottom navigation bar. Additionally, enable habit completion toggling directly from the Stats page's "Total Status" section.
+
+## User Review Required
+> [!IMPORTANT]
+> This refactor removes `react-router-dom` for the main navigation. URL routing (e.g., `/stats`, `/habit/1`) will no longer work directly by entering the URL. The app will behave like a native mobile app with internal state.
+
+## Proposed Changes
+
+### Logic & State Management
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/App.jsx)
+- Remove `<Router>`, `<Routes>`, `<Route>` components.
+- ADD `currentView` state (default: `'dashboard'`).
+- ADD `selectedHabitId` state (default: `null`).
+- Create `renderView()` function to conditionally display [Dashboard](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Dashboard.jsx#7-130), [Stats](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx#4-68), or [Profile](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Profile.jsx#5-299).
+- Implement [Navigation](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Navigation.jsx#3-30) component outside the specific views to make it persistent (if styling allows) or pass props down. *Decision*: Keep Navigation inside components for safest styling, but pass `currentView`/`setCurrentView` props. Or better: Move Navigation to [App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx) to ensure it doesn't re-render/flash.
+- Pass [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#105-121) to [Stats](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx#4-68) component.
+
+### Components
+#### [MODIFY] [Navigation.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Navigation.jsx)
+- Remove `useNavigate`, `useLocation`.
+- Accept `currentView`, `onViewChange` props.
+- Update buttons to call `onViewChange`.
+
+#### [MODIFY] [Dashboard.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Dashboard.jsx)
+- Remove internal `<Navigation />`.
+- Update `navigate` calls to use `onOpenHabit(id)` prop passed from [App.jsx](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx).
+
+#### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Stats.jsx)
+- Remove internal `<Navigation />`.
+- Accept [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#105-121) prop.
+- Update "Total Status" list items to be clickable/interactive to toggle habits.
+
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Profile.jsx)
+- Remove internal `<Navigation />`.
+- Remove `useNavigate` if used.
+
+#### [MODIFY] [HabitDetail.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/HabitDetail.jsx)
+- Remove `useParams`, `useNavigate`.
+- Accept `habitId` (or `habit` object) and `onClose` props.
+- Update "Back" buttons to call `onClose`.
+
+## Verification Plan
+
+### Automated Tests
+- None (Visual/Interaction changes).
+
+### Manual Verification
+1. **Layout Check**:
+   - Run `npm run dev`.
+   - Open localhost.
+   - Verify that switching tabs (Home -> Stats -> Profile) is instant and feels like "one screen".
+   - Verify [HabitDetail](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/HabitDetail.jsx#5-135) opens as an overlay/view replacement and "Back" returns to the previous state correctly.
+2. **Stats Functionality**:
+   - Go to Stats page.
+   - Check the "Total Status" count for a habit (e.g., "5회").
+   - Click the habit in the list.
+   - Verify the count increments (or decrements if toggled off) immediately.
+   - Go back to Dashboard and verify the habit is checked there too.

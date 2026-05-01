@@ -1,0 +1,29 @@
+# Daily Habit Tracker Update Walkthrough
+
+## New Features & Changes
+### 1. Reset Day Feature 🔄
+- **Functionality**: Allows you to reset your daily progress and start fresh.
+- **Trigger**: The "Reset Day" button automatically appears on the Dashboard **only when you reach 100% daily goal**.
+- **Action**: Clicking it unchecks all habits for the current day.
+
+### 2. Habit Detail UI Update
+- **Back Button**: Moved from the top header to the **bottom of the screen**.
+- **Design**: Now larger and easier to reach with one hand.
+
+## Build Status
+- **Android APK**: Built successfully.
+- **Path**: `android/app/build/outputs/apk/debug/app-debug.apk`
+
+## How to Test
+1. **Install APK**:
+   - Install the new `app-debug.apk` on your device.
+
+2. **Test Reset Feature**:
+   - Check off ALL habits on the dashboard.
+   - Verify the "Reset Day 🔄" button appears below the progress bar.
+   - Click it and confirm all checkboxes are cleared.
+
+3. **Test Back Button**:
+   - Tap on any habit to enter the Detail view.
+   - Verify the "Back to Dashboard" button is at the bottom.
+   - Click it to return to the dashboard.

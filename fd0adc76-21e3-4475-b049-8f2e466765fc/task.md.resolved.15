@@ -1,0 +1,12 @@
+# Styling Habit Hero Card
+
+- [x] Check [Stats.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Stats.jsx) and [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css) <!-- id: 6 -->
+- [x] Modify CSS/JSX for alignment <!-- id: 7 -->
+- [x] Center "Overview" list items in [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css) <!-- id: 8 -->
+- [x] Style `.stat-item` to look like boxes in [App.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.css) <!-- id: 9 -->
+- [x] Vertically center content in `.detail-card` <!-- id: 10 -->
+- [x] Fix width of `.stat-item` to prevent stretching <!-- id: 11 -->
+- [x] Center content in `.stat-highlight` <!-- id: 12 -->
+- [x] Add 3D effect to `.big-number` <!-- id: 13 -->
+- [x] Center content in `.profile-header` <!-- id: 14 -->
+- [x] Add 3D/pop effect to avatar or name in Profile <!-- id: 15 -->

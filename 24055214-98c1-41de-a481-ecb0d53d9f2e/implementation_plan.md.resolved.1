@@ -1,0 +1,59 @@
+# 게시판 가시성 및 로컬 데이터 저장 해결 계획
+
+관리자 페이지에서 게시판 글을 등록해도 홈 페이지에 반영되지 않는 문제와 로컬 환경에서의 파일 업로드 문제를 해결하고자 합니다.
+
+## 주요 변경 사항
+
+### 1. 데이터 저장 방식 개선 (Localhost 지원)
+[DataContext.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx)를 수정하여 서버(PHP) 저장에 실패하더라도 브라우저의 `localStorage`에 데이터를 저장하고 로드할 수 있도록 합니다. 이를 통해 `npm run dev` 환경에서도 게시판 등록 기능이 정상적으로 작동합니다.
+
+### 2. 헤더 메뉴에 게시판 추가
+[Header.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/layout/Header.jsx)에 '게시판' 메뉴 항목을 추가하여 사용자가 쉽게 접근할 수 있도록 하고, 홈 페이지의 게시판 섹션으로 바로 이동할 수 있는 링크(#board)를 제공합니다.
+
+### 3. 게시판 섹션 가시성 개선
+홈 페이지에서 게시판 섹션의 위치를 조금 더 위로 올리거나, 가시성을 높이는 스타일 수정을 고려합니다.
+
+---
+
+## 상세 변경 내용
+
+### Data Context
+#### [MODIFY] [DataContext.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/context/DataContext.jsx)
+- `useEffect`에서 초기 로드 시 `localStorage`에 저장된 데이터가 있는지 먼저 확인합니다.
+- [setAllData](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#117-123) 함수에서 서버 저장 성공 여부와 관계없이 [setData](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#110-116)를 호출하여 UI가 즉시 업데이트되게 하고, `localStorage`에도 백업 저장합니다.
+
+### Navigation
+#### [MODIFY] [Header.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/components/layout/Header.jsx)
+- `navItems` 배열에 `{ name: '게시판', path: '/#board' }`를 추가합니다.
+
+### Home Page
+#### [MODIFY] [HomePage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/HomePage.jsx)
+- 게시판 섹션을 `Service` 또는 `Retreat` 섹션 위로 이동하여 접근성을 높입니다.
+
+---
+
+# 게시물 저장 및 동기화 문제 해결
+
+관리자 페이지에서 게시물을 저장해도 반영되지 않거나 새로고침 시 사라지는 문제를 해결하기 위해 데이터 동기화 및 버전 관리 로직을 보완합니다.
+
+## 제안된 변경 사항
+
+### [DataContext.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/context/DataContext.jsx)
+- **로컬 저장소 우선 순위 조정**: 로컬 환경(`localhost`)에서는 서버 데이터보다 브라우저에 저장된 데이터를 항상 우선하도록 수정합니다.
+- **버전 자동 증가**: [setAllData](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/context/DataContext.jsx#117-123) 호출 시 `version`을 자동으로 증가시켜, 새로고침 시에도 브라우저 데이터가 서버 데이터(static json)보다 더 최신임을 보장합니다.
+
+### [AdminPage.jsx](file:///c:/Users/admin/.gemini/산돌교회%20홈페이지/src/pages/AdminPage.jsx)
+- **저장 로직 확인**: [handleSave](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#664-672)가 Context의 최신 데이터를 제대로 전달하는지 점검합니다.
+
+## 검증 계획
+
+### 수동 검증
+1. `npm run dev`를 실행하고 관리자 페이지(/login -> /admin)에 접속합니다.
+2. 게시물을 작성하고 '저장하기'를 클릭합니다.
+3. 홈 페이지(/)로 이동하여 게시판 섹션에 작성한 글이 보이는지 확인합니다.
+4. 헤더 메뉴에 '게시판' 메뉴가 생겼는지, 클릭 시 섹션으로 이동하는지 확인합니다.
+5. 페이지를 새로고침해도 데이터가 유지되는지 확인합니다. (localStorage 작동 확인)
+1. 관리자 페이지에서 새 게시물 작성 후 '저장하기' 클릭
+2. 브라우저 새로고침(F5) 수행
+3. 게시판 섹션 및 관리자 목록에 글이 그대로 남아있는지 확인
+4. `localStorage`에 `sandol_church_data`가 최신 버전으로 업데이트되었는지 확인

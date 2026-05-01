@@ -1,0 +1,9 @@
+# Refining UI and Building APK v12
+
+- [ ] Fix PrayerPage text overflow (use min-w-0 and break-words) <!-- id: 28 -->
+- [ ] PraisePage: Reduce "Recommended Praise" size to text-base <!-- id: 29 -->
+- [ ] PraisePage: Compact video items (smaller title, smaller box) <!-- id: 30 -->
+- [ ] PraisePage: Compact search box (reduce padding) <!-- id: 31 -->
+- [ ] Build React application <!-- id: 32 -->
+- [ ] Sync with Capacitor <!-- id: 33 -->
+- [ ] Build Android APK (v14) <!-- id: 34 -->

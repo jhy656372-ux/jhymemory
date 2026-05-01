@@ -1,0 +1,8 @@
+# 내비게이션 바 하단 고정 복구 (v20)
+
+- [ ] 내비게이션 바를 화면 하단에 항상 '고정' 배치 [/]
+- [ ] [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) 및 [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx) 수정 (fixed 적용)
+- [ ] [HomePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/HomePage.jsx) 등 페이지 하단 여백 점검
+- [ ] 웹 에셋 빌드 및 Capacitor 동기화
+- [ ] Android APK 재빌드 (`v20`)
+- [ ] 최종 결과 확인 (하단 고정 및 메뉴 접근성 확인)

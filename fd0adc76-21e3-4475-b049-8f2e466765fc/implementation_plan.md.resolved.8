@@ -1,0 +1,32 @@
+# Expanded Settings Plan
+
+## Goal Description
+Enhance the settings experience by offering 3 distinct themes (Pastel, Dark, Ocean) and allowing users to customize the time for their daily habit reminders.
+
+## Proposed Changes
+
+### Theme System
+#### [MODIFY] [index.css](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/index.css)
+- Add `[data-theme='ocean']` block.
+    - Colors: Blue/Teal palette. Deep blue background, cyan accents.
+
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx)
+- Update [toggleTheme](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx#51-56) to maybe `setTheme` or cycle through 3 themes.
+- Or simply expose `setTheme` to [Profile](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx#4-98) so it can set specific themes.
+
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx)
+- Change Theme UI: Display 3 clickable badges or buttons: [Pastel] [Dark] [Ocean].
+- Highlight the active theme.
+
+### Notification System
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/Profile.jsx)
+- Add state `notificationTime` (default '09:00').
+- When Notification is ON, show an `<input type="time" />`.
+- When time is changed, show a Toast confirming the new time.
+
+## Verification Plan
+
+### Manual Verification
+1.  Profile -> Click "Ocean". App should turn blue/cool.
+2.  Profile -> Enable Notifications.
+3.  Profile -> Change time to "08:30". Toast should say "Daily reminder set for 08:30 AM".

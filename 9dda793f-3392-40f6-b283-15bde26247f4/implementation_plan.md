@@ -1,0 +1,62 @@
+# Fix Mobile Top Navigation Overlap
+
+The user is experiencing an issue where the top of the content is covered by the status bar (top fixed bar) on mobile devices. This is caused by the "card-style" layout (`w-[92%]`, `my-5`, etc.) used in `BiblePage`, `PraisePage`, `PrayerPage`, and `MemoPage`, which places the content under the status bar without sufficient padding.
+
+## User Review Required
+
+> [!NOTE]
+> I will change the mobile layout of the content pages (Bible, Praise, Prayer, Memo) from a "floating card" style to a **full-screen** layout on mobile devices. This ensures the content respects the device's safe areas (notch, status bar) correctly using standard CSS environment variables. The "card" look will be preserved on desktop/tablet (`md:` breakpoint).
+
+## Proposed Changes
+
+### Pages
+
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/BiblePage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins:**
+    - `mt-[calc(env(safe-area-inset-top)+1rem+10px)]`
+    - `mb-[calc(env(safe-area-inset-bottom)+1rem)]`
+    - `h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom)-2rem-10px)]`
+- **[NEW] Remove inline padding** added in previous step (since the margin handles the spacing now).
+- Change Header Z-Index to `z-20`.
+- **Remove (v32) debug marker.**
+
+#### [MODIFY] [PraisePage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PraisePage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins & Height:** Match BiblePage logic.
+- Remove inline padding.
+
+#### [MODIFY] [PrayerPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/PrayerPage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins & Height:** Match BiblePage logic.
+- Remove inline padding.
+
+#### [MODIFY] [MemoPage.jsx](file:///c:/Users/admin/.gemini/나의%20사랑하는%20책/src/pages/MemoPage.jsx)
+- **[REVERT] Restore Card Style:** `w-[92%] mx-auto rounded-2xl shadow-lg my-0`.
+- **[NEW] Add Safe Area Margins & Height:** Match BiblePage logic.
+- Remove inline padding.
+
+### App Name & Icon (v38/v39)
+- **[DONE] Repo Name:** Changed to "**나의 성경**".
+- **[NEW] Modify Icon (Resize Text - v39-fix):**
+    - User requested text "**Word of God**" to be much larger (2/3 of icon).
+    - Previous `jimp` script created text that was too small.
+    - **Action:** Use `generate_image` to Create a NEW icon based on `resources/icon.png` (or overwrite it) with instructions to:
+        - "Replace existing text with VERY LARGE 'Word of God' text occupying 2/3 of vertical space."
+        - "Use bold, black/contrasting sans-serif font."
+    - Run `npx capacitor-assets generate --android` again.
+    - Build v39-fix (or just v39).
+
+## Verification Plan
+
+### Automated Tests
+- None. UI visual regression is best tested manually.
+
+### Manual Verification
+1.  **Build the app**: Since this is a visual fix for mobile, the user might need to build the APK. However, I can simulate the change by inspecting the code and ensuring the classes are correct.
+2.  **Verify Layout**:
+    - Check that the top header has `pt-[env(safe-area-inset-top)]`.
+    - Check that the container is full width (`w-full`) and height (`h-screen` / `min-h-screen`) on mobile.
+    - Check that `md:` classes preserve the desktop layout.
+3.  **Verify Icon**:
+    - Check `resources/icon.png` visibly to see if text is large.

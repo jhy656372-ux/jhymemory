@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "라우팅 및 데이터 분리 구현 계획서입니다. React Router를 도입하여 상세 페이지를 구현하고, 콘텐츠를 별도 데이터 파일로 분리하여 관리를 용이하게 합니다.",
+  "updatedAt": "2026-02-11T09:03:14.724505600Z",
+  "version": "2"
+}

@@ -1,0 +1,25 @@
+# Fixing SectionEditor Nested Array Bug
+
+I identified a bug in [AdminPage.jsx](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx)'s [SectionEditor](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#5-141) component. When editing an "Array of Strings" that is nested inside another object (e.g., `parish.groups[i].items`), the update logic incorrectly targets the top-level section object instead of the nested object, leading to data corruption.
+
+Although the user reported this as a "Footer reverting" issue, creating malformed data structures can lead to unpredictable behavior during saves. I will fix this specific bug to ensure data integrity.
+
+## User Review Required
+> [!NOTE]
+> This fix addresses a specific bug in how certain complex data fields (like Parish groups) are saved. This should improve the overall reliability of the Admin Page.
+
+## Proposed Changes
+
+### Component Layer
+#### [MODIFY] [AdminPage.jsx](file:///c:/Users/admin/.gemini/산돌교회 홈페이지/src/pages/AdminPage.jsx)
+- Update [SectionEditor](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#5-141)'s [renderInput](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#31-80) function.
+- In the "Array of Strings" handling block (lines 53+), modify the `onChange` handler.
+- If `parentKey` and `index` are present (indicating nesting), use [handleChange](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#8-30) logic (or replicate it) to update the specific nested item, rather than merging into the root `data`.
+
+## Verification Plan
+
+### Manual Verification
+- Edit a nested string array (e.g., Parish -> Men's Mission -> Items).
+- Save.
+- Verify the change persists and doesn't create a new 'items' field at the top of the Parish section.
+- Verify Footer updates still work correctly.

@@ -1,0 +1,30 @@
+# "My Beloved Book" (나의 사랑하는 책) Development Tasks
+
+- [x] Initialize project with Vite + React + TailwindCSS <!-- id: 0 -->
+- [x] Create basic app structure and routing (Home, Bible, Praise, Prayer) <!-- id: 1 -->
+- [x] Implement **Bible Feature** <!-- id: 2 -->
+    - [x] Multiple versions text display (Mock data or API) <!-- id: 3 -->
+    - [x] Basic TTS Audio feature <!-- id: 4 -->
+    - [x] "Read Through the Bible in a Year" checklist <!-- id: 5 -->
+- [x] Implement **Praise Feature** <!-- id: 6 -->
+    - [x] YouTube search & embedded player integration <!-- id: 7 -->
+- [x] Implement **Prayer Feature** <!-- id: 8 -->
+    - [x] Add/Delete prayer part requests (Local storage) <!-- id: 9 -->
+- [x] Apply "My Beloved Book" design theme (Warm, comforting aesthetics) <!-- id: 10 -->
+- [x] **Refine Home Page Design** <!-- id: 12 -->
+    - [x] Change title font to be bolder and softer <!-- id: 13 -->
+    - [x] Change menu layout to vertical stack <!-- id: 14 -->
+- [x] **Refine Bible Page Layout** <!-- id: 15 -->
+    - [x] Center title and move version selector below it <!-- id: 16 -->
+    - [x] Add Book/Chapter/Verse selectors <!-- id: 17 -->
+    - [x] Maximize text area with scrollbar <!-- id: 18 -->
+- [x] **Enhance Bible Navigation & Data** <!-- id: 19 -->
+    - [x] Add complete 66 books data (Genesis to Revelation) <!-- id: 20 -->
+    - [x] Adjust header spacing and selector size <!-- id: 21 -->
+    - [x] Implement Previous/Next chapter navigation arrows <!-- id: 22 -->
+- [ ] **Implement Local Bible Data (URGENT)** <!-- id: 23 -->
+    - [ ] **Download/Generate FULL [bible_data.json](file:///c:/Users/admin/.gemini/%ED%85%8C%EC%8A%A4%ED%8A%B87/my-beloved-book/src/data/bible_data.json) (66 Books)** <!-- id: 24 -->
+    - [x] Refactor [BiblePage.jsx](file:///c:/Users/admin/.gemini/%ED%85%8C%EC%8A%A4%ED%8A%B87/my-beloved-book/src/pages/BiblePage.jsx) to read from local JSON <!-- id: 25 -->
+    - [x] Move TTS speaker icon next to reading check <!-- id: 27 -->
+    - [ ] Verify full text display <!-- id: 26 -->
+- [ ] Verify all features and deployment preparation <!-- id: 11 -->

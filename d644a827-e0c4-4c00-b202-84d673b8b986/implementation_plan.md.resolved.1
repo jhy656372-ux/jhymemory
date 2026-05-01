@@ -1,0 +1,55 @@
+# 관심종목 모니터링 앱 구현 계획
+
+사용자가 입력한 관심 종목에 대해 심층적인 분석(재미제표, 차트, 이슈, AI 조언)을 제공하는 프리미엄 웹 애플리케이션을 개발합니다.
+
+## 제안된 변경 사항
+
+### 1. 프로젝트 기반 설정 (Vite + React)
+현대적인 웹 앱 개발을 위해 Vite와 React를 사용하여 기반을 다집니다.
+
+- **[NEW] [package.json](file:///c:/Users/admin/.gemini/관심종목 모니터링/package.json)**: 프로젝트 의존성(React, Recharts, Lucide-React 등) 정의
+- **[NEW] [index.html](file:///c:/Users/admin/.gemini/관심종목 모니터링/index.html)**: 앱의 진입점 및 Google Fonts(Inter, Roboto) 설정
+
+### 2. 스타일 및 디자인 시스템 (Vanilla CSS)
+"Premium"한 느낌을 위해 Glassmorphism과 세련된 다크 모드를 기본으로 합니다.
+
+- **[NEW] [src/index.css](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/index.css)**: 글로벌 CSS 변수(Colors, HSL), Glassmorphism 효과, 배경 그라데이션 정의.
+- **[NEW] [src/App.css](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/App.css)**: 레이아웃 및 컴포넌트 간격 조정.
+
+### 3. 주요 컴포넌트 개발
+각 기능을 독립적인 컴포넌트로 분리하여 유지보수성을 높입니다.
+
+- **[NEW] [StockSearch.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/StockSearch.jsx)**: 종목 검색 및 입력창.
+- **[NEW] [FinancialTable.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/FinancialTable.jsx)**: 재무제표(손익계산서, 재무상태표) 표시.
+- **[NEW] [StockChart.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/StockChart.jsx)**: 1일~10년 기간 선택이 가능한 인터랙티브 차트 (Recharts 사용).
+- **[NEW] [StatusGauge.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/StatusGauge.jsx)**: 52주 최고/최저치 대비 현재가 위치 시각화.
+- **[NEW] [IssueSummary.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/IssueSummary.jsx)**: 최근 주요 이슈 정리 카드.
+- **[NEW] [AIAdvice.jsx](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/components/AIAdvice.jsx)**: 데이터를 종합하여 AI 조언을 렌더링하는 섹션.
+
+### 4. 데이터 로직 및 외부 연동 (Daum & Stockrow)
+사용자가 요청한 외부 사이트의 데이터를 활용하여 실시간성을 확보합니다.
+
+- **Daum Finance**: 국내 종목의 차트, 시세, 52주 데이터 및 실시간 뉴스 수집.
+- **Stockrow**: 해외 종목의 심도 있는 재무제표 및 히스토리 데이터 참조.
+- **[NEW] [dataProxy.js](file:///c:/Users/admin/.gemini/관심종목 모니터링/src/services/dataProxy.js)**: CORS 이슈 해결 및 외부 데이터 가공을 위한 프록시 로직.
+
+### 5. 상세 페이지 시스템 (Detail Experience)
+대시보드에서 '상세 보기' 버튼을 클릭했을 때의 경험을 강화합니다.
+
+- **Detail Modals**: 개별 섹션(재무, 차트, 이슈)별로 전체 화면 모달을 통해 더 많은 지표와 긴 기간의 데이터를 제공.
+- **Real-time Refresh**: 앱 실행 시 및 종목 검색 시 항상 '현재' 기준의 데이터를 최우선으로 로드.
+
+## 검증 계획
+
+### 자동화된 테스트
+- `npm run dev`를 통해 로컬에서 앱을 실행하고 브라우저 도구로 각 컴포넌트의 렌더링 상태를 확인합니다.
+
+### 수동 검증
+1. **입력 테스트**: 사용자가 종목명(예: 삼성전자, NVDA)을 입력했을 때 해당 데이터가 로드되는지 확인.
+2. **차트 기간 변경**: 1일, 1주, 1개월, 1년, 10년 버튼 클릭 시 차트가 즉각적으로 반영되는지 확인.
+3. **52주 분석**: 현재가가 52주 최고/최저 범위 내에서 정확하게 표시되는지 시각적 검토.
+4. **디자인 품질**: 다크 모드 및 Glassmorphism 효과가 "보기에 아름다운지" 최종 확인.
+
+---
+> [!IMPORTANT]
+> 구글 스프레드시트 접근이 현재 시스템 환경 문제로 인해 불가하므로, 사용자가 입력한 종목을 실시간으로 분석하는 동적인 구조로 먼저 개발을 진행하겠습니다.

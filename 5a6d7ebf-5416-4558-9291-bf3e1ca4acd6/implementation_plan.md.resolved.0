@@ -1,0 +1,49 @@
+# Admin Page Enhancement Plan
+
+## Goal
+Enable editing of nested objects (like `parish.newFamily`) in the [AdminPage](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#141-238) to ensure full CMS functionality.
+
+## Proposed Changes
+
+### [AdminPage.jsx]
+- **Refactor [SectionEditor](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#4-140)**:
+    - Modify the loop that iterates over `data` entries to properly handle `typeof value === 'object'` when it is not an array.
+    - detailed recursion or a specific handler for `newFamily`.
+    - Update [handleChange](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#7-29) to support nested keys (already seems to have `parentKey`, but might need a recursive approach or a path-based approach for deep nesting).
+
+#### Current Issue
+The [SectionEditor](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#4-140) explicitly returns `null` for non-array objects:
+```javascript
+if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
+    return null;
+}
+```
+
+#### Solution
+Replace that block with a recursive call to a sub-component or inline rendering for the nested object.
+Since [handleChange](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#7-29) currently only supports `key`, `parentKey`, and `index`, we might need to generalize it to accept a path or chain of keys.
+However, `newFamily` is just one level deep under `parish`.
+Current [handleChange](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#7-29) signature: [(key, value, parentKey = null, index = null)](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/components/sections/Parish.jsx#6-68).
+- If editing `parish.newFamily.title`:
+    - `key` = 'title'
+    - `parentKey` = 'newFamily'
+    - `index` = null (not an array)
+- The current [handleChange](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/src/pages/AdminPage.jsx#7-29) implementation:
+```javascript
+} else if (parentKey) {
+    // Handle nested object update
+    newData = {
+        ...data,
+        [parentKey]: {
+            ...data[parentKey], // e.g. parish.newFamily
+            [key]: value // e.g. title: value
+        }
+    };
+}
+```
+This logic actually **looks correct** for one level of nesting!
+So, I just need to **remove the check that returns null** and render the inputs.
+
+## Verification Plan
+1.  Visual verification (if possible) or code review.
+2.  Ensure `newFamily` fields appear in the Admin UI.

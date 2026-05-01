@@ -1,0 +1,59 @@
+# 코다리 - 나의 사랑하는 책 (My Beloved Book) 작업 목록
+
+- [x] 프로젝트 상태 분석 및 계획 수립 <!-- id: 0 -->
+- [x] 성경 데이터 로컬 통합 (Bible Data Integration) <!-- id: 1 -->
+    - [x] 성경 데이터 파일 (JSON) 확보 및 `src/data` 배치
+    - [x] `BibleService.js` 수정: 로컬 JSON 데이터 로드하도록 변경
+    - [x] 성경 읽기 페이지 (`BiblePage.jsx`) 기능 구현 및 테스트
+- [x] 찬양 및 기도 기능 구현 (Praise & Prayer Features) <!-- id: 2 -->
+    - [x] `PraisePage.jsx` 구현 (유튜브 링크 또는 로컬 오디오/가사)
+    - [x] `PrayerPage.jsx` 구현 (기도제목 CRUD 또는 단순 뷰)
+- [x] 디자인 및 UI 개선 (Design & UI Polish) <!-- id: 3 -->
+    - [x] 메인 네비게이션 및 레이아웃 다듬기
+    - [x] 모바일 반응형 디자인 확인
+    - [x] 첫 페이지(홈 화면) 구현 ('나의 사랑하는 책' 타이틀 & 네비게이션)
+    - [x] 성경 검색/선택 UI 개선 (66권 & 장 선택 용이성)
+    - [x] 성경 버전 표기 변경 (개역한글 -> 개역개정)
+- [x] 안드로이드 빌드 및 배포 (Android Build) <!-- id: 4 -->
+    - [x] Capacitor 설정 확인 (`capacitor.config.json`)
+    - [x] 아이콘 및 스플래시 스크린 설정
+    - [x] Android 스튜디오 빌드 및 실행 지원
+        - [x] Android SDK 및 JDK 설정 완료
+        - [x] Gradle Build 오류 수정 (ProGuard 패치 완료)
+        - [x] CLI 빌드 성공 (APK 생성 완료)
+        - [x] 에뮬레이터 설치 완료 (드래그앤드롭 방식)
+- [ ] 최종 검수 및 버그 수정 <!-- id: 5 -->
+    - [x] 빈 화면 오류 디버깅 (완료: TailwindCSS 재설치 및 의존성 복구)
+    - [ ] 앱 기능 전체 테스트 (말씀, 찬양, 기도)
+    - [ ] (Future) **APK 생성 및 기기 테스트 위주로 진행** (사용자 요청: Android Studio 대신 직접 확인 선호)
+
+- [x] UI 개선 2단계 (UI Refinement Phase 2) <!-- id: 5 -->
+    - [x] **[Home]** 배경 화면 개선: 따뜻한 색감(그라데이션) 또는 이미지 적용
+    - [x] **[Home]** 메인 버튼 디자인 변경: 아이콘/글씨 가로 배치, 박스 크기 축소
+    - [x] **[Home]** 메인 버튼 색상 적용: 말씀(파랑), 찬양(분홍), 기도(노랑) - 연한 톤
+    - [x] **[Nav]** 하단 네비게이션 바 고정 및 페이지 간 일관성 확보 (코드 수정 완료)
+    - [x] **[Build]** 코드 동기화 후 최종 APK (`v4`) 생성 완료
+
+- [x] UI 개선 3단계 (Refining App UI Layout Phase 3)
+    - [x] **[Bible]** 파란색 테마(Blue Theme) 적용
+    - [x] **[Bible]** 3단 박스 레이아웃 (Header, Content, Bottom Nav Space) 구현
+    - [x] **[Nav]** 하단 네비게이션을 '플로팅 박스' 스타일로 변경 (본문 가림 방지)
+    - [x] **[Build]** 최종 APK (`v5`) 생성 및 전달 완료
+
+- [x] UI 개선 4단계 (Bible Page Refinement Phase 4)
+    - [x] **[Header]** 파란색 테마 & 제목 상단 배치
+    - [x] **[Nav]** 책/장 선택 UI 개선 (장 그리드 추가)
+    - [x] **[Typo]** 본문 가독성 개선 (글자 크기, 줄 간격)
+    - [x] **[Build]** 최종 APK (`v6`) 생성 완료
+
+- [x] UI 개선 5단계 (Final Polish Phase 5)
+    - [x] **[Layout]** 버전 선택 버튼(한글/NIV/대조) 제목 바로 아래 배치 & 가로 꽉 채움
+    - [x] **[Layout]** 책/장 선택 컨트롤 최하단 배치
+    - [x] **[Typo]** `break-all` 적용으로 단어 중간 끊김 허용하되 줄바꿈 공백 제거 (가독성 향상)
+    - [x] **[Typo]** 자간(`tracking-tighter`) 축소로 텍스트 밀도 높임
+    - [x] **[Build]** 최종 APK (`v7`) 생성 완료
+
+- [ ] 다음 세션 (Next Session) <!-- id: 6 -->
+    - [ ] **[Feedback]** `v7` 사용자 피드백 반영 (UI/UX 추가 수정)
+    - [ ] **[Feature]** 찬양/기도 페이지 기능 고도화 (필요 시)
+    - [ ] **[Release]** 최종 배포 준비 (서명 키 생성, 릴리즈 빌드)

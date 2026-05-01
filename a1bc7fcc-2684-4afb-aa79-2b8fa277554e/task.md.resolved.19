@@ -1,0 +1,15 @@
+
+# Tasks
+
+- [x] Analyze new data files
+    - [x] List files in `public/data` <!-- id: 16 -->
+    - [x] Inspect content/encoding of .MB, .PX, .VAL <!-- id: 17 -->
+    - [x] Inspect content/encoding of `HR2.DB` <!-- id: 24 -->
+    - [x] Research Paradox DB format / parsers <!-- id: 25 -->
+- [ ] Implement/Run Conversion Script
+    - [ ] Create `scripts/parse_paradox.cjs` (Custom Parser) <!-- id: 19 -->
+    - [ ] Refine parser to handle .MB blobs <!-- id: 26 -->
+    - [ ] Generate `public/data/ko_nkrv.json` <!-- id: 21 -->
+- [ ] Verification
+    - [ ] Verify `ko_nkrv.json` content <!-- id: 22 -->
+    - [ ] Verify app works with new data <!-- id: 23 -->

@@ -1,0 +1,9 @@
+# Feature Updates: Persist Perfect Day
+
+[x] Add `perfectDayLog` state to App.jsx <!-- id: 10 -->
+    - [x] Persist to localStorage
+    - [x] Update [resetDailyProgress](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/App.jsx#110-122) to add today to log
+[x] Update [calculatePerfectDays](file:///c:/Users/admin/.gemini/%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9B%B9%EC%84%9C%EB%B9%84%EC%8A%A4/daily-habit-tracker/src/utils.js#60-78) in utils.js to accept log <!-- id: 11 -->
+[x] Update Profile.jsx and Stats.jsx to use new calculation <!-- id: 12 -->
+[x] Verify fix <!-- id: 13 -->
+- [x] Rebuild APK <!-- id: 14 -->

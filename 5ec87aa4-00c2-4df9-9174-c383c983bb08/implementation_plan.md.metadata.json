@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "1. App.jsx: 불필요한 marketIndices 폴링 및 상태 제거\n2. StockService.js: 차트 마지막 시세가 자연스럽게 연결되도록 스무딩 오프셋 보정 수식 적용\n3. App.jsx: 실시간 업데이트 주기 상향(15초 -> 5초) 하여 실시간성 강화\n4. StockService.js: 미국 개장 시간(09:30~16:00), 한국 개장 시간(09:00~15:30) 분리 표시를 위한 차트 데이터 산출 수식 정밀 개선",
+  "updatedAt": "2026-02-26T22:28:06.861074900Z"
+}

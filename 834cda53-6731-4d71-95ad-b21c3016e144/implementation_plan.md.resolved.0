@@ -1,0 +1,17 @@
+# Deployment Implementation Plan
+
+## Goal
+Build the website production assets so the user can upload them to the host (Dothome).
+
+## Proposed Changes
+1.  **Verification**: Check `package.json` and `vite.config.js` to ensure build scripts are correct.
+2.  **Build**: Execute `npm run build` to generate the `dist` directory.
+3.  **Deployment Support**: Verify the output and guide the user on uploading (e.g., using an FTP client or drag-and-drop to their hosting file manager).
+
+## Verification Plan
+### Automated Tests
+- Run `npm run build` and check for exit code 0.
+- Verify [dist/index.html](file:///c:/Users/admin/.gemini/%EC%82%B0%EB%8F%8C%EA%B5%90%ED%9A%8C%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/dist/index.html) exists.
+
+### Manual Verification
+- User will be asked to upload the `dist` folder contents to their host.

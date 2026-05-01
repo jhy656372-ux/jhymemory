@@ -1,0 +1,40 @@
+# IMPL PLAN: Integrate NKRV Bible (Hanja to Hangul)
+
+The goal is to generate a usable Korean Revised Version (NKRV) bible JSON file from source [.bdf](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/kchHRV4.bdf) files, ensuring Hanja (Chinese characters) are converted to Hangul for readability, and integrate it into the [BibleService](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js#70-126).
+
+## User Review Required
+> [!IMPORTANT]
+> **Hanja Conversion Strategy**: The source files (`kchHRV*.bdf`) contain Hanja (e.g., `太初`). I will use the `hanja` npm package to convert these to Hangul (e.g., `태초`). This requires adding a dev dependency to [package.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/package.json).
+
+## Proposed Changes
+
+### Scripts
+#### [NEW] [scripts/convert_hrv.cjs](file:///c:/Users/admin/.gemini/나의 사랑하는 책/scripts/convert_hrv.cjs)
+- **Function**:
+    - Iterate through [kchHRV1.bdf](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/kchHRV1.bdf) to [kchHRV7.bdf](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/kchHRV7.bdf).
+    - Decode content using `EUC-KR`.
+    - Convert text using `hanja` library.
+    - Parse lines (format: `01創 1:1 Content...`) into JSON structure.
+    - Map Korean book abbreviations (e.g., "創") to English keys (e.g., "gn").
+    - Save output to `public/data/ko_nkrv.json`.
+
+### Dependencies
+- Add [hanja](https://www.npmjs.com/package/hanja) to `devDependencies`.
+- Add [iconv-lite](https://www.npmjs.com/package/iconv-lite) (optional, but robust for EUC-KR) or use `TextDecoder`.
+
+### Source Code
+#### [MODIFY] [src/services/BibleService.js](file:///c:/Users/admin/.gemini/나의 사랑하는 책/src/services/BibleService.js)
+- Update [loadBibleData](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js#86-110) to handle `NKRV` version request by fetching `/data/ko_nkrv.json`.
+- Ensure proper fallback and loading states.
+
+## Verification Plan
+
+### Automated Verification
+- **Script Execution**: Run `node scripts/convert_hrv.cjs` and verify it completes without error.
+- **File Check**: Verify `public/data/ko_nkrv.json` exists and is approx 4-5MB in size.
+- **Content Check**: Read a sample from the generated JSON to ensure `太初` became `태초`.
+
+### Manual Verification
+- Start the app.
+- Select "NKRV" (or equivalent Korean version) in the Bible reader.
+- Verify Genesis 1:1 reads correctly in Korean without Hanja.

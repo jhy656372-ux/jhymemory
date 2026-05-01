@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Add Stitch MCP server configuration to mcp_config.json using @_davideast/stitch-mcp package.",
+  "updatedAt": "2026-02-14T13:10:39.053432500Z"
+}

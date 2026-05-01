@@ -1,0 +1,20 @@
+# Android APK Build Walkthrough
+
+## Summary
+Successfully built the Android APK for "My Beloved Book".
+The process involved cleaning dependencies, rebuilding the web assets, syncing with Capacitor, and compiling the APK using Gradle.
+
+## Build Artifacts
+- **APK File**: [android/app/build/outputs/apk/debug/app-debug.apk](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/android/app/build/outputs/apk/debug/app-debug.apk)
+- **Build Type**: Debug
+
+## Steps Executed
+1.  **Clean Build**: Removed `node_modules` and reinstalled to fix build environment.
+2.  **Web Build**: Ran `npm run build` to generate production assets.
+3.  **Sync**: Ran `npx cap sync` to update the Android project.
+4.  **Assemble**: Ran `./gradlew assembleDebug` to create the APK.
+
+## How to Install
+1.  Transfer the `app-debug.apk` file to your Android device via USB or download.
+2.  Open the file on your device and follow prompts to install.
+    *(Note: You may need to enable "Install from Unknown Sources" in settings)*

@@ -1,0 +1,23 @@
+- [ ] Fix Missing Verses in NKRV
+    - [ ] Verify missing Genesis 4:26 in [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json)
+    - [x] Create [scripts/fix_nkrv_data.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/fix_nkrv_data.cjs) to regenerate [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json) from XML.
+  - [x] Implement cleaning logic (remove `[]`, [()](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.jsx#9-35), Hanja).
+  - [x] Implement patching logic (insert Gen 4:21).
+- [x] Run script and verify Genesis 4:26 exists and is correct.
+- [x] Inspect and fix [Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx) for bottom docking.
+- [x] Add padding to [App.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.jsx) or main container to prevent overlap.
+- [x] Verify changes.
+- [ ] Build and Deploy (if requested).
+    - [ ] Run `npm run build`.
+    - [ ] Run `npx cap sync`.
+    - [ ] Run `gradlew assembleDebug` in `android` directory.
+    - [ ] Verify APK existence.
+    - [ ] Verify all books/chapters have correct verse counts
+- [ ] Fix Bottom Bar UI
+    - [ ] Analyze [Layout.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/Layout.jsx) and [index.css](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/index.css) for bottom bar positioning
+    - [ ] Ensure bottom bar is fixed to the bottom of the viewport (handling safe areas)
+    - [ ] Verify on mobile view
+- [ ] Rebuild APK
+    - [ ] Build web assets
+    - [ ] Sync Capacitor
+    - [ ] Build APK

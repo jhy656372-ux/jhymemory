@@ -1,0 +1,56 @@
+# 구현 계획 - 단일 화면 및 통계 업데이트
+
+## 목표 설명
+React Router를 사용하던 기존의 페이지 이동 방식을 제거하고, 대시보드, 통계, 프로필이 하단 네비게이션 바를 통해 즉시 전환되는 '단일 화면(SPA)' 구조로 변경합니다. 또한 통계 페이지의 "전체 현황" 목록에서 습관을 클릭하여 바로 완료 처리를 할 수 있도록 기능을 추가합니다.
+
+## 사용자 검토 필요 사항
+> [!IMPORTANT]
+> 이번 리팩토링으로 메인 네비게이션에서 `react-router-dom`이 제거됩니다. 따라서 `/stats`, `/habit/1`과 같이 URL을 직접 입력하여 접근하는 방식은 더 이상 작동하지 않으며, 앱 내부 상태에 따라 화면이 전환됩니다.
+
+## 변경 제안
+
+### 로직 및 상태 관리
+#### [MODIFY] [App.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/App.jsx)
+- `<Router>`, `<Routes>`, `<Route>` 컴포넌트 제거.
+- `currentView` 상태 추가 (기본값: `'dashboard'`).
+- `selectedHabitId` 상태 추가 (기본값: `null`).
+- `currentView`에 따라 [Dashboard](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Dashboard.jsx#7-130), [Stats](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx#4-68), [Profile](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Profile.jsx#5-299)을 조건부로 렌더링하는 함수 작성.
+- [Navigation](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Navigation.jsx#3-30) 컴포넌트에 `currentView`와 `setCurrentView`를 전달하여 화면 전환 제어.
+- [Stats](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/Stats.jsx#4-68) 컴포넌트에 [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#105-121) 함수 전달.
+
+### 컴포넌트
+#### [MODIFY] [Navigation.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Navigation.jsx)
+- `useNavigate`, `useLocation` 제거.
+- `currentView`, `onViewChange` props를 받아 버튼 클릭 시 뷰 변경.
+
+#### [MODIFY] [Dashboard.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Dashboard.jsx)
+- 내부의 `<Navigation />` 제거 (App.jsx에서 공통으로 처리하거나 props로 전달).
+- `navigate` 호출을 `onOpenHabit(id)` prop 호출로 변경.
+
+#### [MODIFY] [Stats.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Stats.jsx)
+- 내부의 `<Navigation />` 제거.
+- [toggleHabit](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/App.jsx#105-121) prop을 받아 "전체 현황" 리스트 아이템 클릭 시 습관 토글(완료/취소) 되도록 수정.
+
+#### [MODIFY] [Profile.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/Profile.jsx)
+- 내부의 `<Navigation />` 제거.
+- `useNavigate` 사용 부분 제거.
+
+#### [MODIFY] [HabitDetail.jsx](file:///c:/Users/admin/.gemini/매일%20습관/daily-habit-tracker/src/HabitDetail.jsx)
+- `useParams`, `useNavigate` 제거.
+- `habitId`(또는 `habit` 객체)와 `onClose` prop을 받아 동작하도록 수정.
+- "뒤로 가기" 버튼이 `onClose`를 호출하도록 변경.
+
+## 검증 계획
+
+### 수동 검증
+1. **레이아웃 확인**:
+   - `npm run dev` 실행.
+   - 로컬호스트 접속.
+   - 하단 탭(홈 -> 통계 -> 프로필) 전환 시 화면이 즉각적으로 바뀌는지 확인.
+   - [HabitDetail](file:///c:/Users/admin/.gemini/%EB%A7%A4%EC%9D%BC%20%EC%8A%B5%EA%B4%80/daily-habit-tracker/src/HabitDetail.jsx#5-135)이 오버레이 또는 화면 전환으로 잘 열리고 닫히는지 확인.
+2. **통계 기능 확인**:
+   - 통계 페이지로 이동.
+   - 특정 습관의 "전체 현황" 횟수 확인 (예: "5회").
+   - 해당 습관을 클릭.
+   - 횟수가 즉시 증가(또는 토글 해제 시 감소)하는지 확인.
+   - 대시보드로 돌아가서 해당 습관이 체크되었는지 확인.

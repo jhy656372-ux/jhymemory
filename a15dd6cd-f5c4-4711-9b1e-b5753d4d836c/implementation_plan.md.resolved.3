@@ -1,0 +1,25 @@
+# Android APK Build Plan
+
+## Goal
+Generate an installable Android APK file for the "My Beloved Book" application.
+
+## Prerequisites
+- Android project initialized (`android/` directory exists).
+- Capacitor configured.
+- JDK 17 installed (verified in previous sessions).
+
+## Steps
+
+### 1. Build Web Assets
+Execute `npm run build` to transpile React code and generate static files in the `dist` (or `build`) directory.
+
+### 2. Sync with Android
+Execute `npx cap sync` to copy the web assets into the `android/app/src/main/assets/public` directory and update valid plugins.
+
+### 3. Build APK with Gradle
+Navigate to the `android` directory and run `./gradlew assembleDebug` to build a debug APK.
+*Note: A debug APK is sufficient for testing on the user's device.*
+
+## Verification
+- Check for "BUILD SUCCESSFUL" message from Gradle.
+- Locate the APK file in `android/app/build/outputs/apk/debug/app-debug.apk`.

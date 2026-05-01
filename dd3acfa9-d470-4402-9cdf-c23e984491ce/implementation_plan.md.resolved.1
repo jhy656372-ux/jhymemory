@@ -1,0 +1,28 @@
+# Dashboard Compact Layout Plan
+
+## Goal
+Fit the main Dashboard content within the initial viewport ("first screen") to minimize scrolling and improve information density.
+
+## User Review Required
+> [!NOTE]
+> I will be reducing the size of the Mascot and vertical spacing (gaps, margins, padding) to make the layout more compact.
+
+## Proposed Changes
+
+### CSS Styles
+#### [MODIFY] [App.css](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/App.css)
+- **Container**: Reduce `gap` (24px -> 16px).
+- **Header**: Reduce `margin-top` and `gap`.
+- **Mascot**: Reduce `font-size` (80px -> 60px).
+- **Title**: Reduce `font-size` (28px -> 24px).
+- **Progress Section**: Reduce `padding` (20px -> 16px).
+- **Add Habit Form**: Reduce `padding` and input/button size.
+- **Habit List**: Decrease gap between cards.
+- **Habit Card**: Reduce `padding` (16px -> 12px).
+
+#### [MODIFY] [index.css](file:///c:/Users/admin/.gemini/스위치웹서비스/daily-habit-tracker/src/index.css)
+- **Root**: Reduce `padding` (24px -> 16px) for mobile-first optimization.
+
+## Verification Plan
+1.  **Visual Check**: Open the Dashboard and observe if the habit list and key elements are visible without scrolling (depending on screen height).
+2.  **Functionality**: Ensure touch targets (buttons, checkboxes) remain usable despite slightly smaller padding.

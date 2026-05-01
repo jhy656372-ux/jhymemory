@@ -1,0 +1,33 @@
+# Add 'Korean Revised Version' (HR2) Support
+
+This plan outlines the steps to add support for the "Korean Revised Version" (NKRV/HR2) to the Bible application.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Missing Data Source**: Genuine "NKRV" (Gaeyeok Gaejeong) JSON data is copyrighted and not freely available online.
+> **Action Required**: I will create a placeholder file `public/data/ko_hr2.json` by copying the existing [ko_krv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_krv.json). The application will *function* with HR2 selected, but the *text* will be identical to KRV until you replace `ko_hr2.json` with the actual NKRV data file.
+
+## Proposed Changes
+
+### Data
+#### [NEW] [ko_hr2.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_hr2.json)
+- Create as a copy of [ko_krv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_krv.json) to serve as a placeholder.
+
+### Services
+#### [MODIFY] [BibleService.js](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js)
+- Update [loadBibleData](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js#85-105) to handle 'HR2' version and load `ko_hr2.json`.
+
+### UI
+#### [MODIFY] [BiblePage.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/pages/BiblePage.jsx)
+- Add "HR2" (한글개역개정) to the version selection buttons.
+- Ensure logic correctly passes 'HR2' to [BibleService](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/services/BibleService.js#70-121).
+
+## Verification Plan
+
+### Manual Verification
+1.  **Launch App**: Open the application in the browser.
+2.  **Navigate to Bible**: Go to the Bible page.
+3.  **Check UI**: Verify that a new button "HR2" (or "개역개정") is visible.
+4.  **Select Version**: Click the "HR2" button.
+5.  **Verify Load**: Ensure Bible text loads without errors. (Note: Text will be KRV for now).

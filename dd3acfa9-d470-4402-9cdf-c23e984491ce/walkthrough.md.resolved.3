@@ -1,0 +1,15 @@
+# Mascot & Button Refinements
+
+I have fine-tuned the UI to address the overlap and overflow issues.
+
+## Changes
+
+### 1. Mascot Position
+- **Moved Down**: Added `20px` of top margin to the mascot. This pushes the bear down so the speech bubble (at `top: -10px`) no longer covers its head.
+
+### 2. New Habit Button
+- **Fixed Overflow**: Added layout constraints (`min-width: 0` for input, `flex-shrink: 0` for button) to ensure the "New Habit" button always stays *inside* the card, even on smaller screens or when the text is long.
+
+## Verification
+1.  **Mascot**: Check that there is now a clear gap between the speech bubble arrow and the bear's head.
+2.  **Button**: Verify the arrow button is not squished and stays neatly inside the "glass card" container alongside the input field.

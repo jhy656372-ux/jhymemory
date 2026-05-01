@@ -1,0 +1,43 @@
+# App Refinement & Data Fix Plan
+
+## Goal
+1.  Fix missing verse (Genesis 4:26) in NKRV data.
+2.  Dock the navigation bar to the very bottom of the screen on mobile.
+3.  Rebuild Android APK.
+
+## Data Fix
+- **Issue**: User reported Genesis 4:26 is missing in [ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json).
+- **Investigation**: Verify if it's missing or empty. Check [ko_ko_raw.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_ko_raw.json) or other sources.
+- **Action**: Create `scripts/fix_missing_verses.cjs`### [데이터 수정] NKRV 성경 데이터 재생성 및 보정
+#### [NEW] [scripts/fix_nkrv_data.cjs](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/scripts/fix_nkrv_data.cjs)
+- **소스**: [public/data/KoreanNKRVBible.xml](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/KoreanNKRVBible.xml)
+- **목표**: [public/data/ko_nkrv.json](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/public/data/ko_nkrv.json) 재생성
+- **주요 로직**:
+  1. XML 파싱 및 구조 순회
+  2. **데이터 정제**:
+     - `[...]` 대괄호 제목 제거
+     - [()](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.jsx#9-35) 소괄호 기호 제거 (내용은 유지)
+     - 한자 제거
+  3. **누락 데이터 복원 (패치)**:
+     - 창세기 4장 21절: "그의 아우의 이름은 유발이니 그는 수금과 퉁소를 잡는 모든 자의 조상이 되었으며" 삽입
+     - (XML 원본에서 4:21이 누락되어 이후 절들이 밀린 문제 해결)
+  4. **절 재번호 매기기**: 1부터 순차적으로 재할당하여 번호 밀림 방지
+
+## UI Fix
+### [UI 수정] 하단 네비게이션 바 고정
+#### [MODIFY] [src/components/Navigation.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/components/Navigation.jsx)
+- `bottom-0` 속성 확인 및 강화
+- iOS Safe Area 대응 (`pb-safe`) 추가
+- `z-index` 확인
+
+#### [MODIFY] [src/App.jsx](file:///c:/Users/admin/.gemini/%EB%82%98%EC%9D%98%20%EC%82%AC%EB%9E%91%ED%95%98%EB%8A%94%20%EC%B1%85/src/App.jsx)
+- 컨텐츠가 네비게이션 바에 가려지지 않도록 하단 패딩 추가left-4 right-4 ... rounded-2xl` (Floating pill design)
+    - New: `fixed bottom-0 left-0 right-0 ... rounded-t-2xl` (Docked bar design)
+    - Remove `left-4`, `right-4`, `bottom-4`.
+    - Set `w-full`.
+    - Adjust padding/margins inside to look good.
+
+## Build
+- Run `npm run build`
+- Run `npx cap sync`
+- Run `./gradlew assembleDebug`
